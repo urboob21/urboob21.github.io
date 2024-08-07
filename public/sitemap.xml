@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <sitemap>
-    <loc>https://phongnv.es/en/sitemap.xml</loc>
-    
-      <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://phongnv.es/fr/sitemap.xml</loc>
-    
-      <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://phongnv.es/fa/sitemap.xml</loc>
-    
-      <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    
-  </sitemap>
-  
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://phongnv.es/archives.fr/</loc>
+  </url><url>
+    <loc>https://phongnv.es/archives/</loc>
+  </url><url>
+    <loc>https://phongnv.es/categories/</loc>
+  </url><url>
+    <loc>https://phongnv.es/</loc>
+  </url><url>
+    <loc>https://phongnv.es/search/</loc>
+  </url><url>
+    <loc>https://phongnv.es/search.fr/</loc>
+  </url><url>
+    <loc>https://phongnv.es/series/</loc>
+  </url><url>
+    <loc>https://phongnv.es/tags/</loc>
+  </url>
+</urlset>
