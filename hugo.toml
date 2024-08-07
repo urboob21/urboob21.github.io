@@ -1,4 +1,4 @@
 baseURL = 'https://phongnv.es/'
 languageCode = 'en-us'
 title = "PhongNV's Blog"
-theme = 'PaperMod'
+theme = 'papermod'
