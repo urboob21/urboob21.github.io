@@ -2,100 +2,100 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on PaperMod</title>
-    <link>http://localhost:64565/hugo-PaperMod/tags/</link>
+    <link>http://localhost:64762/hugo-PaperMod/tags/</link>
     <description>Recent content in Tags on PaperMod</description>
     <image>
       <title>PaperMod</title>
-      <url>http://localhost:64565/hugo-PaperMod/images/papermod-cover.png</url>
-      <link>http://localhost:64565/hugo-PaperMod/images/papermod-cover.png</link>
+      <url>http://localhost:64762/hugo-PaperMod/images/papermod-cover.png</url>
+      <link>http://localhost:64762/hugo-PaperMod/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.131.0</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
     <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:64565/hugo-PaperMod/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:64762/hugo-PaperMod/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docs</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/docs/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/docs/</link>
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/docs/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/docs/</guid>
       <description></description>
     </item>
     <item>
       <title>PaperMod</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/papermod/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/papermod/</link>
       <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/papermod/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/papermod/</guid>
       <description></description>
     </item>
     <item>
       <title>Css</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/css/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/css/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/css/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/css/</guid>
       <description></description>
     </item>
     <item>
       <title>Html</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/html/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/html/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/html/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/html/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/markdown/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/markdown/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Themes</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/themes/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/themes/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/themes/</guid>
       <description></description>
     </item>
     <item>
       <title>Code</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/code/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/code/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/code/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/code/</guid>
       <description></description>
     </item>
     <item>
       <title>Gist</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/gist/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/gist/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/gist/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/gist/</guid>
       <description></description>
     </item>
     <item>
       <title>Privacy</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/privacy/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/privacy/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/privacy/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Shortcodes</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/shortcodes/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/shortcodes/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/shortcodes/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/shortcodes/</guid>
       <description></description>
     </item>
     <item>
       <title>Syntax</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/syntax/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/syntax/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/syntax/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/syntax/</guid>
       <description></description>
     </item>
     <item>
       <title>Emoji</title>
-      <link>http://localhost:64565/hugo-PaperMod/tags/emoji/</link>
+      <link>http://localhost:64762/hugo-PaperMod/tags/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64565/hugo-PaperMod/tags/emoji/</guid>
+      <guid>http://localhost:64762/hugo-PaperMod/tags/emoji/</guid>
       <description></description>
     </item>
   </channel>
