@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on PaperMod</title>
-    <link>http://localhost:64762/hugo-PaperMod/categories/</link>
-    <description>Recent content in Categories on PaperMod</description>
+    <title>Categories on Phong Nguyen</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on Phong Nguyen</description>
     <image>
-      <title>PaperMod</title>
-      <url>http://localhost:64762/hugo-PaperMod/images/papermod-cover.png</url>
-      <link>http://localhost:64762/hugo-PaperMod/images/papermod-cover.png</link>
+      <title>Phong Nguyen</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.131.0</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:64762/hugo-PaperMod/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Syntax</title>
-      <link>http://localhost:64762/hugo-PaperMod/categories/syntax/</link>
+      <link>http://localhost:1313/categories/syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64762/hugo-PaperMod/categories/syntax/</guid>
+      <guid>http://localhost:1313/categories/syntax/</guid>
       <description></description>
     </item>
     <item>
       <title>Themes</title>
-      <link>http://localhost:64762/hugo-PaperMod/categories/themes/</link>
+      <link>http://localhost:1313/categories/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:64762/hugo-PaperMod/categories/themes/</guid>
+      <guid>http://localhost:1313/categories/themes/</guid>
       <description></description>
     </item>
   </channel>
