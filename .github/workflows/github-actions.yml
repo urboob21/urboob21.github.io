@@ -2,13 +2,7 @@ name: Deploy Hugo PaperMod Demo to Pages
 
 on:
   push:
-    paths-ignore:
-      - "images/**"
-      - "LICENSE"
-      - "README.md"
-    branches:
-      - master
-      - exampleSite
+    branches: ["main"]
   workflow_dispatch:
     # manual run
     inputs:
@@ -75,5 +69,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        with:
-          branch: gh-pages  # Specify the branch to deploy to, if different
