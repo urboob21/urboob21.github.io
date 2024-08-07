@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://localhost:64565/hugo-PaperMod/sitemap.xml
