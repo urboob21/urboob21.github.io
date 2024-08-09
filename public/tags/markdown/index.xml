@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Phong Nguyen</title>
-    <link>https://phongnv.es/tags/</link>
-    <description>Recent content in Tags on Phong Nguyen</description>
+    <title>Markdown on Phong Nguyen</title>
+    <link>https://phongnv.es/tags/markdown/</link>
+    <description>Recent content in Markdown on Phong Nguyen</description>
     <image>
       <title>Phong Nguyen</title>
       <url>https://phongnv.es/images/papermod-cover.png</url>
@@ -13,13 +13,13 @@
     <language>en</language>
     <copyright>Phong Nguyen ©2024</copyright>
     <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://phongnv.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://phongnv.es/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Markdown</title>
-      <link>https://phongnv.es/tags/markdown/</link>
+      <title>Markdown Syntax Guide</title>
+      <link>https://phongnv.es/posts/0001-markdown-syntax-guide/</link>
       <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://phongnv.es/tags/markdown/</guid>
-      <description></description>
+      <guid>https://phongnv.es/posts/0001-markdown-syntax-guide/</guid>
+      <description>Basic Markdown syntax.</description>
     </item>
   </channel>
 </rss>

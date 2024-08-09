@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Phong Nguyen</title>
-    <link>https://phongnv.es/</link>
-    <description>Recent content on Phong Nguyen</description>
+    <title>Html on Phong Nguyen</title>
+    <link>http://localhost:1313/tags/html/</link>
+    <description>Recent content in Html on Phong Nguyen</description>
     <image>
       <title>Phong Nguyen</title>
-      <url>https://phongnv.es/images/papermod-cover.png</url>
-      <link>https://phongnv.es/images/papermod-cover.png</link>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.131.0</generator>
     <language>en</language>
     <copyright>Phong Nguyen ©2024</copyright>
     <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://phongnv.es/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/html/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>https://phongnv.es/posts/0001-markdown-syntax-guide/</link>
+      <link>http://localhost:1313/posts/0001-markdown-syntax-guide/</link>
       <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://phongnv.es/posts/0001-markdown-syntax-guide/</guid>
+      <guid>http://localhost:1313/posts/0001-markdown-syntax-guide/</guid>
       <description>Basic Markdown syntax.</description>
     </item>
   </channel>
