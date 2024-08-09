@@ -2,8 +2,7 @@ name: Deploy Hugo PaperMod Demo to Pages
 
 on:
   push:
-    branches:
-          - master
+    branches: ["master"]
   workflow_dispatch:
     # manual run
     inputs:
