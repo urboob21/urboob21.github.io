@@ -1,4 +1,4 @@
 .hugo_build.lock
-# delete public
-# hugo
 public
+example
+note.MD
