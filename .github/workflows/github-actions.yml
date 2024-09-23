@@ -48,7 +48,7 @@ jobs:
       - name: Get Theme
         run: git submodule update --init --recursive
       - name: Update theme to Latest commit
-        run: git submodule update --remote --merge --allow-unrelated-histories
+        run: git submodule update --remote
       - name: Build with Hugo
         run: |
           hugo \
