@@ -14,4 +14,3 @@ weight: 2    # The order in which the post appears in a list of posts. Lower num
 ## Introduction
 
 Make is
-
