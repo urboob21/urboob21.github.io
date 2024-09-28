@@ -52,6 +52,36 @@ C:\Users\phong.nguyen-van\Desktop\datasets\learning\make>make option1 -f makefil
 echo "Option1!"
 "Option1!"
 ```
+## Basic Command-line Commands
+### Unix/Linux Commands
+
+| Command | Description                                      | Example                       |
+|---------|--------------------------------------------------|-------------------------------|
+| `ls`    | List files and directories in the current directory. | `ls`                          |
+| `cd`    | Change the current directory.                    | `cd /path/to/directory`      |
+| `pwd`   | Print the current working directory.             | `pwd`                         |
+| `mkdir` | Create a new directory.                          | `mkdir new_directory`        |
+| `touch` | Create a new file or update the timestamp of an existing file. | `touch newfile.txt`          |
+| `cp`    | Copy files or directories.                       | `cp source.txt destination.txt` |
+| `mv`    | Move or rename files or directories.            | `mv oldname.txt newname.txt` |
+| `rm`    | Remove files or directories.                     | `rm file.txt`                |
+| `cat`   | Display the contents of a file.                  | `cat file.txt`               |
+| `man`   | Display the manual for a command.                | `man ls`  
+
+### Windows Commands
+
+| Command | Description                                      | Example                       |
+|---------|--------------------------------------------------|-------------------------------|
+| `dir`   | List files and directories in the current directory. | `dir`                         |
+| `cd`    | Change the current directory (same as Unix).    | `cd \path\to\directory`      |
+| `mkdir` | Create a new directory.                          | `mkdir new_directory`        |
+| `echo`  | Display a message or value.                      | `echo Hello, World!`         |
+| `copy`  | Copy files.                                     | `copy source.txt destination.txt` |
+| `move`  | Move or rename files or directories.            | `move oldname.txt newname.txt` |
+| `del`   | Delete files.                                   | `del file.txt`               |
+| `type`  | Display the contents of a file.                 | `type file.txt`              |
+| `help`  | Display a list of commands and their descriptions. | `help`                       |
+| `cls`   | Clear the screen.  
 
 ## 1. Makefile Syntax
 ### 1.1. Basic:
@@ -210,7 +240,38 @@ touch hey
 ```
 
 ## 4. Fancy Rules
-### 4.1 Implicit Rules:
+### 4.1. Pattern Rules:
+Pattern rules contain a `%` in the target. We can look at them as two ways:
+- A way to define your own implicit rules.
+- A simple form of static pattern rules
+#### Example 1: Define a pattern rule that compiles every .c file into a .o file
+```makefile
+%.o : %.c
+		$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
+# gcc -c -Wall -O2 -I./include main.c -o main.o
+```
+#### Explain:
+- `%.o`: This is target matching any `.o` object file.
+- `%.c`: This is prerequisite matching any `.c` source file.
+=> If target is *main.o*, Make will understand that is needs the main.c compile.
+- `$(CC)`: This is the variable represents the C/C++ compiler. `(CC = gcc)`
+- `-c`: This option tells the compiler to compile the source file in to an object file without linking.
+- `$(CFLAGS)`: Holds the flags for the `C Compiler`. Used for optimization or specific compiler options. `(CFLAGS = -Wall -O2)`. Like `-Wall` to show all warning.
+- `$(CPPFLAFS)`: Hold the flags for the `Preprocessor`. `(CPPGLAGS = -I./include)`. Like `-I` to specific the directory of header files.
+-  `$<`: List prerequisites. In this case, it refers to the corresponding .c files.
+-  `-o`: Specifics the output file's name.
+-  `$@`: Target name
+
+#### Example 2: Define a pattern rule that creates empty .c files when needed
+```makefile
+%.c:
+   touch $@ #on Linux
+    # mkdir $@ #on Window
+```
+#### Explain:
+- `$@`: Refers to target name.
+- `touch`: create a file with name is target.
+### 4.2 Implicit Rules:
 Here's a list of implicit rules:
 - Compiling a C program: `n.o` is made automatically from `n.c` with a command of the form `$(CC) -c $(CPPFLAGS) $(CFLAGS) $^ -o $@`
 Compiling a C++ program: `n.o` is made automatically from `n.cc` or `n.cpp` with a command of the form `$(CXX) -c $(CPPFLAGS) $(CXXFLAGS) $^ -o $@`
@@ -241,13 +302,78 @@ clean:
 ...
     
 ```
-
-### 4.2 Static Pattern Rules:
+### 4.3 Static Pattern Rules:
 The way to write less in Makefile.
 ```makefile
 targets...: target-pattern: prereq-patterns...
     command
 ```
 The essence is that given target is matched by the target-pattern via `%` wildcard.
- 
+**Q: Write make file compile .c files into .o file**
+#### Example1: Manual way
+```makefile
+objects = foo.o bar.o all.o
+all: $(objects)
+	$(CC) $^ -o all
+foo.o: foo.c
+	$(CC) -c foo.c -o foo.o
+bar.o: bar.c
+	$(CC) -c bar.c -o bar.o
+all.o: all.c
+	$(CC) -c all.c -o all.o
+all.c:
+	echo "int main() { return 0; }" > all.c
+%.c:
+	touch $@
+clean:
+	rm -f *.c *.o all
+```
+#### Example2: Efficient way  - Using a static pattern rule
+```makefile
+objects = foo.o bar.o all.o
+all: $(objects)
+	$(CC) $^ -o all
 
+# Static pattern rule : targets ...: target-pattern: prereq-patterns ...
+$(objects): %.o: %.c        
+	$(CC) -c $^ -o $@
+all.c:
+	echo "int main() { return 0; }" > all.c
+%.c:
+	touch $@
+clean:
+	rm -f *.c *.o all
+```
+
+### 4.4 Static Pattern Rules and *Filter*:
+We can use the `filter` functions in Static pattern rules to math the correct files. Introduce the filter function [here]().
+#### Example:
+```makefile
+obj_files = foo.result bar.o lose.o
+src_files = foo.raw bar.c lose.c
+
+all: $(obj_files)
+.PHONY: all 
+# Ex 1: .o files depend on .c files. Though we don't actually make the .o file.
+$(filter %.o,$(obj_files)): %.o: %.c
+	echo "target: $@ prereq: $<"
+# Ex 2: .result files depend on .raw files. Though we don't actually make the .result file.
+$(filter %.result,$(obj_files)): %.result: %.raw
+	echo "target: $@ prereq: $<" 
+%.c %.raw:
+	touch $@
+clean:
+	rm -f $(src_files)
+```
+> *Why is .PHONY important?
+If you have a target called all, but there happens to be a file named all in the directory, running make all will make Make check for the file all instead of executing the commands associated with the target. If the file exists and is up-to-date, Make won't execute the commands. By marking all as .PHONY, Make will always execute the target, regardless of whether a file with the same name exists.*
+
+### 4.5 Double-Colon Rules:
+This type rules ae rarely used, but allow multiple rules to be defines for the same target.
+#### Example:
+```makefile
+all::
+    echo "Hello-option1"
+all::
+    echo "Hello-option2"
+```
