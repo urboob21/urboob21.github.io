@@ -13,7 +13,7 @@ weight: 3    # The order in which the post appears in a list of posts. Lower num
 ---
 
 ## 1. Tenses
-Tenses indicate the time of an action or state of being expressed by a verb
+Tenses indicate the time of an action or state of being expressed by a verb.<br>
 
 ### 1.1. Present
 #### 1.1.1. Present Continuous ( I am doing)
@@ -32,6 +32,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `I'm not working at the moment`
   - `Are you working today?`
 
+<br>
+
 #### 1.1.2. Present simple ( I do)
 - **Usage:** Express habitual actions, general truths, and states of being.
 ![image](/images/present_simp.png)
@@ -48,6 +50,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `He doesn't do that.`
   - `Do you understand ?`
 - see/hear/smell/taste
+
+<br>
 
 #### 1.1.3. Present perfect ( I have done)
 - **Usage:** Describe actions that occurred at an unspecified time in the past, actions that **have relevance to the present**, or **experiences** that have happened over a period of time.
@@ -77,6 +81,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
 
 - **How long** have you been there ? -> I've been there for a long time.
 
+<br>
+
 #### 1.1.4. Present perfect continuos( I have been doing)
 - **Usage:** Describe actions that started in the past and continue into the present or have **recently stopped**, **emphasizing the duration** of the action. 
 
@@ -101,6 +107,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `He didn't go to the party last night.`
   - `Did you see that movie? `
 
+<br>
+
 #### 1.2.2. Past Continuous ( I was doing)
 - **Usage:** Describe actions that were ongoing at *a specific time in the past*. It indicates that the action started before this time and was still in progress at that time.
 - **Structure:** 
@@ -115,6 +123,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `Matt phoned while we were having dinner.`
   - `I waved to Helen, but she wasn't looking.`
   - `Were they playing football at 10 o'clock last night.`
+
+<br>
 
 #### 1.2.3. Past Perfect ( I had done)
 - **Usage**: Describe an action that was completed before another action or time in the past. It **emphasizes the sequence** of events.
@@ -131,11 +141,15 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `They hadn't seem that movie until last week` // they had not watched the movie up to that point in time.
   - `Had you ever visited Paris before your trip last year?`
 
+<br>
+
 #### 1.2.4. Past Perfect continuous( I had been doing)
 - **Usage**:  **Emphasizes the duration**
 - `Had you been waiting long before the bus arrived?` // This asks about the duration of the waiting period before the bus arrived.
 
-#### 1.2.4. Used to
+<br>
+
+#### 1.2.5. Used to
 - **Structure:** 
   - `used to V`: refers to past habits or state that are no longer true.
   - `be used to Ving/N`: indicates familiarity or comfort with a situation in the present.
@@ -158,6 +172,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `The train leaves at 6 PM.` // fixed schedule
   - `We are having a meeting next week` // the plan decided
 
+<br>
+
 #### 1.3.2. I'm going to do
 ![image](/images/going_to.png)
 
@@ -167,6 +183,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `It's going to rain` // see the clouds and make state
 
 > ***was going to**: planed but did not happen: **I was going to call you, but I forgot***
+
+<br>
 
 #### 1.3.3. Future simple ( I will)
 - **Usage**: Express actions that will happen at a later time. It often conveys **predictions, spontaneous decisions, promises**, and facts about the future.
@@ -188,6 +206,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `They hadn't seem that movie until last week` // they had not watched the movie up to that point in time.
   - `Had you ever visited Paris before your trip last year?`
 
+<br>
+
 #### 1.3.4. Future continue (I will be doing)
 - **Usage**: Describe actions that **will be in progress at a specific point in the future**.  It emphasizes the ongoing nature of the **action during that future time**.
 ![image](/images/future_c_p.png)
@@ -200,6 +220,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
 - **Examples:** 
   - `I will be working on the project tomorrow afternoon`
 
+<br>
+
 #### 1.3.5. Future perfect (I will have done)
 - **Usage**: describe actions that **will be completed before a specific point in the future**. It emphasizes the completion of the action relative to that future time.
 - **Structure:** 
@@ -211,6 +233,8 @@ Tenses indicate the time of an action or state of being expressed by a verb
 - **Examples:** 
 - `By this time next week, I will have done my task.`
 - `Will you have been there by noon ?`
+
+<br>
 
 #### 1.3.6. Future perfect  continuous (I will have been doing)
 - **Usage**: describe actions that **will have been in progress for a duration of time up until a specific point in the future**. It emphasizes the ongoing nature of the action and its duration before that future moment.
@@ -225,7 +249,6 @@ Tenses indicate the time of an action or state of being expressed by a verb
 - `Will you have been living here for a decade by next year` 
 
 ----
-
 
 ## 2. Type of words
 This section categorizes words based on their function in a sentences. 
