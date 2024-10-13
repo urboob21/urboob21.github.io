@@ -11,7 +11,8 @@ ShowToc: true    # Determines whether to display the Table of Contents (TOC) for
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
 weight: 3    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
-
+This is where I study English grammar on my own every day. It’s a place where I not only improve my language skills but also discover new grammar rules. Step by step, I am working to become more confident in writing and communicating in English. The journey isn’t easy, but I believe that with patience and effort, I will continue to make progress.
+<br>
 ## 1. Tenses
 Tenses indicate the time of an action or state of being expressed by a verb.<br>
 
