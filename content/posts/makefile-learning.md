@@ -136,12 +136,27 @@ clean:
 ```
 ### 1.3 Variables
 Variables can only be strings. Use `:=` or `=`.
-#### Example4:
+#### Example:
 ```makefile
 file := file1 file2
 some_file: $(files) # some_file: file1 file2
-...
 ```
+#### 1.3.1. Flavors
+There are two flavors of variables:
+- `=`: Only looks for the variables when the command is used, not when it's defined.
+- `=:`: Like const
+##### Example:
+```makefile
+# Recursive variable. 
+one = one ${later_variable}
+# Simply expanded variable. 
+two := two ${later_variable}
+later_variable = later
+all: 
+	echo $(one)    # This will print "later" below
+	echo $(two)    # This will not print "later"
+```
+
 
 ## 2. Targets
 ### 2.1 All target
@@ -377,3 +392,84 @@ all::
 all::
     echo "Hello-option2"
 ```
+
+## 5 Commands and execution
+ If you `Ctrl+c` make, it will delete the newer targets it just made.
+### 5.1 Command Echoing/ Silencing
+We can add `@` before a command to stop it from being printed.
+```makefile
+all: 
+	@echo "This make line will not be printed"
+	echo "But this will"
+```
+
+### 5.2 Command Execution
+Each command is run in a new shell (or at least the effect is as such.)
+```makefile
+all: 
+	cd ..
+	# The cd above does not affect this line, because each command is effectively run in a new shell
+	echo `pwd`
+	# This cd command affects the next because they are on the same line
+	cd ..;echo `pwd`
+	# Same as above '\'
+	cd ..; \
+	echo `pwd`
+```
+
+### 5.3 Default Shell
+The default shell is `/bin/sh`. We can change it by changing the variable SHELL.
+```makefile
+SHELL=/bin/bash
+...
+```
+
+### 5.4 Double dollar sign
+`$$`: String to have a dollar sign.
+
+### 5.5 Error handling
+- Add `-k` when running make to continue running even in the face on the errors. Useful if we want to see all the errors at once.
+- Add `-` before a command to suppress the error.
+- Add `-i` to make to have this happen for every command.
+```makefile
+one:
+	# This error will be printed but ignored, and make will continue to run
+	-false
+	touch one
+```
+
+### 5.6 Recursive use of make
+To recursively call a makefile, use the special $(MAKE) instead of make because it will pass the make flags for you and won't itself be affected by them.
+```makefile
+new_contents = "hello:\n\ttouch inside_file"
+all:
+	mkdir -p subdir
+	printf $(new_contents) | sed -e 's/^ //' > subdir/makefile
+	cd subdir && $(MAKE)
+
+clean:
+	rm -rf subdir
+```
+
+### 5.7 Export, Environment
+```makefile
+all:
+	# Print out the Shell variable
+	echo $$shell_env_var
+
+	# Print out the Make variable
+	echo $(shell_env_var)
+```
+The export directive takes a variable and sets it the environment for all shell commands in all the recipes
+```makefile
+shell_env_var=Shell env var, created inside of Make
+export shell_env_var
+all:
+	echo $(shell_env_var)
+	echo $$shell_env_var
+```
+continue... [here](https://makefiletutorial.com/#export-environments-and-recursive-make) 
+
+### 5.8 Arguments
+There's a [list of options](https://www.gnu.org/software/make/manual/make.html#Options-Summary) that can be run from make.
+
