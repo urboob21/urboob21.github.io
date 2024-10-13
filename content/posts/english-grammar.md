@@ -25,7 +25,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 ##### 1.3.1.1. Present
 ###### 1.3.1.1.1. Present Continuous ( I am doing)
 - **Usage:** Started doing it and I haven't finished. In the middle of doing it.
-![image](images/present_cont.png)
+![image](/images/present_cont.png)
 - **Structure:** 
   - be: `am/is/are being`
   - P: `am/is/are V-ing`
@@ -42,7 +42,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 
 ###### 1.3.1.1.2. Present simple ( I do)
 - **Usage:** Express habitual actions, general truths, and states of being.
-![image](images/present_simp.png)
+![image](/images/present_simp.png)
 - **Structure:** 
   - be: `am/is/are`
   - P: `V/Vs_es`
@@ -59,7 +59,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 
 ###### 1.3.1.1.3. Present perfect ( I have done)
 - **Usage:** Describe actions that occurred at an unspecified time in the past, actions that **have relevance to the present**, or **experiences** that have happened over a period of time.
-![image](images/present_perf.png)
+![image](/images/present_perf.png)
 - **Structure:** 
   - be: `have/ has been`
   - P: `have/has Vpp`
@@ -95,7 +95,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 ##### 1.3.1.2. Past
 ###### 1.3.1.2.1. Past Simple ( I did)
 - **Usage:** Started and finished in the past. Emphasizing that the action is complete and has no connection to the present.
-![image](images/past_s_c.png)
+![image](/images/past_s_c.png)
 - **Structure:** 
   - be: `was/ware`
   - P: `V-ed`
@@ -126,7 +126,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 
 ###### 1.3.1.2.3. Past Perfect ( I had done)
 - **Usage**: Describe an action that was completed before another action or time in the past. It **emphasizes the sequence** of events.
-![image](images/past_perf.png)
+![image](/images/past_perf.png)
 
 - **Structure:** 
   - P: `had Vpp`
@@ -164,7 +164,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
   - `We are having a meeting next week` // the plan decided
 
 ###### 1.3.1.3.2. I'm going to do
-![image](images/going_to.png)
+![image](/images/going_to.png)
 
 - **Usage**: I’ve decided to do it. Maybe I’ve arranged to do it, maybe not.Often based on current evidence or situations.
 - **Examples:** 
@@ -175,7 +175,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 
 ###### 1.3.1.3.3. Future simple ( I will)
 - **Usage**: Express actions that will happen at a later time. It often conveys **predictions, spontaneous decisions, promises**, and facts about the future.
-![image](images/future_simple.png)
+![image](/images/future_simple.png)
 
 - **Structure:** 
   - P: `will V`
@@ -195,7 +195,7 @@ Tenses indicate the time of an action or state of being expressed by a verb
 
 ###### 1.3.1.3.3. Future continue (I will be doing)
 - **Usage**: Describe actions that **will be in progress at a specific point in the future**.  It emphasizes the ongoing nature of the **action during that future time**.
-![image](images/future_c_p.png)
+![image](/images/future_c_p.png)
 - **Structure:** 
   - P: `will be V-ing`
   - N: `will not/ won't be V-ing`
