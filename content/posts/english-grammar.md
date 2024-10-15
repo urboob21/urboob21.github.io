@@ -55,7 +55,7 @@ Tenses indicate the time of an action or state of being expressed by a verb.<br>
 <br>
 
 #### 1.1.3. Present perfect ( I have done)
-- **Usage:** Describe actions that occurred at an unspecified time in the past, actions that **have relevance to the present**, or **experiences** that have happened over a period of time.
+- **Usage:** Describe actions that occurred **at an unspecified time in the past**, actions that **have relevance to the present**, or **experiences** that have happened over a period of time.
 ![image](/images/present_perf.png)
 - **Structure:** 
   - be: `have/ has been`
@@ -79,7 +79,7 @@ Tenses indicate the time of an action or state of being expressed by a verb.<br>
   - `We've never had a car`
   - `I haven't seen Tom this morning. Have you ? `
   - `Have you had a holiday this year ?`
-
+  - `They have read that book` // they read book at some unspecific time in the past and is relevant to the present moment. 
 - **How long** have you been there ? -> I've been there for a long time.
 
 <br>
@@ -207,6 +207,8 @@ Tenses indicate the time of an action or state of being expressed by a verb.<br>
   - `They hadn't seem that movie until last week` // they had not watched the movie up to that point in time.
   - `Had you ever visited Paris before your trip last year?`
 
+- I **will do** st when I **do** something/ when something **happens**. 
+
 <br>
 
 #### 1.3.4. Future continue (I will be doing)
@@ -260,10 +262,58 @@ This section categorizes words based on their function in a sentences.
 
 ### 2.3. Verbs
 
-#### 2.3.1. Tenses
-
-
 #### 2.3.2. Modal verbs
+
+---
+**A. CAN - COULD - BE ABLE TO: Express ability or permission.**
+
+
+**can:** say that something is possible or allowed or somebody has the ability to do something.
+- `We can see the lake from our hotel.`
+
+**could** say that somebody had the ability to so something, or was allowed to do something.
+- E.g. `When I was younger, I could run fast.`
+- `could have happened = it was possible, but did not happen.`
+
+**be able to:** like can but is less usual. Can has only 2 forms: present(can) and past (could), so it's necessary to use be able to sometime.
+`is able to = can
+| was able to/managed to  = could`
+- `I will be able to attend the meeting`
+---
+**B. MAY - MIGHT: Say something is possible**
+
+---
+**C. HAVE TO - MUST:**
+
+---
+**D. SHOULD :**
+
+---
+**E. REQUESTS - OFFERS - PERMISSION - INVITATION**
+- **Request:**
+  - `asking people to do things`
+  - **Can/ Could you** wait a moment, please ?
+  - **Do you think you could** take me to the airport ?
+<br>
+  - `asking for things`
+  - **Can/ Could I/we** have the menu, please ?
+  - **May I have** these postcards, please ?
+<br>
+  - `asking todo things`
+  - **May I** ask you a question ? (formal)
+  - **Can/Could I** use your phone charge, please ?
+  - **Do you think I could** borrow your bike ?
+  - **Do you mind if I** use your phone charge ?
+  - **Is it all right if I** sit here ? 
+  
+<br>
+
+- **Offering:**
+  - `to offer to do something`
+  - **Can I** help you ?
+  - **Would you like** some coffee ? Would you like to eat with us tonight ?
+  - **I'd like/ I would like to** try on this jacket, please.
+---
 
 #### 2.3.3. Verb patterns -ing and to …
 
@@ -283,8 +333,47 @@ This section categorizes words based on their function in a sentences.
 ## 3. Types of sentences
 
 ### 3.1. Questions and auxiliary verbs
+<br>
 
-### 3.2. if and wish
+### 3.2. If 
+#### 3.2.1 Unless
+- **Usages:** `Unless = If ... not`
+- **Examples:** 
+  - `If we don't start at once, we will be late.`
+  - `= Unless we start at once, we will be late.`
+
+#### 3.2.2 If I do
+- **Usage:** Express a condition that is **possible or likely** to happen in the **present or future**.
+- **Structure:** `If present simple , future simple.`
+- **Examples:** 
+  - `If I have enough money,  I will buy a new car.`
+  - `Should I have enough money, I will buy a new car.`
+  
+#### 3.2.3 If I did
+- **Usage:** Express a hypothetical condition that is **not true or unlikely** in the **present or future**.
+- **Structure:** `If past simple , S would/could/should V`
+- **Examples:** 
+  - `If **I were** the president, I would build more hospitals.`
+  - `Were I the president, I would build more hospitals.`
+
+#### 3.2.4 If I had done
+- **Usage:** Express a hypothetical condition that is not true or unlikely in the past.
+- **Structure:** `If past perfect , S would/could/should have Vpp`
+- **Examples:** 
+  - `If we had found him early, we could have saved his life.`
+  - `Had we found him early, we could saved his life.`
+
+
+#### 3.2.5 If past perfect, S would + V.
+- **Usage:** Expresses a condition that was not true in the past and its hypothetical result in the present. If that condition had occurred in the past, the result would be different in the present.
+- **Structure:** `If past perfect, S would V`
+- **Examples:** 
+  - `If I had been born in town, I would like life there now`
+
+
+<br>
+
+### 3.3. Wish
 
 ### 3.3. Passive
 
