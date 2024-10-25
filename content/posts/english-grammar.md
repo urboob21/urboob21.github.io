@@ -374,7 +374,40 @@ This section categorizes words based on their function in a sentences.
 <br>
 
 ### 3.3. Wish
+- **Usage:** Express a desire or longing for something that is not currently or a hypothetical situation. It conveys a sense of regret or an unrealized aspiration.
 
+#### 3.3.1. For present unreal situations
+- **Structure:** `I wish S V-ed`
+- **Examples:** 
+  - `I wish I were taller`
+
+#### 3.3.2. For past unreal situations
+- **Structure:** `I wish S had Vpp`
+- **Examples:** 
+  - `I wish I had studied harder.`
+
+#### 3.3.3. For future possibilities
+- **Structure:** `I wish S could V`
+- **Examples:** 
+  - `I wish I could travel more.`
+
+#### 3.3.4. To express good wishes for others
+- **Structure:**
+  -  `I wish you could V`
+  -  `I wish you N`
+  -  `May you V`
+- **Examples:** 
+  - `I wish you could join us for the party.`
+  - `I wish you all the best` -> `I wish all the best for you`
+  - `May you have a prosperous year`
+
+#### 3.3.5. To do something/ Some body to do something
+- **Structure:**
+  -  `I wish to V`
+  -  `I wish you to V`
+- **Examples:** 
+  - `I wish to drink a cup of coffee.`
+  - `I wish him can know how I feel now.`
 ### 3.3. Passive
 
 ### 3.4. Reported speech
