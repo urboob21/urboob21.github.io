@@ -373,9 +373,10 @@ This section categorizes words based on their function in a sentences.
 
 <br>
 
-### 3.3. Wish
+### 3.3. Wish / If only
 - **Usage:** Express a desire or longing for something that is not currently or a hypothetical situation. It conveys a sense of regret or an unrealized aspiration.
-
+> Can replace **"I wish"** with **"If only"** to add emphasis to your regret or desire in a sentence.
+> ***I wish you could join us for the party = If only you could join us for the party.***
 #### 3.3.1. For present unreal situations
 - **Structure:** `I wish S V-ed`
 - **Examples:** 
