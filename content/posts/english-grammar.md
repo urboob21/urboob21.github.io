@@ -375,8 +375,10 @@ This section categorizes words based on their function in a sentences.
 
 ### 3.3. Wish / If only
 - **Usage:** Express a desire or longing for something that is not currently or a hypothetical situation. It conveys a sense of regret or an unrealized aspiration.
-> Can replace **"I wish"** with **"If only"** to add emphasis to your regret or desire in a sentence.
+> 1. Can replace **"I wish"** with **"If only"** to add emphasis to your regret or desire in a sentence.
 > ***I wish you could join us for the party = If only you could join us for the party.***
+> 2. When we want to express a present wish with emphasis on an ongoing or continuous action, you can use the continuous tense.
+> ***If only my computer were working now.***
 #### 3.3.1. For present unreal situations
 - **Structure:** `I wish S V-ed`
 - **Examples:** 
@@ -409,7 +411,60 @@ This section categorizes words based on their function in a sentences.
 - **Examples:** 
   - `I wish to drink a cup of coffee.`
   - `I wish him can know how I feel now.`
+
+
+
+<br>
+
+
+
 ### 3.3. Passive
+### 3.3.1 Formal
+
+- **Usage:** Passive is used to emphasize the action itself or the receive of action, rather than it does.
+- **Structure:** `be + the past participle of the verb`
+
+| Active   | Passive  | Examples |
+|----------|----------|----------|
+| do                  | is done             | Someone cleans this room everyday - This room is cleaned every day |
+| is/are doing        | is/are being done   | |
+| did                 | was done            | |
+| was/were doing      | was/ware being done | |
+| has/have done       | has/have been done  | |
+| had done            | had been done       | |
+| will do             | will be done        | |
+| will have done      | will have been done | |
+| is/are going to     | is/are going to be done | |
+| can/could/ might/must/ have to do     | can/could/might/must/ have to be done | |
+
+### 3.3.2 Passive with reporting verbs - It is said/ People say
+- **Usage:** Used to report general beliefs, expectations, or statements in a formal or indirect way.
+- **Structure:** 
+  - `It is said (believed / thought / expected)  that …`
+  - `People say that …`
+- **Examples:** 
+  - `It is said that he is a genius.`
+  - `People say that he is a genius.`
+
+### 3.3.3 Is to be done
+- **Usage:** Expresses a requirement, instruction, or intention in a formal way.
+- **Structure:** `S be to be Vpp`
+- **Examples:** 
+  - `This report is to be completed by Friday.`
+
+### 3.3.4 Have something done
+- **Usage:** Used to indicate a service or action that someone arranges to be done by another person.
+- **Structure:** `S have O Vpp`
+- **Examples:** 
+  - `I had my car washed` // I arranged for someone to wash my car
+<br>
+- `get something done`: less formal -> He got his house painted last sumer.
+
+
+
+<br>
+
+
 
 ### 3.4. Reported speech
 
