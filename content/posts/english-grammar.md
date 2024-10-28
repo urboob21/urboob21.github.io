@@ -419,7 +419,7 @@ This section categorizes words based on their function in a sentences.
 
 
 ### 3.3. Passive
-### 3.3.1 Formal
+#### 3.3.1 Formal
 
 - **Usage:** Passive is used to emphasize the action itself or the receive of action, rather than it does.
 - **Structure:** `be + the past participle of the verb`
@@ -437,7 +437,7 @@ This section categorizes words based on their function in a sentences.
 | is/are going to     | is/are going to be done | |
 | can/could/ might/must/ have to do     | can/could/might/must/ have to be done | |
 
-### 3.3.2 Passive with reporting verbs - It is said/ People say
+#### 3.3.2 Passive with reporting verbs - It is said/ People say
 - **Usage:** Used to report general beliefs, expectations, or statements in a formal or indirect way.
 - **Structure:** 
   - `It is said (believed / thought / expected)  that …`
@@ -446,13 +446,13 @@ This section categorizes words based on their function in a sentences.
   - `It is said that he is a genius.`
   - `People say that he is a genius.`
 
-### 3.3.3 Is to be done
+#### 3.3.3 Is to be done
 - **Usage:** Expresses a requirement, instruction, or intention in a formal way.
 - **Structure:** `S be to be Vpp`
 - **Examples:** 
   - `This report is to be completed by Friday.`
 
-### 3.3.4 Have something done
+#### 3.3.4 Have something done
 - **Usage:** Used to indicate a service or action that someone arranges to be done by another person.
 - **Structure:** `S have O Vpp`
 - **Examples:** 
