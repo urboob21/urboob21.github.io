@@ -533,6 +533,69 @@ This section categorizes words based on their function in a sentences.
 
 ### 3.5. Relative clauses
 
+<br>
+
+### 3.6. Comparative
+- **Usage:** Used to compare two things, showing they are similar (or not) in some way.
+---
+### 3.6.1. Equal - using "Adj/Adv"
+- **Structure:** `S + V + as adj/adv as + noun/ pronoun/ SV.`
+- **Examples:** 
+  - `This book is as interesting as yours`.
+### 3.6.2. Equal - using "the same Noun"
+- **Structure:** `S + V + the same (N)  as + noun/pronoun/ SV.`
+- **Examples:** 
+  - `My house is the same height as his`.
+### 3.6.3. Equal - using Quantities
+- **Structure:** `S + V + as many/much/little/few N as + noun/pronoun/ SV.`
+- **Examples:** 
+  - `She has as many book as I do`.
+### 3.6.4. Equal - Negation
+- Use "not as" or "not so" for negative comparisons.
+- `The teacher is not the same as ours`
+
+---
+
+### 3.6.5. Less/More - using "Adj/Adv"
+- **Structure:** 
+  - `S + V + (intensifier) + adj/adv (er) than + noun/pronoun/SV`
+  - `S + V + more/less adj/adv than + noun/pronoun/SV`
+- *Intensifiers: far, even, much, still, a lot*
+- **Examples:** 
+  - `Today is hotter than yesterday`.
+  - `My lover is more beautiful than me.`
+### 3.6.6. Less/More - using "Noun"
+- **Structure:** 
+  - `S + V + more/fewer/less Noun than + noun/pronoun/SV`
+- **Examples:** 
+  - `She has fewer books than me`.
+
+---
+
+### 3.6.6. Multiplicative 
+- **Structure:** 
+  - `S + V + (twice/three times/…) as  much/many/noun  as + noun/pronoun`
+- **Examples:** 
+  - `This car is three times as expensive as that one`.
+
+### 3.6.7. Correlative  
+- **Structure:** 
+  - `The comparative + S + V, the comparative + S + V`
+  - `The more + S + V, the comparative + S + V`
+- **Examples:** 
+  - `The sooner you take it, the better you will feel`.
+  - `The more you study, the smarter you will become`.
+
+### 3.6.8. Superlative   
+- **Structure:** 
+  - `S + V + the adj/adv (est) + noun/SV`
+  - `S + V + the most/least adj/adv + noun/SV`
+  - `One of the superlative + plural noun + S + V`
+- **Examples:** 
+  - `One of the greatest clubs in the world is Barcelona`.
+  - `One of the greatest player of all time is Leo Messi`.
+
+<br>
 
 ## 4. Additional Topics
 
