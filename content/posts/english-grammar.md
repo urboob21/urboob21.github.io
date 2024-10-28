@@ -332,7 +332,56 @@ This section categorizes words based on their function in a sentences.
 
 ## 3. Types of sentences
 
-### 3.1. Questions and auxiliary verbs
+### 3.1. Questions
+#### 3.1.1 Yes or No
+- **Usage:** To respond to yes/no question.
+- **Structure:** `AV +  S +  V ... ? - Yes/No, S +  AV (not) ...`
+- **Examples:** 
+  - `Are you going to work today ?`
+    - -> `Yes, I'm going to work today.`
+
+#### 3.1.2 Information - Subject
+- **Usage:** Used to inquire about the subject of an action.
+- **Structure:**
+  -  `Who/What +  V ... ?`
+- **Examples:** 
+  - `Who opened the door ?`
+    - -> `William opened the door.`
+
+#### 3.1.3 Information - Object
+- **Usage:** Used to ask about the object or recipient of an action.
+- **Structure:**
+  -  `Whom/What +  AV  + S  + V ... ?`
+- **Examples:** 
+  - `What did you buy at the store ?`
+    - -> `I bought a book.`
+
+#### 3.1.4 Information - Additional
+- **Usage:** Used to ask for details like place, time, reason, or manner of an action.
+- **Structure:**
+  -  `When/Where/Why/How + AV + S + V ... ?`
+- **Examples:** 
+  - `How did you get to work today ?`
+    - -> `I took the bus.`
+#### 3.1.5 Embedded question
+- **Usage:** Used for indirect or polite questions. Follow statement order without inverting the subject and auxiliary verb.
+- **Structure:** `Main Clause + Question Word + Subject + Verb (no inversion).`
+- **Examples:** 
+  - `Do you know how she solved the problem ?`
+    - -> `She figured it out by asking for help.`
+  - `Could you explain how this machine work ?`
+    - -> `It operates by pressing the green start button.`
+
+#### 3.1.6 Tag
+- **Usage:** Used to confirm or check the accuracy of a statement.
+- **Structure:**
+  -  `Main clause , tag ?`
+- **Examples:** 
+  - `She should stay in bed, shouldn't she ?`
+  - `No one is here, are they ?`
+  - `This is your book, isn't it ?`
+  - ...
+
 <br>
 
 ### 3.2. If 
@@ -467,6 +516,20 @@ This section categorizes words based on their function in a sentences.
 
 
 ### 3.4. Reported speech
+- **Usage:** Reported speech is used to tell someone what another person said without quoting their exact worlds.
+- **Structure:** `John said/told me/ asked me (that) subject verb_in_shifted_tense`
+  - `tell/ask somebody to` 
+  - `somebody said (not) to do something`
+- **Examples:** 
+  - `"I am tired", she said"`
+    - -> `She said that she was tired`
+  - `"Please help me", he asked`
+    - -> `He asked me to help him`
+  - `"Do you like pizza ?", Ly asked`
+    - -> `Ly asked if(whether) I liked pizza`
+
+<br>
+
 
 ### 3.5. Relative clauses
 
