@@ -11,19 +11,22 @@ ShowToc: true    # Determines whether to display the Table of Contents (TOC) for
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
 weight: 4    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
-**References:** [Java Platform Standard Edition 8 Documentation](https://docs.oracle.com/javase/8/docs/)<br>
-
-## 1. Introduction
+Java is a programming language created by James Gosling from Sun Microsystems (Sun) in 1991. Java allows to write a program and run it on multiple operating systems.
+**References:** 
+[Java Platform Standard Edition 8 Documentation](https://docs.oracle.com/javase/8/docs/)<br>
+[Introduction to Java programming - Tutorial](https://www.vogella.com/tutorials/JavaIntroduction/article.html#introduction-to-java)<br>
+## 1. Introduction to Java
 Oracle has two products implement **Java SE**:
 - **JDK** (Java SE Development Kit): is a superset of JRE.
 - **JRE** (Java SE Runtime Environment): provides the libraries, the Java Virtual Machine (JVM) and other components.
 ![image](/images/java_concept_diagram.png)<br>
 
-### 1.1. Java Programming Language
+### 1.1. Development Process with Java
 - Source code is first written in `.java` file.
-- Those source files are then compiled into `.class` files by the `javac` compiler.
+- Those source files are then compiled into `.class` files by the Java compiler( `javac`).
 - A `.class` file contains `bytecodes`(the machine language of the Java VM).
 - The `.class` file will be run by Java tool as an instance of the Java VM. 
+- The Java virtual machine (JVM) is a software implementation of a computer that executes programs like a real machine.
 ![image](/images/overview_java_process.png)<br>
 
 Because the Java VM is available on many different OS, the same `.class` files are capable of running on many OS too.
@@ -33,7 +36,55 @@ Because the Java VM is available on many different OS, the same `.class` files a
 ![image](/images/java_c_processes.png)<br>
 ![image](/images/java_processes.png)<br>
 
+### 1.3.  Garbage collector
+- The Java runtime automatically frees the memory which is not referred to by other objects.
+- The Java garbage collector checks all object references and finds the objects which can be automatically released.
+
+### 1.4.  Classpath
+- The `classpath` defines where the Java compiler and Java runtime look for `.class` files to load.
+- If we want to use an external Java library we have to add this library to our `classpath`
+
+**.classpath**
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
+```
+To use the class, type the following command. Replace "mydirectory" with the directory which contains the test directory(`.class` file etc).
+`java -classpath "mydirectory" HelloWorld`
+
 <br>
+
+## 2. Installation
+1. To run Java programs, we must have Java Runtime Environment (JRE):
+```
+>java --version
+java 21.0.3 2024-04-16 LTS
+Java(TM) SE Runtime Environment (build 21.0.3+7-LTS-152)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.3+7-LTS-152, mixed mode, sharing)
+```
+2. Write a source file named `HelloWorld.java`
+```java
+// a small Java program in HelloWord.java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+```
+
+3. Compile a Java source file in to a class file: 
+`javac HelloWorld.java`
+4. Start the Java program and we should see "Hello Word" on the command line:
+```
+C:\Users\phong.nguyen-van\Desktop>java HelloWorld
+Hello World
+```
+
 
 ## 2. Trail: Learning the Java Language
 This trail covers the fundamentals of programming in the Java programming language.
