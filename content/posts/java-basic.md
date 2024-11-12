@@ -44,23 +44,14 @@ Because the Java VM is available on many different OS, the same `.class` files a
 - The `classpath` defines where the Java compiler and Java runtime look for `.class` files to load.
 - If we want to use an external Java library we have to add this library to our `classpath`
 
-**.classpath**
-```java
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
+To use the classpath, type the following command. Replace "mydirectory" with the directory which contains the test directory(`.class` file etc).
 ```
-To use the class, type the following command. Replace "mydirectory" with the directory which contains the test directory(`.class` file etc).
-`java -classpath "mydirectory" HelloWorld`
-
+java -classpath "mydirectory" HelloWorld
+```
 <br>
 
 ## 2. Installation
-1. To run Java programs, we must have Java Runtime Environment (JRE):
+1. To run Java programs, we must have `Java Runtime Environment (JRE)`
 ```
 >java --version
 java 21.0.3 2024-04-16 LTS
@@ -77,16 +68,18 @@ public class HelloWorld {
 }
 ```
 
-3. Compile a Java source file in to a class file: 
-`javac HelloWorld.java`
+3. Compile a Java source file in to a class file 
+```javac HelloWorld.java```
 4. Start the Java program and we should see "Hello Word" on the command line:
 ```
 C:\Users\phong.nguyen-van\Desktop>java HelloWorld
 Hello World
 ```
 
+<br>
 
-## 2. Trail: Learning the Java Language
+
+## 3. Trail: Learning the Java Language
 This trail covers the fundamentals of programming in the Java programming language.
 1. [**Object-Oriented Programming Concepts**](https://docs.oracle.com/javase/tutorial/java/concepts/index.html) teaches you the core concepts behind object-oriented programming: objects, messages, classes, and inheritance. This lesson ends by showing you how these concepts translate into code. Feel free to skip this lesson if you are already familiar with object-oriented programming.
 2. [**Language Basics**](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html) describes the traditional features of the language, including variables, arrays, data types, operators, and control flow.
