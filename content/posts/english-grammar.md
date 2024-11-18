@@ -529,12 +529,68 @@ This section categorizes words based on their function in a sentences.
   - `"Do you like pizza ?", Ly asked`
     - -> `Ly asked if(whether) I liked pizza`
 
+
 <br>
 
 
 ### 3.5. Relative clauses
+- **Usage:** Relative clauses are a type of subordinate clause that gives more information about a noun.
+### 3.5.1. Type of Relative clauses
+1. Defining Relative Clauses
+  - `The man who lives next door is a doctor`.
+
+2. Non-Defining Relative Clauses
+  - `My brother, who lives in London, is coming to visit`.
+
+### 3.5.2. Relative Pronouns
+ - Who:
+   - `I told you about the woman who lives next door`.
+ - Which:
+   - `Do you see the cat which is lying on the roof ?`.
+ - Whose:
+   - `Do you know the boy whose mother is a nurse.`
+ - That:
+   - `I don't like the table that stands in the kitchen.`
+
+### 3.5.3. Relative Adverbs
+  - When (in/at/on which):
+    - `I remember the day when we first met.`
+  - Where (in/at/on which):
+    - `I remember the place where we met him.`
+  - Why (for which):
+    - `The reason why we did not play football yesterday is so bad.`
+    
+### 3.5.4. Reduced clauses
+  - `The man who is standing there is handsome`
+    - > `The man standing there is handsome.`
+  - `The book which is written by Mr.A is interesting.`
+    - > `The book written by Mr.A is interesting.`
+  - `He is the only man who can solve this problem.`
+    - > `He is the only man to solve this problem.`
+  - `The breaker that is on the counter contains a solution`
+    - > `The breaker on the counter contains a solution`
+  - `The woman, who is very clever and beautiful is my aunt.`
+    - > `The woman, clear and beautiful is my aunt.`
+
 
 <br>
+
+
+
+### 3.6. Noun clauses
+
+
+<br>
+
+
+
+### 3.7. Adverbial Clauses
+
+
+
+<br>
+
+
 
 ### 3.6. Comparative
 - **Usage:** Used to compare two things, showing they are similar (or not) in some way.
