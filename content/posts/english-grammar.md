@@ -585,6 +585,60 @@ This section categorizes words based on their function in a sentences.
 
 
 ### 3.7. Adverbial Clauses
+### 3.7.1. Time Clauses
+- **Usage:** Indicates the time when the action in the main clause occurs.
+- **Structure:**
+```
+When + subject + verb
+While + subject + verb
+Before + subject + verb
+After + subject + verb
+Since + present perfect
+As + subject + verb
+Till/Until + subject + verb
+As soon as + subject + verb
+Just as + subject + verb
+Whenever + subject + verb
+```
+- **Examples:**
+`When he comes, I will tell him the news.`
+`I am reading a book while they are playing soccer.`
+`He went out after he had finished the housework.`
+`I haven’t met them since they left.`
+`I saw her as I was shopping in the supermarket.`
+`I’ll wait until he comes back.`
+`As soon as Mary knew the truth, she called me.`
+`Just as the girl entered the room, everyone looked at me.`
+`I’ll come whenever you need me.`
+
+### 3.7.2. Place Clauses
+- **Usage:** Indicates the place where an action occurs.
+- **Structure:** `Where/ Wherever S V`
+- **Examples:**
+  - `You can find me where you live, near the park.`
+
+### 3.7.3. Cause Clauses
+- **Usage:** Explains the reason for an action.
+- **Structure:** `Because/ Since/ As/ Seeing that S V`
+- **Examples:**
+  - `Seeing that they were late, they missed the first part of the movie.`
+
+### 3.7.4. Purpose Clauses
+- **Usage:** Indicates the purpose of an action.
+- **Structure:** `So that/ In order that S V`
+- **Examples:**
+  - `Many students write to the president in order that Black people may achieve equality.`
+
+### 3.7.5. Contrast Clauses
+- **Usage:** Expresses contrast or opposition between two ideas or actions.
+- **Structure:** 
+  - `Although/ Though/ Even though S V`
+  - `But/ Yet S V`
+  - `While/ Whereas S V`
+- **Examples:**
+  - `Though she has a lot of things to do, she still spends time playing with her children.`
+  - `He loves her, but he can’t marry her.`
+  - `Whereas she is short, her husband is tall.`
 
 
 
