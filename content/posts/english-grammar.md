@@ -578,10 +578,32 @@ This section categorizes words based on their function in a sentences.
 
 
 ### 3.6. Noun clauses
+### 3.6.1. Subject Clause
+- **Usage:** Noun clauses that act as the subject of a sentence.
+- **Structure:** `Where/When/Why/What/That S V`
+- **Examples:**
+  - `When he leaves is up to me.`
+
+### 3.6.2. Object of Verb
+- **Usage:** Noun clauses that act as the object of the verb.
+- **Structure:** `S V w.../that S V`
+- **Examples:**
+  - `They think that they are wrong.`
+
+### 3.6.3. Object of Preposition
+- **Usage:** as the object of preposition
+- **Structure:** `adjective + preposition + w.../that SV`
+- **Examples:**
+  - `He is interested in how we could do that.`
+
+### 3.6.4. Subject Complement
+- **Usage:** as complements to the subject.
+- **Structure:** `S be + w.../that S V.`
+- **Examples:**
+  - `The problem is where you are now.`
 
 
 <br>
-
 
 
 ### 3.7. Adverbial Clauses
@@ -641,33 +663,31 @@ Whenever + subject + verb
   - `Whereas she is short, her husband is tall.`
 
 
-
 <br>
 
 
-
-### 3.6. Comparative
+### 3.8. Comparative
 - **Usage:** Used to compare two things, showing they are similar (or not) in some way.
 ---
-### 3.6.1. Equal - using "Adj/Adv"
+### 3.8.1. Equal - using "Adj/Adv"
 - **Structure:** `S + V + as adj/adv as + noun/ pronoun/ SV.`
 - **Examples:** 
   - `This book is as interesting as yours`.
-### 3.6.2. Equal - using "the same Noun"
+### 3.8.2. Equal - using "the same Noun"
 - **Structure:** `S + V + the same (N)  as + noun/pronoun/ SV.`
 - **Examples:** 
   - `My house is the same height as his`.
-### 3.6.3. Equal - using Quantities
+### 3.8.3. Equal - using Quantities
 - **Structure:** `S + V + as many/much/little/few N as + noun/pronoun/ SV.`
 - **Examples:** 
   - `She has as many book as I do`.
-### 3.6.4. Equal - Negation
+### 3.8.4. Equal - Negation
 - Use "not as" or "not so" for negative comparisons.
 - `The teacher is not the same as ours`
 
 ---
 
-### 3.6.5. Less/More - using "Adj/Adv"
+### 3.8.5. Less/More - using "Adj/Adv"
 - **Structure:** 
   - `S + V + (intensifier) + adj/adv (er) than + noun/pronoun/SV`
   - `S + V + more/less adj/adv than + noun/pronoun/SV`
@@ -675,7 +695,7 @@ Whenever + subject + verb
 - **Examples:** 
   - `Today is hotter than yesterday`.
   - `My lover is more beautiful than me.`
-### 3.6.6. Less/More - using "Noun"
+### 3.8.6. Less/More - using "Noun"
 - **Structure:** 
   - `S + V + more/fewer/less Noun than + noun/pronoun/SV`
 - **Examples:** 
@@ -683,13 +703,13 @@ Whenever + subject + verb
 
 ---
 
-### 3.6.6. Multiplicative 
+### 3.8.7. Multiplicative 
 - **Structure:** 
   - `S + V + (twice/three times/…) as  much/many/noun  as + noun/pronoun`
 - **Examples:** 
   - `This car is three times as expensive as that one`.
 
-### 3.6.7. Correlative  
+### 3.8.8. Correlative  
 - **Structure:** 
   - `The comparative + S + V, the comparative + S + V`
   - `The more + S + V, the comparative + S + V`
@@ -697,7 +717,7 @@ Whenever + subject + verb
   - `The sooner you take it, the better you will feel`.
   - `The more you study, the smarter you will become`.
 
-### 3.6.8. Superlative   
+### 3.8.9. Superlative   
 - **Structure:** 
   - `S + V + the adj/adv (est) + noun/SV`
   - `S + V + the most/least adj/adv + noun/SV`
@@ -706,7 +726,9 @@ Whenever + subject + verb
   - `One of the greatest clubs in the world is Barcelona`.
   - `One of the greatest player of all time is Leo Messi`.
 
+
 <br>
+
 
 ## 4. Additional Topics
 
