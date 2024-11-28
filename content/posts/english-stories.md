@@ -16,7 +16,7 @@ Welcome to this exciting collection of stories inspired by the "4000 Essential E
 <br>
 
 ## 1. The Lion and the Rabbit   
-> **Target Words**: `afraid, agree, angry, arrive, attack, bottom, clever, cruel, finally, hide, hunt, lot, middle, moment, pleased, promise, reply, safe, trick, well`
+> `afraid, agree, angry, arrive, attack, bottom, clever, cruel, finally, hide, hunt, lot, middle, moment, pleased, promise, reply, safe, trick, well`
 
 A cruel lion lived in the forest. Every day, he killed and ate a lot of animals. The other animals were afraid the lion would kill them all.
 The animals told the lion, “Let’s make a deal. If you promise to eat only one animal each day, then one of us will come to you every day. Then you don’t have to hunt and kill us.”
@@ -33,7 +33,7 @@ All of the other animal in the forest were very pleased with the rabbit’s clev
 <br>
 
 ## 2. The Laboratory
-> **Target Words**: `adventure, approach, carefully, chemical, create, evil, experiment, kill, laboratory, laugh, loud, nervous, noise, project, scare, secret, shout, smell, terrible, worse`
+> `adventure, approach, carefully, chemical, create, evil, experiment, kill, laboratory, laugh, loud, nervous, noise, project, scare, secret, shout, smell, terrible, worse`
 
 Mia’s father had a laboratory, but she had no idea what was in it. Her dad always closed and locked the door when he went in. She knew that he used it to do projects for work. He never told Mia what these projects were.
 One night, Mia approached the door to the laboratory. She stopped and thought, “I wonder what crazy experiment he is doing now.” Suddenly, she heard a loud noise. It sounded like an evil laugh. The noise scared her, so she walked quickly back to her room.
@@ -46,7 +46,7 @@ Mia’s father ran into the room and turned on the lights. “Oh, no,” he said
 <br>
 
 ## 3. The Report
-> **Target Words**: `alien, among, chart, cloud, comprehend, describe, ever, fail, friendly, grade, instead, library, planet, report, several, solve, suddenly, suppose, universe, view`
+> `alien, among, chart, cloud, comprehend, describe, ever, fail, friendly, grade, instead, library, planet, report, several, solve, suddenly, suppose, universe, view`
 
 Lee sat among the books at the library and thought about his group project.
 They had to turn it in soon, but he hadn’t even started his part! Jack and Claire were in his group. They had worked hard. They were also very smart, and Lee didn’t want them to get a bad grade.
@@ -61,7 +61,7 @@ Soon, they were going through the clouds. They passed the moon. Then they viewed
 <br>
 
 ## 4. The Dog's Bell
-> **Target Words**: `appropriate, avoid, behave, calm, concern, content, expect, frequently, habit, instruct, issue, none, patient, positive, punish, represent, shake, spread, stroll, village`
+> `appropriate, avoid, behave, calm, concern, content, expect, frequently, habit, instruct, issue, none, patient, positive, punish, represent, shake, spread, stroll, village`
 
 John’s dog was a bad dog. He bit people frequently. John had great concern about this. It was not an appropriate way for a dog to behave. His friends in the village always expected the dog to bite them. The news about John’s dog spread through the village. None of the people wanted to go to John’s house. John tried to instruct the dog to behave, but it never worked. He tried to be patient and teach the dog to be calm. That also didn’t work. John didn’t want to punish the dog. “How will I stop my dog’s bad habit?” John asked himself.
 John’s friend came to talk to him about the issue. During their important meeting, his friend said, “The people in the village asked me to represent them. We want your dog to stop this habit. Why don’t you put a bell around the dog’s neck? This way, we would hear your dog coming down the street.”
@@ -73,7 +73,7 @@ You see, being popular isn’t something positive when it’s for the wrong reas
 <br>
 
 ## 5. The Jackal and the Sun Child
-> **Target Words**: `aware, badly, belong, continue, error, experience, field, hurt, judgment, likely, normal, rare, relax, request, reside, result, roll, since, visible, wild`
+> `aware, badly, belong, continue, error, experience, field, hurt, judgment, likely, normal, rare, relax, request, reside, result, roll, since, visible, wild`
 
 A jackal is a wild dog with a big black back. It resides in the desert. But how did the jackal get his black back? This was how it happened.
 One day, the jackal saw a girl. She was sitting upon a rock. She was not a normal child. She was a rare and beautiful sun child. She was bright and warm like the sun. The child saw the jackal and smiled.
@@ -84,7 +84,7 @@ But the sun child left a mark on the jackal’s back, a visible black mark. Ever
 <br>
 
 ## 6. The Friendly Ghost
-> **Target Words**: `advantage, cause, choice, community, dead, distance, escape, face, follow, fright, ghost, individual, pet, reach, return, survive, upset, voice, weather, wise`
+> `advantage, cause, choice, community, dead, distance, escape, face, follow, fright, ghost, individual, pet, reach, return, survive, upset, voice, weather, wise`
 
 A nice woman lived by a large river. She loved children. She wanted to help them in any way. She loved her community, and everyone in the community loved her. She lived a very long time and became very wise.
 When she died, she became a ghost. She was dead, but every night she returned to her community. She wanted to help children and not to cause them fright. But she had a scary voice. Children were afraid of her, but the ghost was a good one. She only scared them to help them.
@@ -94,7 +94,7 @@ The children ran a long distance away. The ghost followed them all the way. Fina
 <br>
 
 ## 7. The Best Prince
-> **Target Words**: `allow, announce, beside, challenge, claim, condition, contribute, difference, divide, expert, famous, force, harm, lay, peace, prince, protect, sense, sudden, therefore`
+> `allow, announce, beside, challenge, claim, condition, contribute, difference, divide, expert, famous, force, harm, lay, peace, prince, protect, sense, sudden, therefore`
 
 King Minos was very sick. His condition was getting worse. He had three sons. He loved them all. He had to announce who would become king.
 Two of the princes stood waiting outside the king’s room. Theseus was the oldest and strongest. He thought his father would make him king. Pelias, the second son, thought differently. He was an expert with weapons. He thought the king would choose him.
@@ -111,7 +111,7 @@ Then the king died. Theseus and Pelias heard that their youngest brother was kin
 <br>
 
 ## 8. How the Sun and the Moon Were Made
-> **Target Words**: `accept, arrange, attend, balance, contrast, encourage, familiar, grab, hang, huge, necessary, pattern, propose, purpose, release, require, single, success, tear, theory`
+> `accept, arrange, attend, balance, contrast, encourage, familiar, grab, hang, huge, necessary, pattern, propose, purpose, release, require, single, success, tear, theory`
 
 Do you ever wonder where the moon and the sun came from? The Inuit people of Alaska have a theory.
 They tell a story about a beautiful girl. She was very nice. In contrast, her brother was a mean little boy. One day he proposed something. “We should go to a party,” he said. The girl accepted. First, it was necessary for her to prepare. She arranged her hair and put on nice clothes. This required a lot of time. But the girl worked hard, and soon she had success. She looked perfect.
@@ -122,7 +122,7 @@ He ran into the woods. The girl ran after him. They both carried fire so they co
 <br>
 
 ## 9. The Starfish
-> **Target Words**: `against, beach, damage, discover, emotion, fix, frank, identify, island, ocean, perhaps, pleasant, prevent, rock, save, step, still, taste, throw, wave`
+> `against, beach, damage, discover, emotion, fix, frank, identify, island, ocean, perhaps, pleasant, prevent, rock, save, step, still, taste, throw, wave`
 
 Last summer I took a trip to an island. I had a lot of fun. I sat and watched the waves and listened to the ocean. I learned to identify birds. I discovered pretty things and enjoyed the taste of new foods. It was a very nice time.
 One evening I took a pleasant walk by the ocean. When the waves came in, many starfish* fell on the beach. Some starfish went back into the water, and they were safe. But other starfish were still on the sand. They would die if they did not get into the water. There were many starfish on the beach that night. It made me sad, but I knew I could not fix the problem. I stepped very carefully so I did not damage them.
@@ -135,7 +135,7 @@ She stopped to look at me. “No, I cannot save them all,” she replied. Then s
 <br>
 
 ## 10. The First Peacock
-> **Target Words**: `benefit, certain, chance, effect, essential, far, focus, function, grass, guard, image, immediate, primary, proud, remain, rest, separate, site, tail, trouble`
+> `benefit, certain, chance, effect, essential, far, focus, function, grass, guard, image, immediate, primary, proud, remain, rest, separate, site, tail, trouble`
 
 Argos lived in Ancient Greece. He was a husband and a proud father. He worked hard and did well at his job. But one thing about him wasn’t normal. He was born with 100 eyes. Having many eyes was usually a benefit to him. He had a chance to see many things.
 Also, since he had so many eyes, he was very good at guarding things. While sleeping, he only rested a few eyes at a time. The others stayed awake. He worked for Hera, a great goddess. His primary function was to guard a special cow. The cow was very important to Hera. It was her favorite pet. The most essential part of his job was to keep the cow alone. It had to be kept separate from all the other cows and far away from people.
@@ -146,7 +146,7 @@ Zeus saw how much trouble he had caused Argos. He made another plan. He turned A
 <br>
 
 ## 11. Princess Rose and the Creature
-> **Target Words**: `anymore, asleep, berry, collect, compete, conversation, creature, decision, either, forest, ground, introduce, marry, prepare, sail, serious, spend, strange, truth, wake`
+> `anymore, asleep, berry, collect, compete, conversation, creature, decision, either, forest, ground, introduce, marry, prepare, sail, serious, spend, strange, truth, wake`
 
 There was once a beautiful princess named Rose. Her mother, the queen, however, was not as beautiful as the princess. The queen felt bad that she was not the most beautiful woman in the kingdom anymore. She was tired of competing with her daughter. She made a decision. She prepared a drink for the princess. After the princess drank it, she fell asleep. Then the queen took the princess to the forest. She left the princess there. It was a very serious thing to do. “Either she will be killed by animals or she will get lost in the forest,” the queen thought.
 The princess had a dream. She dreamed about a man with brown hair and brown eyes. It was the man she would wed.
@@ -160,7 +160,7 @@ Rose and Henry were married, and they lived happily.
 <br>
 
 ## 12. The Crazy Artist
-> **Target Words**: `alone, apartment, article, artist, attitude, compare, judge, magazine, material, meal, method, neighbor, professional, profit, quality, shape, space, stair, symbol, thin`
+> `alone, apartment, article, artist, attitude, compare, judge, magazine, material, meal, method, neighbor, professional, profit, quality, shape, space, stair, symbol, thin`
 
 Frenhoferwas the best artist in the world. Everyone loved him. The quality of his paintings was very high. He always used the best materials. He made a big profit from his paintings. He had delicious meals with his rich neighbors. He taught art classes. Life was good.
 Then his attitude changed. He stopped selling paintings and teaching. He tried a new method of painting. He stayed alone in his apartment all day. He worked all day and all night, rarely eating. Soon Frenhofer became very thin. But he kept working on the same painting for many years. He worked as hard as he could.
@@ -170,7 +170,7 @@ But after some time, many people began to like his painting. People wrote articl
 <br>
 
 ## 13. The Farmer and the Cats
-> **Target Words**: `blood, burn, cell, contain, correct, crop, demand, equal, feed, hole, increase, lord, owe, position, raise, responsible, sight, spot, structure, whole`
+> `blood, burn, cell, contain, correct, crop, demand, equal, feed, hole, increase, lord, owe, position, raise, responsible, sight, spot, structure, whole`
 
 Arthur was a responsible farmer, and Maria was a nice lady. But they were poor. They owed the town lord money for their land. One summer, their farm burned. One structure caught fire, and most of the animals ran away. Only the cats stayed. So Arthur and Maria had to bring in their crops without an animal’s help.
 On a fall day, the lord demanded his money. Arthur asked if the lord could wait until he brought in his crops.
@@ -183,7 +183,7 @@ But in the morning, ten lines were done! Each day they did a lot of work. Each n
 <br>
 
 ## 14. A Magical Book
-> **Target Words**: `coach, control, description, direct, exam, example, limit, local, magical, mail, novel, outline, poet, print, scene, sheet, silly, store, suffer, technology`
+> `coach, control, description, direct, exam, example, limit, local, magical, mail, novel, outline, poet, print, scene, sheet, silly, store, suffer, technology`
 
 Sarah loved to read. She read novels and poems. She loved the beautiful descriptions and phrases. She loved reading work from poets and novelists. She didn’t like video games or technology. She was on the basketball team, but she didn’t like sports. Her parents made her play basketball. In fact, Sarah’s parents made her do many things. But she didn’t want to do those things. She just wanted to sit and read all day.
 One day, a small book came in the mail. It was for Sarah. The book looked very special. It was printed on sheets of gold. Sarah began to read. The outline of the story was simple. It was about a magical place. Strange things happened there. One example from the book was about a boy who could control people. In one scene, he made his friends tell funny jokes.
@@ -194,7 +194,7 @@ Sarah learned something that day. It was better to help people than make them su
 <br>
 
 ## 15. The Big Race
-> **Target Words**: `across, breathe, characteristic, consume, excite, extreme, fear, fortunate, happen, length, mistake, observe, opportunity, prize, race, realize, respond, risk, wonder, yet`
+> `across, breathe, characteristic, consume, excite, extreme, fear, fortunate, happen, length, mistake, observe, opportunity, prize, race, realize, respond, risk, wonder, yet`
 
 A dog saw a group of animals across the road. He walked over to meet them. “What are you doing?” he asked them.
 “I just sold them tickets to a race between the rabbit and the turtle,” the duck responded.
@@ -207,7 +207,7 @@ The dog was happy for the turtle. “He isn’t fast,” the dog thought. “But
 <br>
 
 ## 16. Adams County’s Gold
-> **Target Words**: `academy, ancient, board, century, clue, concert, county, dictionary, exist, flat, gentleman, hidden, maybe, officer, original, pound, process, publish, theater, wealth`
+> `academy, ancient, board, century, clue, concert, county, dictionary, exist, flat, gentleman, hidden, maybe, officer, original, pound, process, publish, theater, wealth`
 
 Adams Academy was a good school. Boys lived there and took classes. Tom worked hard all week. On a spring Saturday, he wanted to do something fun!
 He asked his friend Jeff to go to the movie theater. “Sorry,” Jeff answered. “I’m going to a concert.”
@@ -227,7 +227,7 @@ Brad smiled. “Let’s go!” And they hurried to find the wealth of Adams Coun
 <br>
 
 ## 17. The Race for Water
-> **Target Words**: `appreciate, available, beat, bright, celebrate, determine, disappear, else, fair, flow, forward, hill, level, lone, puddle, response, season, solution, waste, whether`
+> `appreciate, available, beat, bright, celebrate, determine, disappear, else, fair, flow, forward, hill, level, lone, puddle, response, season, solution, waste, whether`
 
 There was a town next to a river. The people there had a lot of water. But they wasted it. That made the Sky angry. It said, “If you waste water, I will take it away from you.” But the people didn’t listen.
 When the season changed from spring to summer, the clouds disappeared. The bright sun was hot and made the river dry. There was no water available. People asked, “When will the rain fall?”
@@ -243,7 +243,7 @@ That is how a lone boy saved his town and won the race for water.
 <br>
 
 ## 18. The Little Red Chicken
-> **Target Words**: `argue, communicate, crowd, depend, dish, empty, exact, fresh, gather, indicate, item, offer, price, product, property, purchase, recommend, select, tool, treat`
+> `argue, communicate, crowd, depend, dish, empty, exact, fresh, gather, indicate, item, offer, price, product, property, purchase, recommend, select, tool, treat`
 
 A little red chicken had a store in a small town. She sold many different items to people in the town. The people loved her products.
 One day, a cat came to her property. He saw the sign that indicated where the chicken’s store was located. He wanted to purchase bread, but the chicken’s store was almost empty. She had only a bag of wheat.*
@@ -265,7 +265,7 @@ The cat argued with the chicken. He tried to offer a price for it. But the littl
 <br>
 
 ## 19. Shipwrecked
-> **Target Words**: `alive, bone, bother, captain, conclusion, doubt, explore, foreign, glad, however, injustice, international, lawyer, mention, policy, social, speech, staff, toward, wood`
+> `alive, bone, bother, captain, conclusion, doubt, explore, foreign, glad, however, injustice, international, lawyer, mention, policy, social, speech, staff, toward, wood`
 
 Simon Yates was a lawyer. He helped many people. However, he was not a nice man. His policy was to help only rich people. He didn’t bother about social injustice. He made a lot of money, but many people didn’t like him. Even people on his staff didn’t like him. They wanted bad things to happen to him. In fact, they were glad when he got into trouble.
 Simon had a very bad day. He did many things wrong and lost his job. Soon, he didn’t have any money. His wife, Mrs. Yates, began to have doubts about him. Simon wanted to start a new life. He planned to leave the country.
@@ -277,7 +277,7 @@ Finally, people on a ship saw Simon on the island. They wanted to take him home.
 <br>
 
 ## 20. The Seven Cities of Gold
-> **Target Words**: `achieve, advise, already, basic, bit, consider, destroy, entertain, extra, goal, lie, meat, opinion, real, reflect, regard, serve, vegetable, war, worth`
+> `achieve, advise, already, basic, bit, consider, destroy, entertain, extra, goal, lie, meat, opinion, real, reflect, regard, serve, vegetable, war, worth`
 
 Many years ago, a Spanish officer named Coronado heard the story of seven great cities. “The walls of these cities are made of gold,” his friends told him. “The people eat meat from golden plates and dress in nice clothes,” they said. They called these cities the Seven Cities of Gold. Were the cities real? Coronado never considered asking his friends.
 Coronado thought to himself, “The things in these cities must be worth a lot of money.” So he went to find the Seven Cities of Gold. He took along three hundred men, many horses, and extra food. They headed west. Coronado wanted to achieve his goal very badly.
@@ -289,7 +289,7 @@ He left the next morning. He looked back at s one more time. The sun reflected l
 <br>
 
 ## 21. Katy
-> **Target Words**: `appear, base, brain, career, clerk, effort, enter, excellent, hero, hurry, inform, later, leave, locate, nurse, operation, pain, refuse, though, various`
+> `appear, base, brain, career, clerk, effort, enter, excellent, hero, hurry, inform, later, leave, locate, nurse, operation, pain, refuse, though, various`
 
 I first met 8-year-old Katy on a rainy afternoon. I was a nurse at a hospital. The clerk at the desk told me about Katy. She was there because she felt a lot of pain. The doctors located a problem at the base of her brain. I knew she was special, even before she got better. I’ll always remember Katy as a hero.
 When I entered Katy’s room, she was not in her bed. She was in a chair next to Tommy, a little boy. Though Katy did not feel well, she was playing with Tommy and his toys. It took a lot of effort for her just to sit in the chair. But she played with Tommy because it made him happy.
@@ -299,7 +299,7 @@ I have had a long career as a nurse. I have met many patients. However, I have n
 <br>
 
 ## 22. A Better Reward
-> **Target Words**: `actual, amaze, charge, comfort, contact, customer, deliver, earn, gate, include, manage, mystery, occur, opposite, plate, receive, reward, set, steal, thief`
+> `actual, amaze, charge, comfort, contact, customer, deliver, earn, gate, include, manage, mystery, occur, opposite, plate, receive, reward, set, steal, thief`
 
 Jenny delivered food for a restaurant. She read the newspaper and said, “Uh oh.” There was a story about a thief. He stole food, and no one had seen him. Even the police couldn’t catch him. Jenny was a little scared. She worked close to that area.
 The newspaper included a message from the police: “If anything strange occurs, call us. If you help us catch the thief, you’ll earn a reward.”
@@ -314,7 +314,7 @@ Jenny didn’t do it to receive the reward anymore. She said, “It was just a d
 <br>
 
 ## 23. The Camp
-> **Target Words**: `advance, athlete, average, behavior, behind, course, lower, match, member, mental, passenger, personality, poem, pole, remove, safety, shoot, sound, swim, web`
+> `advance, athlete, average, behavior, behind, course, lower, match, member, mental, passenger, personality, poem, pole, remove, safety, shoot, sound, swim, web`
 
 Stacie wanted to stay at a nice hotel for vacation. But her parents sent her to a terrible camp instead. For breakfast, Stacie liked fresh juice and chocolate milk, but she got water at the camp. In the afternoon she wanted to write poems, but she had to swim. The camp was near an airport with loud planes. Spider webs hung over her bed. To her, the kids’ average behavior was very bad. No girl matched her personality. She hated it.
 One day, they had a class. Mental exercise sounded good to Stacie. But it was a course on water safety. They learned how to be safe passengers on a boat. Stacie didn’t ever plan to go on a boat.
@@ -326,7 +326,7 @@ For the rest of the week, Stacie had fun. She even made new friends.
 <br>
 
 ## 24. A Strong Friendship
-> **Target Words**: `block, cheer, complex, critic, event, exercise, fit, friendship, guide, lack, passage, perform, pressure, probable, public, strike, support, task, term, unite`
+> `block, cheer, complex, critic, event, exercise, fit, friendship, guide, lack, passage, perform, pressure, probable, public, strike, support, task, term, unite`
 
 Tim was the strongest man in the town. When he played sports, he always won. He performed and exercised in the public park. He did this to show everyone how strong he was. Most people liked him, but one man didn’t. His name was Jack.
 Jack hated Tim. Jack was a movie critic and the smartest man in town. He could solve complex math problems. But no one cared. Jack wanted to be famous like Tim.
@@ -338,7 +338,7 @@ In town, people saw Jack with the food and cheered. They called Jack a hero. But
 <br>
 
 ## 25. Joe’s Pond
-> **Target Words**: `associate, environment, factory, feature, instance, involve, medicine, mix, organize, period, populate, produce, range, recognize, regular, sign, tip, tradition, trash, wide`
+> `associate, environment, factory, feature, instance, involve, medicine, mix, organize, period, populate, produce, range, recognize, regular, sign, tip, tradition, trash, wide`
 
 Joe made the world a better place. He got the idea to do that at school. He watched a video there. It was about a factory. This factory produced a lot of trash and put it in a river. The trash and water were a bad mix. People populated the area by the river and drank its water. This made them sick. Many of them needed medicine and made regular visits to doctors.
 But the video wasn’t all bad news. It showed ways to pick up trash and why it’s important to do this. It said people can make a difference to their environment. The video’s important features made Joe associate trash with hurting people.
@@ -349,7 +349,7 @@ In that period of time, Joe saw a range of results. There was no trash in the wa
 <br>
 
 ## 26. Archie and His Donkey
-> **Target Words**: `advice, along, attention, attract, climb, drop, final, further, imply, maintain, neither, otherwise, physical, prove, react, ride, situated, society, standard, suggest`
+> `advice, along, attention, attract, climb, drop, final, further, imply, maintain, neither, otherwise, physical, prove, react, ride, situated, society, standard, suggest`
 
 Old Archie needed some money. He decided to sell his donkey. So he and his son Tom went to town. It was situated many miles away.
 Soon, they met a woman. “Where are you going?” she asked.
@@ -367,7 +367,7 @@ What does this story teach us? We cannot please everyone in our society. Don’t
 <br>
 
 ## 27. The Spider and the Bird
-> **Target Words**: `actually, bite, coast, deal, desert, earthquake, effective, examine, false, gift, hunger, imagine, journey, puzzle, quite, rather, specific, tour, trip, value`
+> `actually, bite, coast, deal, desert, earthquake, effective, examine, false, gift, hunger, imagine, journey, puzzle, quite, rather, specific, tour, trip, value`
 
 There was once a very big spider. If a bug got into his web, he would examine it. However, he didn’t eat the bug right away. He asked the bug a question first. It was always quite a difficult puzzle. If the bug’s answer was correct, he let it go. If not, he ate it.
 One day, a small bird on a journey flew into the spider’s web. The spider couldn’t imagine eating a bird. It was so big! But his hunger was too great. He said to the bird, “If you cannot give me a specific answer, I will eat you.”
@@ -382,7 +382,7 @@ The spider climbed on the bird’s back. They flew and ate bugs together. They t
 <br>
 
 ## 28. The Party
-> **Target Words**: `band, barely, boring, cancel, driveway, garbage, instrument, list, magic, message, notice, own, predict, professor, rush, schedule, share, stage, storm, within`
+> `band, barely, boring, cancel, driveway, garbage, instrument, list, magic, message, notice, own, predict, professor, rush, schedule, share, stage, storm, within`
 
 Cody’s family moved to a new house. His dad got a new job as a professor. Cody liked his new town, but he missed his grandparents. For his birthday, Cody wanted to have a party. His dad said, “Yes, we could even have a band play!”
 On the day of the party, Cody woke up and rushed to get ready. He started to check his list of things to do. He was so excited! But then he noticed something terrible. There was snow on the ground and lots of it! “Dad!” he yelled. “How can the band play their instruments outside?”
@@ -397,7 +397,7 @@ Cody told them what happened. “I’m sorry,” said Grandpa.
 <br>
 
 ## 29. How the World Got Light
-> **Target Words**: `advertise, assign, audience, breakfast, competition, cool, gain, importance, knowledge, major, mean, prefer, president, progress, respect, rich, skill, somehow, strength, vote`
+> `advertise, assign, audience, breakfast, competition, cool, gain, importance, knowledge, major, mean, prefer, president, progress, respect, rich, skill, somehow, strength, vote`
 
 The president of Darkland was a pig—a very bad pig. He was a pig of major importance. He was rich, and he had a lot of strength. But he was mean to all the animals in Darkland. He kept all of the world’s light in a bag. He preferred to keep the world cool and dark. He wanted to stop the progress of the city. The animals couldn’t work in the dark. He didn’t have any respect for them. “Light is too good for them,” he said. “Only I should have light.”
 But the animals needed light. So they decided to hold a competition. They wanted to find the smartest animal in Darkland. That animal had to steal light from the president. They advertised the competition everywhere. All the animals came.
@@ -409,7 +409,7 @@ Raven flew high and put the sun in the sky. The president was very mad. Raven tr
 <br>
 
 ## 30. Cats and Secrets
-> **Target Words**: `above, ahead, amount, belief, center, common, cost, demonstrate, different, evidence, honesty, idiom, independent, inside, master, memory, proper, scan, section, surface`
+> `above, ahead, amount, belief, center, common, cost, demonstrate, different, evidence, honesty, idiom, independent, inside, master, memory, proper, scan, section, surface`
 
 In English, there is a common idiom “let the cat out of the bag.” It means to tell a secret. But where did this idiom start?
 It came from a section of England. Long ago, people there went from town to town to sell things like vegetables, clothes, and pigs. They had strong beliefs about honesty. They didn’t like lying. One day, a man went to the section’s center to sell things.
@@ -425,7 +425,7 @@ That’s how the idiom “let the cat out of the bag” came to mean to tell a s
 <br>
 
 ## 31. The Twelve Months
-> **Target Words**: `awful, consist, desire, eager, household, intent, landscape, lift, load, anxious, lung, motion, pace, polite, possess, rapidly, remark, seek, shine, spill`
+> `awful, consist, desire, eager, household, intent, landscape, lift, load, anxious, lung, motion, pace, polite, possess, rapidly, remark, seek, shine, spill`
 
 An awful woman lived with her daughter and stepdaughter in her household. She possessed feelings of hate for her stepdaughter, Anna. Anna worked while her stepsister did nothing. On a cold January night, Anna’s stepmother remarked, “Your stepsister desires flowers. Go and find some.”
 Anna wasn’t anxious to walk through the chilled landscape. The cold air made her lungs burn. She walked at a slow pace because of the snow. Soon she saw a group of people. It consisted of twelve men. Anna told them about the flowers.
@@ -436,7 +436,7 @@ Anna loaded her basket with so many flowers that she could hardly lift it. Then 
 <br>
 
 ## 32. The Dragon
-> **Target Words**: `bring, castle, command, counsel, ensure, explosion, jewelry, land, meteor, monster, northern, remote, southern, statue, steam, submit, temple, upper, weed, wing`
+> `bring, castle, command, counsel, ensure, explosion, jewelry, land, meteor, monster, northern, remote, southern, statue, steam, submit, temple, upper, weed, wing`
 
 
 An evil dragon lived in a castle in the remote southern mountains.
@@ -493,7 +493,7 @@ The deer estimated that he ran for an hour. He felt like he was running a marath
 <br>
 
 ## 35. May 29,1953
-> **Target Words**: `ancestor, angle, boot, border, congratulate, frame, heaven, incredible, legend, praise, proceed, pure, relative, senior, silent, sink, superior, surround, thick, wrap`
+> `ancestor, angle, boot, border, congratulate, frame, heaven, incredible, legend, praise, proceed, pure, relative, senior, silent, sink, superior, surround, thick, wrap`
 
 Today is the most important day of my life. I finally climbed Mt. Everest, the tallest mountain in the world.
 
@@ -507,7 +507,7 @@ After fifteen minutes, I knew it was time to proceed down the mountain. The whol
 <br>
 
 ## 36. The Frog Prince
-> **Target Words**: `abroad, anger, bride, brief, chase, disappoint, dive, exchange, favor, fee, forever, guy, lovely, mood, palace, permit, protest, sculpture, tribe, youth`
+> `abroad, anger, bride, brief, chase, disappoint, dive, exchange, favor, fee, forever, guy, lovely, mood, palace, permit, protest, sculpture, tribe, youth`
 
 A lovely princess sat by the pool and played with a sculpture of a bear. Suddenly, she dropped it, and it rolled away. She chased it, but it fell into the water. She began to cry. A large, ugly frog asked, “Why are you crying?” After the princess told him, the frog said, “I can get the sculpture. What will you give me in exchange for the favor?”
 
@@ -525,7 +525,7 @@ The princess asked him, “Can I be your bride and stay with you forever?” But
 <br>
 
 ## 37. A Beautiful Bird
-> **Target Words**: `basis, biology, cage, colleague, colony, debate, depart, depress, factual, fascinate, mission, nevertheless, occupation, overseas, persuade, route, ruins, scholar, significant, volcano`
+> `basis, biology, cage, colleague, colony, debate, depart, depress, factual, fascinate, mission, nevertheless, occupation, overseas, persuade, route, ruins, scholar, significant, volcano`
 
 Dr. Norton’s occupation was a scholar of biology. He learned about all animals on a daily basis. One day he met a sailor from a colony overseas. The man told Dr. Norton about a talking bird! The bird fascinated Dr. Norton, so he told his colleagues about it. They debated with him: no one thought a bird could talk. He tried to persuade them, but they laughed at him. Nevertheless, Dr. Norton believed the bird was real. His new mission was to find it. He wanted factual proof.
 
@@ -539,7 +539,7 @@ Dr. Norton put the talking bird into a cage. Then he returned home. He had made 
 <br>
 
 ## 38. Tricky Turtle
-> **Target Words**: `broad, bush, capable, cheat, concentrate, conclude, confident, considerable, convey, definite, delight, destination, dictate, edge, path, resort, shadow, succeed, suspect, valley`
+> `broad, bush, capable, cheat, concentrate, conclude, confident, considerable, convey, definite, delight, destination, dictate, edge, path, resort, shadow, succeed, suspect, valley`
 
 Ricky the rabbit and Tera the turtle met by the edge of the river. “No one is capable of beating me in a race!” Ricky said. He was confident—his smile conveyed that.
 
@@ -561,7 +561,7 @@ Later, Tera had a broad smile on her face. Ricky never suspected. He had been tr
 <br>
 
 ## 39. The Tale of Bartelby O’Boyle
-> **Target Words**: `admire, aid, attempt, authority, capital, cooperate, defend, destruction, disorder, division, enable, frustrate, govern, plenty, relieve, reputation, royal, slave, struggle, stupid`
+> `admire, aid, attempt, authority, capital, cooperate, defend, destruction, disorder, division, enable, frustrate, govern, plenty, relieve, reputation, royal, slave, struggle, stupid`
 
 Long ago, there was a clever man by the name of Bartelby O’Boyle. As a boy, he was kept as a slave by the royal family. He saw other children play, but he always had to work. This frustrated him very much. But he was not stupid, and he wanted to change things.
 
@@ -573,7 +573,7 @@ Soon, other people cooperated with them. Working together anabled them to take m
 <br>
 
 ## 40. Blackbeard
-> **Target Words**: `citizen, council, declare, enormous, extraordinary, fog, funeral, giant, impression, income, mad, ought, resist, reveal, rid, sword, tale, trap, trial, violent`
+> `citizen, council, declare, enormous, extraordinary, fog, funeral, giant, impression, income, mad, ought, resist, reveal, rid, sword, tale, trap, trial, violent`
 
 A longtime ago, I had my first job. It didn’t give me much of an income. It was on a giant pirate ship. On my first night, there was a thick fog over the water. A lamp on the ship revealed an enormous man. He had a sword in his belt. His name was Blackbeard, and he was one of the most violent pirates ever.
 
@@ -587,7 +587,7 @@ Blackbeard became a fisherman. But he ought to have stayed on land. The Royal Na
 <br>
 
 ## 41. Dinosaur Drawings
-> **Target Words**: `admission, astronomy, blame, chemistry, despite, dinosaur, exhibit, fame, forecast, genius, gentle, geography, interfere, lightly, principal, row, shelf, spite, super, wet`
+> `admission, astronomy, blame, chemistry, despite, dinosaur, exhibit, fame, forecast, genius, gentle, geography, interfere, lightly, principal, row, shelf, spite, super, wet`
 
 It was the worst morning ever. When Carl woke up, he realized that he didn’t do his astronomy and chemistry homework. Also, the forecast called for rain and that would affect baseball practice. Suddenly, his mother yelled, “Take out the garbage right now!” When Carl returned from taking the garbage outside, he was all wet. “What a terrible day,” he said.
 
@@ -603,7 +603,7 @@ He taught his dinosaur to be very gentle and put it on exhibit. But admission wo
 <br>
 
 ## 42. The Mean Chef
-> **Target Words**: `abuse, afford, bake, bean, candle, convert, debt, decrease, fault, fund, generous, ingredient, insist, mess, metal, monitor, oppose, passive, quantity, sue`
+> `abuse, afford, bake, bean, candle, convert, debt, decrease, fault, fund, generous, ingredient, insist, mess, metal, monitor, oppose, passive, quantity, sue`
 
 Once there was a chef, who was mean to his cooks. He was mean to the people who came in to eat. He charged too much for meals. Many people were not able to afford the cheapest bean dish. When his metal oven broke, he did not have it fixed. So everything baked in it burned. The only light was from candles, and the whole place was a mess. Sometimes, he didn’t pay his waiters. Since they had no funds, they had many debts.
 
@@ -615,7 +615,7 @@ The chef realized that the restaurant’s problems were his fault. The chef lear
 <br>
 
 ## 43. The Cat and the Fox
-> **Target Words**: `anxiety, army, billion, carve, consult, emergency, fortune, guarantee, hike, initial, intense, lend, peak, potential, pride, proof, quit, spin, tiny, tutor`
+> `anxiety, army, billion, carve, consult, emergency, fortune, guarantee, hike, initial, intense, lend, peak, potential, pride, proof, quit, spin, tiny, tutor`
 
 One day, a cat hiked on a mountain. When he reached the peak, he met a fox. They began talking about how they get away from their enemies.
 
@@ -627,7 +627,7 @@ Soon, they saw a group of wolves. It was an emergency. The cat quickly used her 
 <br>
 
 ## 44. The Good Student
-> **Target Words**: `apparent, blind, calculate, chat, commit, compose, dormitory, exhaust, greenhouse, ignore, obvious, physics, portion, remind, secretary, severe, talent, thesis, uniform, vision`
+> `apparent, blind, calculate, chat, commit, compose, dormitory, exhaust, greenhouse, ignore, obvious, physics, portion, remind, secretary, severe, talent, thesis, uniform, vision`
 
 Sue left her dormitory early that morning. She had even washed her uniform the night before. She wanted to look nice for the day.
 
@@ -645,7 +645,7 @@ When Sue got back to her room, she went right to bed. She made sure she got enou
 <br>
 
 ## 45. The Lucky Knife
-> **Target Words**: `absorb, boss, committee, contract, crew, devote, dig, dine, donate, double, elevate, flavor, foundation, generation, handle, layer, mud, smooth, soil, unique`
+> `absorb, boss, committee, contract, crew, devote, dig, dine, donate, double, elevate, flavor, foundation, generation, handle, layer, mud, smooth, soil, unique`
 
 I’ve devoted my life to studying past generations. Last year, I had a unique chance to work with my uncle. Our job was to find old treasures for a school’s history foundation. He also hired a crew of students. They signed a contract to work with him. He was the boss. The place was strange, though. I dined on many things that I had never tasted before. They had an unusual flavor.
 
@@ -661,7 +661,7 @@ Reading Comprehension
 <br>
 
 ## 46. Prince Sam
-> **Target Words**: `chamber, deny, document, emphasize, fever, flu, freeze, gesture, interrupt, last, likeness, moreover, perspective, rational, recover, rely, shock, shy, stare, thus`
+> `chamber, deny, document, emphasize, fever, flu, freeze, gesture, interrupt, last, likeness, moreover, perspective, rational, recover, rely, shock, shy, stare, thus`
 
 Sam’s mother cooked at the royal palace. One day, he went to work with her. She emphasized that he should stay in the kitchen. But Sam was bored. Thus, he decided to look around.
 
@@ -685,7 +685,7 @@ Sam said OK. Soon, Sam’s perspective on being a prince changed. He spent most 
 <br>
 
 ## 47. Henry Ford’s Famous Car
-> **Target Words**: `aim, attach, bet, carriage, classic, commute, confirm, criticize, differ, expense, formal, height, invent, junior, labor, mechanic, prime, shift, signal, sincere`
+> `aim, attach, bet, carriage, classic, commute, confirm, criticize, differ, expense, formal, height, invent, junior, labor, mechanic, prime, shift, signal, sincere`
 
 My name is Henry Ford, and I invented a car called the Model T. I used to watch carriages on the streets. They fascinated me. Then I got a job as a junior mechanic. My father criticized me. He wanted me to run the farm. But I did not shift my plans.
 
@@ -699,7 +699,7 @@ Over 19 years, I sold over 15 million Model Ts. This sent a signal to other comp
 <br>
 
 ## 48. The Priest
-> **Target Words**: `ability, agriculture, cartoon, ceiling, convince, curious, delay, diary, element, faith, grain, greet, investigate, joy, label, monk, odd, pause, priest, profession`
+> `ability, agriculture, cartoon, ceiling, convince, curious, delay, diary, element, faith, grain, greet, investigate, joy, label, monk, odd, pause, priest, profession`
 
 A young priest was always sad. He was good at his profession, but he still had no joy. He visited a group of wise monks.
 
@@ -709,7 +709,7 @@ The next day, the priest thought about his abilities. He got a few ideas, and he
 <br>
 
 ## 49. Mrs. May and the Green Girl
-> **Target Words**: `adopt, beg, beyond, costume, exclaim, extend, fool, forbid, illustrate, indeed, interpret, kindly, motive, nest, origin, reception, reject, silence, stream, tone`
+> `adopt, beg, beyond, costume, exclaim, extend, fool, forbid, illustrate, indeed, interpret, kindly, motive, nest, origin, reception, reject, silence, stream, tone`
 
 One morning, people from a small town found a little girl by a stream. She seemed to be wearing a green costume. As the people got closer, they saw that the girl’s skin was green!
 
@@ -729,7 +729,7 @@ The green girl was from a place far beyond the sun. There, people lived in nests
 <br>
 
 ## 50. Albert Einstein
-> **Target Words**: `accomplish, approve, approximate, barrier, detect, duty, elementary, failure, gradual, immigrant, insert, instant, poverty, pretend, rank, recognition, refrigerate, rent, retire, statistic`
+> `accomplish, approve, approximate, barrier, detect, duty, elementary, failure, gradual, immigrant, insert, instant, poverty, pretend, rank, recognition, refrigerate, rent, retire, statistic`
 
 My name is Albert Einstein. Many people know about the great things I’ve accomplished. But I had many barriers before I became famous.
 
@@ -741,7 +741,7 @@ I showed how to find the approximate size of very big things, like stars. I also
 <br>
 
 ## 51. From the Earth to the Stars
-> **Target Words**: `astronaut, awake, courage, float, grant, gravity, jewel, miner, mineral, participate, permission, pour, presence, raw, satellite, scale, skip, stretch, telescope, underground`
+> `astronaut, awake, courage, float, grant, gravity, jewel, miner, mineral, participate, permission, pour, presence, raw, satellite, scale, skip, stretch, telescope, underground`
 
 Jeremy was from a family of miners. Like them, he worked underground during the day. His job was to gather raw minerals and jewels. Each night after work, he lay awake in an open field. With his telescope, he looked at the stars. He was amazed by the scale of space. He wished someday he might travel there.
 
@@ -763,7 +763,7 @@ Then Jeremy saw a beautiful angel outside his spaceship. It smiled at Jeremy. Fo
 <br>
 
 ## 52. The Farm Festival
-> **Target Words**: `alarm, apart, arrest, award, breed, bucket, contest, convict, garage, journalist, pup, qualify, repair, resume, rob, slip, somewhat, stable, tissue, yard`
+> `alarm, apart, arrest, award, breed, bucket, contest, convict, garage, journalist, pup, qualify, repair, resume, rob, slip, somewhat, stable, tissue, yard`
 
 Once there was a farm. Many animals lived there. One day, they had a contest in the yard. They were going to race from the barn to the farmer’s garage. The barn and the garage were far apart. It would be a long race. The winner qualified to win a bag full of apples as an award.
 
@@ -775,7 +775,7 @@ The animals tried to race one more time. Then they heard an alarm coming from th
 <br>
 
 ## 53. The Clever Thief
-> **Target Words**: `alike, annoy, architecture, artificial, chain, distinct, distinguish, dust, excitement, heal, inherit, manner, mount, roof, shortage, solid, stock, substance, tomb, wound`
+> `alike, annoy, architecture, artificial, chain, distinct, distinguish, dust, excitement, heal, inherit, manner, mount, roof, shortage, solid, stock, substance, tomb, wound`
 
 A new king inherited a lot of gold. He loved his gold very much. He even wanted to keep it after he died. Therefore, he had a large tomb built for himself and his riches.
 
@@ -793,7 +793,7 @@ When the builder healed, he explained to the king that he didn’t keep any of t
 <br>
 
 ## 54. The Doctor’s Cure
-> **Target Words**: `bath, bend, chew, disabled, fantastic, fiction, flag, inspect, journal, liquid, marvel, nutrient, overcome, recall, regret, soul, sufficient, surgery, tough, tube`
+> `bath, bend, chew, disabled, fantastic, fiction, flag, inspect, journal, liquid, marvel, nutrient, overcome, recall, regret, soul, sufficient, surgery, tough, tube`
 
 James Fry was a fantastic doctor. His surgeries helped many disabled people overcome their injuries. He also wrote for a popular medical journal. James was very busy. His son, Steve, rarely saw him.
 
@@ -813,7 +813,7 @@ Finally, James said, “I’m not ready to work. I’m going to take a long bath
 <br>
 
 ## 55. The Criminal
-> **Target Words**: `admit, bin, bowl, cabin, cash, criminal, dozen, elder, facial, fence, inspire, mere, neat, occasion, penalty, rude, settle, vehicle, wallet, yell`
+> `admit, bin, bowl, cabin, cash, criminal, dozen, elder, facial, fence, inspire, mere, neat, occasion, penalty, rude, settle, vehicle, wallet, yell`
 
 A man had been in jail because he stole things. The criminal never felt bad. One day, he escaped and ran into the woods. He found a cabin with a fence. The cabin was very neat. Inside, the criminal found a bowl of fruit, a bottle of milk, and a dozen eggs. He ate the fruit and drank the milk. But the eggs smelled funny, so he put them in the trash bin. Soon, he heard the sound of a vehicle’s motor.
 
@@ -825,7 +825,7 @@ On this occasion, the criminal realized that he had been bad. He listened to the
 <br>
 
 ## 56. The Two Captains
-> **Target Words**: `accuse, adjust, amuse, coral, cotton, crash, deck, engage, firm, fuel, grand, hurricane, loss, plain, reef, shut, strict, surf, task, zone`
+> `accuse, adjust, amuse, coral, cotton, crash, deck, engage, firm, fuel, grand, hurricane, loss, plain, reef, shut, strict, surf, task, zone`
 
 Once there were two ships. Both ships carried cotton. The captains were very different. Thomas was strict. He made his crew engage in difficult tasks. “Make sure the ship’s deck is firm and that nothing falls! Put more fuel in the tank!” he said. His ship was very plain, but he never had a problem with it.
 
@@ -841,7 +841,7 @@ Reading Comprehension
 <br>
 
 ## 57. The Duke and the Minister
-> **Target Words**: `apology, bold, capture, cardinal, duke, expose, guilty, hire, innocent, jail, minister, ordinary, permanent, preserve, pronounce, resemble, symptom, tobacco, twin, witch`
+> `apology, bold, capture, cardinal, duke, expose, guilty, hire, innocent, jail, minister, ordinary, permanent, preserve, pronounce, resemble, symptom, tobacco, twin, witch`
 
 A mean duke grew tobacco, and his cardinal rule was to always keep the plants healthy. The duke’s top minister was his twin brother. They closely resembled each other. One day, the tobacco plants started to die. He hired men to watch the fields. Soon, the men brought a woman to him and said, “We captured a witch!”
 
@@ -865,7 +865,7 @@ The minister thought the duke would punish him. But he didn’t. The duke was to
 <br>
 
 ## 58. The Fisherman
-> **Target Words**: `accompany, bare, branch, breath, bridge, cast, dare, electronic, inn, net, philosophy, pot, seed, sharp, sort, subtract, tight, virtual, weigh, whisper`
+> `accompany, bare, branch, breath, bridge, cast, dare, electronic, inn, net, philosophy, pot, seed, sharp, sort, subtract, tight, virtual, weigh, whisper`
 
 Every day, a fisherman sat on a bridge. He ate apples and spit the seeds into the water. He had a simple way to catch fish. He cut a branch off of a tree and tied a line to it. He put a sharp hook on it and made a tight knot. Then he whispered, “Come here fish.” Like magic, the fish bit the hook. He put them in a big net and took them home to make big pots of fish soup from them.
 
@@ -879,7 +879,7 @@ George asked, “How do you catch fish with only a branch and a bare line? I hav
 <br>
 
 ## 59. Osiris and the Nile
-> **Target Words**: `abstract, annual, clay, cloth, curtain, deserve, feather, fertile, flood, furniture, grave, ideal, intelligence, nowadays, obtain, religious, romantic, shell, shore, wheel`
+> `abstract, annual, clay, cloth, curtain, deserve, feather, fertile, flood, furniture, grave, ideal, intelligence, nowadays, obtain, religious, romantic, shell, shore, wheel`
 
 Long ago, Osiris was the king of Egypt, and Isis was the queen. They ruled the fertile land by the Nile River. They had great intelligence, and they shared their abstract ideas with everyone. Osiris taught the Egyptians how to make wheels and furniture. Isis taught them how to make things from clay and cloth. The people thought they deserved a gift. So they built Osiris and Isis a pyramid. Everyone loved Osiris except his brother, Set. Set wanted to be king.
 
@@ -897,7 +897,7 @@ The box washed up on a foreign shore after a flood. Isis brought his body home a
 <br>
 
 ## 60. The Taxi Driver
-> **Target Words**: `appeal, assume, borrow, client, downtown, dull, embarrass, fare, former, formula, found, invest, loan, practical, quarter, salary, scholarship, temporary, treasure, urge`
+> `appeal, assume, borrow, client, downtown, dull, embarrass, fare, former, formula, found, invest, loan, practical, quarter, salary, scholarship, temporary, treasure, urge`
 
 Peter’s job was driving a taxi downtown. He made a small salary. But he liked his job because it wasn’t dull. Every day, he saw new things that appealed to him. Peter was practical about the future. “Maybe I can get a scholarship to college,” he thought. “I could learn mathematical formulas and get a job at a bank. I could help clients invest their money.”
 
