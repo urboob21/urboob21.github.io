@@ -18,8 +18,7 @@ Welcome to this exciting collection of stories inspired by the "4000 Essential E
 ## 1. The Lion and the Rabbit   
 - **Target Words**: `afraid, agree, angry, arrive, attack, bottom, clever, cruel, finally, hide, hunt, lot, middle, moment, pleased, promise, reply, safe, trick, well`
 
-```html
-A cruel lion lived in the forest. Every day, he killed and ate a lot of animals. The other animals were afraid the lion would kill them all.
+> A cruel lion lived in the forest. Every day, he killed and ate a lot of animals. The other animals were afraid the lion would kill them all.
 The animals told the lion, “Let’s make a deal. If you promise to eat only one animal each day, then one of us will come to you every day. Then you don’t have to hunt and kill us.”
 The plan sounded well thought-out to the lion, so he agreed, but he also said, “If you don’t come every day, I promise to kill all of you the next day!”
 Each day after that, one animal went to the lion so that the lion could eat it. Then, all the other animals were safe.
@@ -31,7 +30,6 @@ The rabbit replied, “I will be happy to show you where he lives.”
 The rabbit led the lion to an old well in the middle of the forest. The well was very deep with water at the bottom. The rabbit told the lion, “Look in there. The lion lives at the bottom.”
 When the lion looked in the well, he could see his own face in-the water. He thought that was the other lion. Without waiting another moment, the lion jumped into the well to attack the other lion. He never came out.
 All of the other animal in the forest were very pleased with the rabbit’s clever trick.
-```
 <br>
 
 ## 2. The Laboratory
@@ -429,35 +427,76 @@ That’s how the idiom “let the cat out of the bag” came to mean to tell a s
 ## 31. The Twelve Months
 - **Target Words**: `awful, consist, desire, eager, household, intent, landscape, lift, load, anxious, lung, motion, pace, polite, possess, rapidly, remark, seek, shine, spill`
 
-> An awful woman lived with her daughter and stepdaughter in her household. She possessed feelings of hate for her stepdaughter, Anna. Anna worked while her stepsister did nothing. On a cold January night, Anna’s stepmother remarked, “Your stepsister desires flowers. Go and find some.” Anna wasn’t anxious to walk through the chilled landscape. The cold air made her lungs burn. She walked at a slow pace because of the snow. Soon she saw a group of people. It consisted of twelve men. Anna told them about the flowers.
-One of the man said they were the twelve months and that they would help Anna. January walked to her and made a motion with his hand. The days of the month passed rapidly until it was February’s turn. February also made the month speed up. Then March made the sun shine and flowers grew in the field. 
-Anna loaded her basket with so many flowers that she could hardly lift it. Then she gave a quick but polite “ thank you” to the twelve men and returned home. She was very eager to show her stepmother all the flowers. Back at the house, she spilled the flowers onto the table. Then she told her stepmother about the twelve men. Anna’s stepmother and stepsister went to seek the twelve months. Their intent was to ask for gifts. They looked and looked. They became very lost and never found their way home. Anna lived happily by herself.
+> An awful woman lived with her daughter and stepdaughter in her household. She possessed feelings of hate for her stepdaughter, Anna. Anna worked while her stepsister did nothing. On a cold January night, Anna’s stepmother remarked, “Your stepsister desires flowers. Go and find some.”
+Anna wasn’t anxious to walk through the chilled landscape. The cold air made her lungs burn. She walked at a slow pace because of the snow. Soon she saw a group of people. It consisted of twelve men. Anna told them about the flowers.
+One of the man said they were the twelve months and that they would help Anna. January walked to her and made a motion with his hand. The days of the month passed rapidly until it was February’s turn. February also made the month speed up. Then March made the sun shine and flowers grew in the field.
+Anna loaded her basket with so many flowers that she could hardly lift it. Then she gave a quick but polite “thank you” to the twelve men and returned home. She was very eager to show her stepmother all the flowers. Back at the house, she spilled the flowers onto the table. Then she told her stepmother about the twelve men. Anna’s stepmother and stepsister went to seek the twelve months. Their intent was to ask for gifts. They looked and looked. They became very lost and never found their way home. Anna lived happily by herself.
 <br>
 
 ## 32. The Dragon
 - **Target Words**: `bring, castle, command, counsel, ensure, explosion, jewelry, land, meteor, monster, northern, remote, southern, statue, steam, submit, temple, upper, weed, wing`
 
-> An evil dragon lived in a castle in the remote southern mountains. One day the monster landed in a town. The dragon commanded the people, “ Give me food now, or I will eat you!” The dragon lifted its wings so that its lungs could be completely filled with hot steam, and breathed it upon the people. A man turned into a stone statue! The people submitted and brought food. The dragon ate all of it and left. The people sent a boy to ask for help from a wise old man. He resided in a temple. The boy told the old man about the dragon. Then, the old man counseled the boy. “A meteor will fall in the northern sky. It will make a huge explosion. Find the meteor and bring it to me. I will use it to make a sword for you.” The boy did as the old man said. Soon, the sword was ready. “ Use this to kill the dragon. But be careful. You must cover yourself with weeds that smell bad. That will ensure that he does not smell you,” the man said. The boy traveled for many days to find the castle. He went to the upper level and opened a door. He could see the dragon’s tail. It was sleeping, so the boy killed it. Then, he took the dragon’s gold and jewelry and returned to his town. The people were happy.  
+> An evil dragon lived in a castle in the remote southern mountains.
+One day the monster landed in a town. The dragon commanded the people, “Give me food now, or I will eat you!” The dragon lifted its wings so that its lungs could be completely filled with hot steam, and breathed it upon the people. A man turned into a stone statue!
+The people submitted and brought food. The dragon ate all of it and left.
+The people sent a boy to ask for help from a wise old man. He resided in a temple.
+The boy told the old man about the dragon. Then, the old man counseled the boy. “A meteor will fall in the northern sky. It will make a huge explosion. Find the meteor and bring it to me. I will use it to make a sword for you.”
+The boy did as the old man said. Soon, the sword was ready.
+“Use this to kill the dragon. But be careful. You must cover yourself with weeds that smell bad. That will ensure that he does not smell you,” the man said.
+The boy traveled for many days to find the castle. He went to the upper level and opened a door. He could see the dragon’s tail. It was sleeping, so the boy killed it. Then, he took the dragon’s gold and jewelry and returned to his town. The people were happy. 
 <br>
 
 ## 33. The Battle of Thermopylae
-- **Target Words**: `arrow, battle, bow, brave, chief, disadvantage, enemy, entrance, hardly, intend, laughter, log, military, obey, secure, steady, trust, twist, unless, weapon`
+> `arrow, battle, bow, brave, chief, disadvantage, enemy, entrance, hardly, intend, laughter, log, military, obey, secure, steady, trust, twist, unless, weapon`
 
-> This is a true story. It happened long ago in Greece___ “We must fight,” the Spartan* chief told his small army of brave men. They were at a great disadvantage. There were only three hundred of them. The Persian military had hundreds of thousands of men. They were going to lose unless they could secure a small entrance. The enemy couldn’t move through it easily. They intended to stop the enemy here. The chief and his men got ready for the battle. Soon, long lines of the enemy’s army twisted around the hills. The chief met the enemy with laughter. He knew that his men’s weapons and skills were better. The Spartans trusted their leader and obeyed him. First, the enemy soldiers shot arrows from their bows. The chief told his men to lift their shields*. The arrows stuck into the shields but did not hurt any of the men. Then the enemy’s soldiers attacked the Spartans with long spears. The chief surprised them. His troops rolled logs down on the enemy. They fought for three days. Though they hardly slept at all, the chief and his men remained steady. But the enemy found a way to beat the Spartans. The chief and all of his men were killed. Even though they lost, the Battle ofThermopylae is one of the most famous battles in history. 
-> * Spartan - a soldier from the city of Sparta in Greece 
-> * shield - a piece of wood or metal that soldiers carried to protect themselves 
+This is a true story. It happened long ago in Greece....
+“We must fight,” the Spartan* chief told his small army of brave men. They were at a great disadvantage. There were only three hundred of them. The Persian military had hundreds of thousands of men.
+
+They were going to lose unless they could secure a small entrance. The enemy couldn’t move through it easily. They intended to stop the enemy here. The chief and his men got ready for the battle.
+
+Soon, long lines of the enemy’s army twisted around the hills. The chief met the enemy with laughter. He knew that his men’s weapons and skills were better. The Spartans trusted their leader and obeyed him.
+
+First, the enemy soldiers shot arrows from their bows. The chief told his men to lift their shields*. The arrows stuck into the shields but did not hurt any of the men.
+
+Then the enemy’s soldiers attacked the Spartans with long spears. The chief surprised them. His troops rolled logs down on the enemy.
+
+They fought for three days. Though they hardly slept at all, the chief and his men remained steady.
+
+But the enemy found a way to beat the Spartans. The chief and all of his men were killed. Even though they lost, the Battle of Thermopylae is one of the most famous battles in history.
+ 
+
+* Spartan - a soldier from the city of Sparta in Greece
+
+* shield - a piece of wood or metal that soldiers carried to protect themselves
 <br>
 
 ## 34. The Deer and His Image
-- **Target Words**: `chest, confidence, consequence, disaster, disturb, estimate, honor, impress, marathon, narrow, pale, rough, satisfy, scream, sensitive, shade, supplement, terror, threat, victim`
+> `chest, confidence, consequence, disaster, disturb, estimate, honor, impress, marathon, narrow, pale, rough, satisfy, scream, sensitive, shade, supplement, terror, threat, victim`
 
-> A deer told himself every day, “ I am the most handsome deer in the forest. My large chest is a symbol of my power. And my beautiful horns impress other animals.” But he did not like his legs and hooves*. “ My legs are narrow, and my hooves are ugly. They do not satisfy me.” One day, the deer saw a big dog. The deer made some noise and disturbed the dog. The dog woke up and chased him. The deer felt terror. He screamed. He did not want to be a victim, so he ran into the forest. His strong legs helped him run fast. His pale brown hooves were hard, so they were not sensitive to rough rocks. However, his horns got caught in branches, slowing him down. His large chest could not fit between thick trees. The deer estimated that he ran for an hour. He felt like he was running a marathon. In the end, the deer escaped the threat of the dog. He sat in the shade of a tree. “That was almost a disaster! I almost did not escape because of my chest and horns. My legs and hooves saved me.” As a consequence, the deer learned to honor his fast legs and have confidence in his strong hooves. “ Pretty things only supplement important things,” he thought. *hooves - the feet of ani  
+A deer told himself every day, “I am the most handsome deer in the forest. My large chest is a symbol of my power. And my beautiful horns impress other animals.”
+
+But he did not like his legs and hooves*. “My legs are narrow, and my hooves are ugly. They do not satisfy me.”
+
+One day, the deer saw a big dog. The deer made some noise and disturbed the dog. The dog woke up and chased him. The deer felt terror. He screamed. He did not want to be a victim, so he ran into the forest. His strong legs helped him run fast. His pale brown hooves were hard, so they were not sensitive to rough rocks. However, his horns got caught in branches, slowing him down. His large chest could not fit between thick trees.
+
+The deer estimated that he ran for an hour. He felt like he was running a marathon. In the end, the deer escaped the threat of the dog. He sat in the shade of a tree. “That was almost a disaster! I almost did not escape because of my chest and horns. My legs and hooves saved me.” As a consequence, the deer learned to honor his fast legs and have confidence in his strong hooves. “Pretty things only supplement important things,” he thought.
+
+*hooves - the feet of animals like deer and horses
+
 <br>
 
 ## 35. May 29,1953
-- **Target Words**: `ancestor, angle, boot, border, congratulate, frame, heaven, incredible, legend, praise, proceed, pure, relative, senior, silent, sink, superior, surround, thick, wrap`
+> **Target Words**: `ancestor, angle, boot, border, congratulate, frame, heaven, incredible, legend, praise, proceed, pure, relative, senior, silent, sink, superior, surround, thick, wrap`
 
-> Today is the most important day of my life. I finally climbed Mt. Everest, the tallest mountain in the world. The top of the mountain was amazing. It felt like we were close to heaven. The snow was so thick that my boots sank. The air was silent. I looked at the beauty that surrounded me. Maybe my story will be a legend someday. I want people to remember this forever. I was the senior explorer in my group, and I knew we needed proof of our climb. I took many pictures with my camera. I’ll put them in a frame and hang them. On the mountain, the air was very cold. I wrapped my coat around my body. I looked over the side of the mountaintop. From that angle, I saw the border of the clouds touch the rocks below. The snow was thick. It looked pure. There was no sign of modern life. Thousands of years ago, my ancestors saw the world this way. After fifteen minutes, I knew it was time to proceed down the mountain. The whole team congratulated us. My superior, John Hunt, praised us all. I sent messages to my relatives to tell them that I was safe. But it was hard to leave the mountain so quickly. I wanted to enjoy the incredible sight even longer.  
+Today is the most important day of my life. I finally climbed Mt. Everest, the tallest mountain in the world.
+
+The top of the mountain was amazing. It felt like we were close to heaven. The snow was so thick that my boots sank. The air was silent. I looked at the beauty that surrounded me. Maybe my story will be a legend someday.
+
+I want people to remember this forever. I was the senior explorer in my group, and I knew we needed proof of our climb. I took many pictures with my camera. I’ll put them in a frame and hang them.
+
+On the mountain, the air was very cold. I wrapped my coat around my body. I looked over the side of the mountaintop. From that angle, I saw the border of the clouds touch the rocks below. The snow was thick. It looked pure. There was no sign of modern life. Thousands of years ago, my ancestors saw the world this way.
+
+After fifteen minutes, I knew it was time to proceed down the mountain. The whole team congratulated us. My superior, John Hunt, praised us all. I sent messages to my relatives to tell them that I was safe. But it was hard to leave the mountain so quickly. I wanted to enjoy the incredible sight even longer.
 <br>
 
 ## 36. The Frog Prince
