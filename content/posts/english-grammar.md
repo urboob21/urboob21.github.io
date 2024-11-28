@@ -535,14 +535,14 @@ This section categorizes words based on their function in a sentences.
 
 ### 3.5. Relative clauses
 - **Usage:** Relative clauses are a type of subordinate clause that gives more information about a noun.
-### 3.5.1. Type of Relative clauses
+#### 3.5.1. Type of Relative clauses
 1. Defining Relative Clauses
   - `The man who lives next door is a doctor`.
 
 2. Non-Defining Relative Clauses
   - `My brother, who lives in London, is coming to visit`.
 
-### 3.5.2. Relative Pronouns
+#### 3.5.2. Relative Pronouns
  - Who:
    - `I told you about the woman who lives next door`.
  - Which:
@@ -552,7 +552,7 @@ This section categorizes words based on their function in a sentences.
  - That:
    - `I don't like the table that stands in the kitchen.`
 
-### 3.5.3. Relative Adverbs
+#### 3.5.3. Relative Adverbs
   - When (in/at/on which):
     - `I remember the day when we first met.`
   - Where (in/at/on which):
@@ -560,7 +560,7 @@ This section categorizes words based on their function in a sentences.
   - Why (for which):
     - `The reason why we did not play football yesterday is so bad.`
     
-### 3.5.4. Reduced clauses
+#### 3.5.4. Reduced clauses
   - `The man who is standing there is handsome`
     - > `The man standing there is handsome.`
   - `The book which is written by Mr.A is interesting.`
@@ -578,25 +578,25 @@ This section categorizes words based on their function in a sentences.
 
 
 ### 3.6. Noun clauses
-### 3.6.1. Subject Clause
+#### 3.6.1. Subject Clause
 - **Usage:** Noun clauses that act as the subject of a sentence.
 - **Structure:** `Where/When/Why/What/That S V`
 - **Examples:**
   - `When he leaves is up to me.`
 
-### 3.6.2. Object of Verb
+#### 3.6.2. Object of Verb
 - **Usage:** Noun clauses that act as the object of the verb.
 - **Structure:** `S V w.../that S V`
 - **Examples:**
   - `They think that they are wrong.`
 
-### 3.6.3. Object of Preposition
+#### 3.6.3. Object of Preposition
 - **Usage:** as the object of preposition
 - **Structure:** `adjective + preposition + w.../that SV`
 - **Examples:**
   - `He is interested in how we could do that.`
 
-### 3.6.4. Subject Complement
+#### 3.6.4. Subject Complement
 - **Usage:** as complements to the subject.
 - **Structure:** `S be + w.../that S V.`
 - **Examples:**
@@ -607,7 +607,7 @@ This section categorizes words based on their function in a sentences.
 
 
 ### 3.7. Adverbial Clauses
-### 3.7.1. Time Clauses
+#### 3.7.1. Time Clauses
 - **Usage:** Indicates the time when the action in the main clause occurs.
 - **Structure:**
 ```
@@ -633,25 +633,25 @@ Whenever + subject + verb
 `Just as the girl entered the room, everyone looked at me.`
 `I’ll come whenever you need me.`
 
-### 3.7.2. Place Clauses
+#### 3.7.2. Place Clauses
 - **Usage:** Indicates the place where an action occurs.
 - **Structure:** `Where/ Wherever S V`
 - **Examples:**
   - `You can find me where you live, near the park.`
 
-### 3.7.3. Cause Clauses
+#### 3.7.3. Cause Clauses
 - **Usage:** Explains the reason for an action.
 - **Structure:** `Because/ Since/ As/ Seeing that S V`
 - **Examples:**
   - `Seeing that they were late, they missed the first part of the movie.`
 
-### 3.7.4. Purpose Clauses
+#### 3.7.4. Purpose Clauses
 - **Usage:** Indicates the purpose of an action.
 - **Structure:** `So that/ In order that S V`
 - **Examples:**
   - `Many students write to the president in order that Black people may achieve equality.`
 
-### 3.7.5. Contrast Clauses
+#### 3.7.5. Contrast Clauses
 - **Usage:** Expresses contrast or opposition between two ideas or actions.
 - **Structure:** 
   - `Although/ Though/ Even though S V`
@@ -669,19 +669,19 @@ Whenever + subject + verb
 ### 3.8. Comparative
 - **Usage:** Used to compare two things, showing they are similar (or not) in some way.
 ---
-### 3.8.1. Equal - using "Adj/Adv"
+#### 3.8.1. Equal - using "Adj/Adv"
 - **Structure:** `S + V + as adj/adv as + noun/ pronoun/ SV.`
 - **Examples:** 
   - `This book is as interesting as yours`.
-### 3.8.2. Equal - using "the same Noun"
+#### 3.8.2. Equal - using "the same Noun"
 - **Structure:** `S + V + the same (N)  as + noun/pronoun/ SV.`
 - **Examples:** 
   - `My house is the same height as his`.
-### 3.8.3. Equal - using Quantities
+#### 3.8.3. Equal - using Quantities
 - **Structure:** `S + V + as many/much/little/few N as + noun/pronoun/ SV.`
 - **Examples:** 
   - `She has as many book as I do`.
-### 3.8.4. Equal - Negation
+#### 3.8.4. Equal - Negation
 - Use "not as" or "not so" for negative comparisons.
 - `The teacher is not the same as ours`
 
@@ -695,7 +695,7 @@ Whenever + subject + verb
 - **Examples:** 
   - `Today is hotter than yesterday`.
   - `My lover is more beautiful than me.`
-### 3.8.6. Less/More - using "Noun"
+#### 3.8.6. Less/More - using "Noun"
 - **Structure:** 
   - `S + V + more/fewer/less Noun than + noun/pronoun/SV`
 - **Examples:** 
@@ -703,13 +703,13 @@ Whenever + subject + verb
 
 ---
 
-### 3.8.7. Multiplicative 
+#### 3.8.7. Multiplicative 
 - **Structure:** 
   - `S + V + (twice/three times/…) as  much/many/noun  as + noun/pronoun`
 - **Examples:** 
   - `This car is three times as expensive as that one`.
 
-### 3.8.8. Correlative  
+#### 3.8.8. Correlative  
 - **Structure:** 
   - `The comparative + S + V, the comparative + S + V`
   - `The more + S + V, the comparative + S + V`
@@ -717,7 +717,7 @@ Whenever + subject + verb
   - `The sooner you take it, the better you will feel`.
   - `The more you study, the smarter you will become`.
 
-### 3.8.9. Superlative   
+#### 3.8.9. Superlative   
 - **Structure:** 
   - `S + V + the adj/adv (est) + noun/SV`
   - `S + V + the most/least adj/adv + noun/SV`
