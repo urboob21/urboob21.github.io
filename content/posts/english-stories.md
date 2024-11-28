@@ -1,8 +1,8 @@
 ---
 author: "Phong Nguyen"
-title: "English Grammar"
+title: "English Stories"
 date: "2024-11-28"
-description: "English Stories."
+description: "4000 Essential English Words - Stories."
 tags: ["english"]   #tags search
 FAcategories: ["syntax"]    #The category of the post, similar to tags but usually for broader classification.
 FAseries: ["Themes Guide"]    #indicates that this post is part of a series of related posts

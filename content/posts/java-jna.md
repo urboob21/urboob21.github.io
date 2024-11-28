@@ -1,6 +1,6 @@
 ---
 author: "Phong Nguyen"
-title: "Java Platform Standard Edition"
+title: "Java JNA"
 date: "2024-11-21"
 description: "Java: JNA."
 tags: ["java"]   #tags search
