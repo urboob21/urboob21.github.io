@@ -18,7 +18,8 @@ Welcome to this exciting collection of stories inspired by the "4000 Essential E
 ## 1. The Lion and the Rabbit   
 - **Target Words**: `afraid, agree, angry, arrive, attack, bottom, clever, cruel, finally, hide, hunt, lot, middle, moment, pleased, promise, reply, safe, trick, well`
 
-> A cruel lion lived in the forest. Every day, he killed and ate a lot of animals. The other animals were afraid the lion would kill them all.
+```html
+A cruel lion lived in the forest. Every day, he killed and ate a lot of animals. The other animals were afraid the lion would kill them all.
 The animals told the lion, “Let’s make a deal. If you promise to eat only one animal each day, then one of us will come to you every day. Then you don’t have to hunt and kill us.”
 The plan sounded well thought-out to the lion, so he agreed, but he also said, “If you don’t come every day, I promise to kill all of you the next day!”
 Each day after that, one animal went to the lion so that the lion could eat it. Then, all the other animals were safe.
@@ -30,6 +31,7 @@ The rabbit replied, “I will be happy to show you where he lives.”
 The rabbit led the lion to an old well in the middle of the forest. The well was very deep with water at the bottom. The rabbit told the lion, “Look in there. The lion lives at the bottom.”
 When the lion looked in the well, he could see his own face in-the water. He thought that was the other lion. Without waiting another moment, the lion jumped into the well to attack the other lion. He never came out.
 All of the other animal in the forest were very pleased with the rabbit’s clever trick.
+```
 <br>
 
 ## 2. The Laboratory
