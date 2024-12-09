@@ -94,6 +94,6 @@ changing the pitch)
 
 > Lấy một sợi dây cao su và giữ nó bằng hai ngón tay cái của bạn. Mỗi khi bạn muốn nhấn mạnh một từ bằng cách thay đổi cao độ, hãy kéo dây cao su. Kéo nó ra một cách nhẹ nhàng, đừng giật mạnh. Tạo một hình lặp ° ° với nó và làm tương tự với giọng nói của bạn. Sử dụng dây cao su và kéo căng nó ra mỗi khi bạn thay đổi cao độ. Đầu tiên đọc ngang, sau đó đọc xuống
 
-[Listen to the audio](/audito/exercise_1.mp3)
+[Listen to the audio](/audio/exercise_1.mp3)
 
 ### 1.2. Staircase Intonation
