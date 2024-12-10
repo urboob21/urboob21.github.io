@@ -90,10 +90,66 @@ Americans tend to speak without moving their lips too much, focusing on sounds p
 changing the pitch)
 
 - **Exercise 1:**
-![image](/images/make_intonation.png)<br>
+![image](/images/excercise_1.png)<br>
 
 > Lấy một sợi dây cao su và giữ nó bằng hai ngón tay cái của bạn. Mỗi khi bạn muốn nhấn mạnh một từ bằng cách thay đổi cao độ, hãy kéo dây cao su. Kéo nó ra một cách nhẹ nhàng, đừng giật mạnh. Tạo một hình lặp ° ° với nó và làm tương tự với giọng nói của bạn. Sử dụng dây cao su và kéo căng nó ra mỗi khi bạn thay đổi cao độ. Đầu tiên đọc ngang, sau đó đọc xuống
 
 [Listen to the audio](/audio/exercise_1.mp3)
 
 ### 1.2. Staircase Intonation
+#### 1.2.1 Nouns
+- Intonation or pitch change is primarily used to introduce new information. So, when we are making a statement for the first time, we will stress the **nouns**.
+- **Exercise 2:**
+![image](/images/excercise_2.png)<br>
+[Listen to the audio](/audio/exercise_2.mp3)
+
+#### 1.2.2 Pronouns
+- Stress the verb as pronouns are old information.
+```html
+Dogs       bones
+///// eat //////
+They ///// them
+////////////////
+```
+- **Exercise 3:**
+![image](/images/excercise_3.png)<br>
+[Listen to the audio](/audio/exercise_3.mp3)
+
+#### 1.2.3 Question
+- A question rises a little higher than a statement with the same intonation pattern.
+```html
+"Here is my car."
+Here          ca
+///// is     ///// ar 
+///////// my ////////// 
+///////////////////////
+
+"Where is my car ?"
+             car
+             /////
+Where        /////
+///// is     ///// 
+///////// my /////
+//////////////////
+```
+#### 1.2.4 New Information/ Opinion/ Contrast/ "Can't"
+- It sounds like **rain**.
+- Duh-duh-duh **rain** | It sounds like **rain**.
+```html
+Duh                    ray
+///// duh             ///// ayn.
+///// ///// duh       ///// /////
+///// ///// /////     ///// /////
+```
+- Make rain every musical and put it on two notes: ray-ayn.
+----
+- It sounds like **rain**. (It's rain)
+- It **sounds like** **rain**. (It's not)
+----
+- He **likes** rain, but he **hates** snow.
+- Like and hate are contrasted and are the stronger words.
+----
+- It **can't** rain when there're no **clouds**.
+- Contractions (shouldn't, wouldn't) and negatives (no, not, never) are important words since they totally negate the meaning of a sentence, but they are not usually stressed. **Can't** is the exception.
+
+[Listen to the audio](/audio/exercise_4.mp3)
