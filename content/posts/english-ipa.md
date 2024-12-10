@@ -73,7 +73,12 @@ Learn about English IPA and accent
 
 
 ## 1. American Intonation
-
+> Note: 
+> 1. Practice these sentences on your own.
+> 2. Exaggerating the word that we think should be stressed.
+> 3. Practice the sentences in random order ten times.
+> 4. When we over-exaggerated, we will get tired or relaxed, we will stop paying attention. When this happens, like a rubber band, we're going to snap back to the way we originally were sounding (10 percent). So, if we just stretch ourself to the exact position where we ideally want to be, we'll go back almost completely to the old way when we relax.
+> 5. Stretch ourself far beyond the normal range of intonation (150 percent), so when we relax, we relax back to a standard American sound (100 percent)
 ### 1.1. The American Speech Music
 Americans tend to speak without moving their lips too much, focusing on sounds produced with the tongue in the throat.Like to Jazz.
 - **Do not speak word by word.**
@@ -144,7 +149,7 @@ Duh                    ray
 - Make rain every musical and put it on two notes: ray-ayn.
 ----
 - It sounds like **rain**. (It's rain)
-- It **sounds like** **rain**. (It's not)
+- It **sounds** like rain. (It's not)
 ----
 - He **likes** rain, but he **hates** snow.
 - Like and hate are contrasted and are the stronger words.
@@ -153,3 +158,7 @@ Duh                    ray
 - Contractions (shouldn't, wouldn't) and negatives (no, not, never) are important words since they totally negate the meaning of a sentence, but they are not usually stressed. **Can't** is the exception.
 
 [Listen to the audio](/audio/exercise_4.mp3)
+
+- **Exercise 6:**
+![image](/images/excercise_6.png)<br>
+[Listen to the audio](/audio/exercise_6.mp3)
