@@ -652,7 +652,7 @@ That’s how the idiom “let the cat out of the bag” came to mean to tell a s
 <br>
 
 ## 31. The Twelve Months
-> `awful, consist, desire, eager, household, intent, landscape, lift, load, anxious, lung, motion, pace, polite, possess, rapidly, remark, seek, shine, spill`
+> `awful [ˈɔːfəl], consist [kənˈsɪst], desire [dɪˈzaɪə(r)], eager [ˈiːɡər], household [ˈhaʊshəʊld], intent [ɪnˈtɛnt], landscape [ˈlændskeɪp], lift [lɪft], load [ləʊd], anxious [ˈæŋkʃəs], lung [lʌŋ], motion [ˈməʊʃən], pace [peɪs], polite [pəˈlaɪt], possess [pəˈzɛs], rapidly [ˈræpɪdli], remark [rɪˈmɑːrk], seek [siːk], shine [ʃaɪn], spill [spɪl]`
 
 An awful woman lived with her daughter and stepdaughter in her household. She possessed feelings of hate for her stepdaughter, Anna. Anna worked while her stepsister did nothing. On a cold January night, Anna’s stepmother remarked, “Your stepsister desires flowers. Go and find some.”
 Anna wasn’t anxious to walk through the chilled landscape. The cold air made her lungs burn. She walked at a slow pace because of the snow. Soon she saw a group of people. It consisted of twelve men. Anna told them about the flowers.
