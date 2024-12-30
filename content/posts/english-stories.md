@@ -707,6 +707,29 @@ But the enemy found a way to beat the Spartans. The chief and all of his men wer
 ## 34. The Deer and His Image
 > `chest, confidence, consequence, disaster, disturb, estimate, honor, impress, marathon, narrow, pale, rough, satisfy, scream, sensitive, shade, supplement, terror, threat, victim`
 
+- The **chest [tʃest]** is the front part of a person's body under the neck.
+- If you have **confidence[ˈkɑːn.fə.dəns]** about something, you are sure of it.
+- A **consequence[ˈkɑːn.sə.kwəns]** is a result of a choice or action.
+- A **disaster[dɪˈzæs.tɚ]** is a really bad thing that happens.
+- To **disturb[dɪˈstɝːb]** someone means to upset them.
+- To **estimate[ˈes.tə.meɪt]** something means to make a guess about it.
+- When you **honor[ˈɑː.nɚ]** people or things, you should respect for them.
+- To **impress[ɪmˈpres]** someone means to make that person proud.
+- A **marathon[ˈmer.ə.θɑːn]** is a very long foot race just over 42 kilometers.
+- When something is **narrow[ˈner.oʊ]**, it is very thin.
+- When something is **pale[peɪl]**, it does not have bright color.
+- When some thing is **rough[rʌf]**, it is not even or smooth.
+- To **satisfy[ˈsæt̬.ɪs.faɪ]** someone means to make them happy.
+- To **scream[skriːm]** means to make a loud noise with your mouth.
+- When someone or something is **sensitive[ˈsen.sə.t̬ɪv]**, they are easily hurt.
+- The **shade[ʃeɪd]** is a dark area that something makes when it blocks the sun.
+- To **supplement[ˈsʌp.lə.mənt]** something is to add something else to it in a good way.
+- When someone fell **terror[ˈter.ɚ]**, they are scared.
+- A **threat[θret]** is something bad that might happen.
+- A **victim[ˈvɪk.təm]** is a person that had something bad happen to them.
+
+----
+
 A deer told himself every day, “I am the most handsome deer in the forest. My large chest is a symbol of my power. And my beautiful horns impress other animals.”
 
 But he did not like his legs and hooves*. “My legs are narrow, and my hooves are ugly. They do not satisfy me.”

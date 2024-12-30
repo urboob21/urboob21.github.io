@@ -255,13 +255,10 @@ Tenses indicate the time of an action or state of being expressed by a verb.<br>
 ----
 
 ## 2. Type of words
-This section categorizes words based on their function in a sentences. 
+This section categorizes words based on their function in a sentences([refer](https://dictionary.cambridge.org/grammar/british-grammar/)).
+### 2.1. Nouns, pronouns and determiners
 
-### 2.1. Articles and nouns
-
-### 2.2. Pronouns and determiners
-
-### 2.3. Verbs
+### 2.2. Verbs
 
 #### 2.3.2. Modal verbs
 
@@ -325,11 +322,6 @@ This section categorizes words based on their function in a sentences.
 ### 2.3. Adjectives and adverbs
 
 ### 2.4. Conjunctions and prepositions
-
-### 2.5. Prepositions
-
-### 2.6. Pronouns and determiners
-
 
 ## 3. Types of sentences
 
