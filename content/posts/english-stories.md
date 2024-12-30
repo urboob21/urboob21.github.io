@@ -745,6 +745,27 @@ The deer estimated that he ran for an hour. He felt like he was running a marath
 ## 35. May 29,1953
 > `ancestor, angle, boot, border, congratulate, frame, heaven, incredible, legend, praise, proceed, pure, relative, senior, silent, sink, superior, surround, thick, wrap`
 
+- An **ancestor[ˈæn.ses.tɚ]** is a family member from the past.
+- An **angle[ˈæŋ.ɡəl]** is the direction from which you look at something.
+- A **boot[buːt]** is an heavy shoe that goes over your ankle.
+- A **border[ˈbɔːr.dɚ]** is an edge of an area.
+- To **congratulate[kənˈɡrætʃ.ə.leɪt]** someone is to tell them that you are happy to them.
+- A **frame[freɪm]** is a border of the picture or the mirror.
+- **Heaven[ˈhev.ən]** is the place that people believe people go when they die.
+- If someone or something is **incredible[ɪnˈkred.ə.bəl]**, it is hard to believe they are true.
+- A **legend[ˈledʒ.ənd]** is a story from the past.
+- To **praise[preɪz]** is to show that you like someone or something.
+- To **proceed[proʊˈsiːd]** is to go in a certain direction.
+- If something is **pure[pjʊr]**, it is very clear and beautiful.
+- A **relative[ˈrel.ə.t̬ɪv]** is a family member.
+- If one is **senior[ˈsiː.njɚ]**, they are the oldest or have been there the longest.
+- If someone or something is **silent[ˈsaɪ.lənt]**, they make no sound.
+- To **sink[sɪŋk]** into something is to slowly fall into it.
+- If someone or something is **superior[səˈpɪr.i.ɚ]**, they are better than another.
+- To **surround[səˈraʊnd]** something is to close in on it from all sides.
+- If something is **thick[θɪk]**, it is wide and solid.
+- To **wrap[ræp]** is to cover something on all sides.
+----
 Today is the most important day of my life. I finally climbed Mt. Everest, the tallest mountain in the world.
 
 The top of the mountain was amazing. It felt like we were close to heaven. The snow was so thick that my boots sank. The air was silent. I looked at the beauty that surrounded me. Maybe my story will be a legend someday.
