@@ -657,13 +657,13 @@ That’s how the idiom “let the cat out of the bag” came to mean to tell a s
 An awful woman lived with her daughter and stepdaughter in her household. She possessed feelings of hate for her stepdaughter, Anna. Anna worked while her stepsister did nothing. On a cold January night, Anna’s stepmother remarked, “Your stepsister desires flowers. Go and find some.”
 Anna wasn’t anxious to walk through the chilled landscape. The cold air made her lungs burn. She walked at a slow pace because of the snow. Soon she saw a group of people. It consisted of twelve men. Anna told them about the flowers.
 
-One of the man said they were the twelve months and that they would help Anna. January walked to her and made a motion with his hand. The days of the month passed rapidly until it was February’s turn. February also made the month speed up. Then March made the sun shine and flowers grew in the field.
+One of the men said they were the twelve months and that they would help Anna. January walked to her and made a motion with his hand. The days of the month passed rapidly until it was February’s turn. February also made the month speed up. Then March made the sun shine and flowers grew in the field.
 
 Anna loaded her basket with so many flowers that she could hardly lift it. Then she gave a quick but polite “thank you” to the twelve men and returned home. She was very eager to show her stepmother all the flowers. Back at the house, she spilled the flowers onto the table. Then she told her stepmother about the twelve men. Anna’s stepmother and stepsister went to seek the twelve months. Their intent was to ask for gifts. They looked and looked. They became very lost and never found their way home. Anna lived happily by herself.
 <br>
 
 ## 32. The Dragon
-> `bring, castle, command, counsel, ensure, explosion, jewelry, land, meteor, monster, northern, remote, southern, statue, steam, submit, temple, upper, weed, wing`
+> `bring [brɪŋ], castle [ˈkæsəl], command [kəˈmænd], counsel [ˈkaʊnsəl], ensure [ɪnˈʃʊər], explosion [ɪkˈspləʊʒən], jewelry [ˈdʒuːəlri], land [lænd], meteor [ˈmiːtiər], monster [ˈmɒnstər], northern [ˈnɔːrðərn], remote [rɪˈməʊt], southern [ˈsʌðərn], statue [ˈstætʃuː], steam [stiːm], submit [səbˈmɪt], temple [ˈtɛmpəl], upper [ˈʌpər], weed [wiːd], wing [wɪŋ]`
 
 
 An evil dragon lived in a castle in the remote southern mountains.
