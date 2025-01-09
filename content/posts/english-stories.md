@@ -681,7 +681,7 @@ The boy traveled for many days to find the castle. He went to the upper level an
 <br>
 
 ## 33. The Battle of Thermopylae
-> `arrow, battle, bow, brave, chief, disadvantage, enemy, entrance, hardly, intend, laughter, log, military, obey, secure, steady, trust, twist, unless, weapon`
+> `arrow [ˈæroʊ], battle [ˈbætəl], bow [boʊ], brave [breɪv], chief [ʧiːf], disadvantage [ˌdɪsədˈvæntɪdʒ], enemy [ˈɛnəmi], entrance [ˈɛntrəns], hardly [ˈhɑːrdli], intend [ɪnˈtɛnd], laughter [ˈlæftər], log [lɔɡ], military [ˈmɪləˌtɛri], obey [oʊˈbeɪ], secure [sɪˈkjʊr], steady [ˈstɛdi], trust [trʌst], twist [twɪst], unless [ʌnˈlɛs], weapon [ˈwɛpən]`
 
 This is a true story. It happened long ago in Greece....
 “We must fight,” the Spartan* chief told his small army of brave men. They were at a great disadvantage. There were only three hundred of them. The Persian military had hundreds of thousands of men.
@@ -705,30 +705,8 @@ But the enemy found a way to beat the Spartans. The chief and all of his men wer
 <br>
 
 ## 34. The Deer and His Image
-> `chest, confidence, consequence, disaster, disturb, estimate, honor, impress, marathon, narrow, pale, rough, satisfy, scream, sensitive, shade, supplement, terror, threat, victim`
+> `chest [ʧɛst], confidence [ˈkɒnfɪdəns], consequence [ˈkɒnsɪkwəns], disaster [dɪˈzæstər], disturb [dɪˈstɜːrb], estimate [ˈɛstɪmeɪt], honor [ˈɒnər], impress [ɪmˈprɛs], marathon [ˈmærəθən], narrow [ˈnæroʊ], pale [peɪl], rough [rʌf], satisfy [ˈsætɪsfaɪ], scream [skriːm], sensitive [ˈsɛnsɪtɪv], shade [ʃeɪd], supplement [ˈsʌplɪmənt], terror [ˈtɛrər], threat [θrɛt], victim [ˈvɪktɪm]`
 
-- The **chest [tʃest]** is the front part of a person's body under the neck.
-- If you have **confidence[ˈkɑːn.fə.dəns]** about something, you are sure of it.
-- A **consequence[ˈkɑːn.sə.kwəns]** is a result of a choice or action.
-- A **disaster[dɪˈzæs.tɚ]** is a really bad thing that happens.
-- To **disturb[dɪˈstɝːb]** someone means to upset them.
-- To **estimate[ˈes.tə.meɪt]** something means to make a guess about it.
-- When you **honor[ˈɑː.nɚ]** people or things, you should respect for them.
-- To **impress[ɪmˈpres]** someone means to make that person proud.
-- A **marathon[ˈmer.ə.θɑːn]** is a very long foot race just over 42 kilometers.
-- When something is **narrow[ˈner.oʊ]**, it is very thin.
-- When something is **pale[peɪl]**, it does not have bright color.
-- When some thing is **rough[rʌf]**, it is not even or smooth.
-- To **satisfy[ˈsæt̬.ɪs.faɪ]** someone means to make them happy.
-- To **scream[skriːm]** means to make a loud noise with your mouth.
-- When someone or something is **sensitive[ˈsen.sə.t̬ɪv]**, they are easily hurt.
-- The **shade[ʃeɪd]** is a dark area that something makes when it blocks the sun.
-- To **supplement[ˈsʌp.lə.mənt]** something is to add something else to it in a good way.
-- When someone fell **terror[ˈter.ɚ]**, they are scared.
-- A **threat[θret]** is something bad that might happen.
-- A **victim[ˈvɪk.təm]** is a person that had something bad happen to them.
-
-----
 
 A deer told himself every day, “I am the most handsome deer in the forest. My large chest is a symbol of my power. And my beautiful horns impress other animals.”
 
@@ -743,29 +721,8 @@ The deer estimated that he ran for an hour. He felt like he was running a marath
 <br>
 
 ## 35. May 29,1953
-> `ancestor, angle, boot, border, congratulate, frame, heaven, incredible, legend, praise, proceed, pure, relative, senior, silent, sink, superior, surround, thick, wrap`
+> `ancestor [ˈænsɛstər], angle [ˈæŋɡəl], boot [buːt], border [ˈbɔːrdər], congratulate [kənˈɡrætʃəleɪt], frame [freɪm], heaven [ˈhɛvən], incredible [ɪnˈkrɛdəbl], legend [ˈlɛdʒənd], praise [preɪz], proceed [prəˈsiːd], pure [pjʊər], relative [ˈrɛlətɪv], senior [ˈsiːnjər], silent [ˈsaɪlənt], sink [sɪŋk], superior [suːˈpɪriər], surround [səˈraʊnd], thick [θɪk], wrap [ræp]`
 
-- An **ancestor[ˈæn.ses.tɚ]** is a family member from the past.
-- An **angle[ˈæŋ.ɡəl]** is the direction from which you look at something.
-- A **boot[buːt]** is an heavy shoe that goes over your ankle.
-- A **border[ˈbɔːr.dɚ]** is an edge of an area.
-- To **congratulate[kənˈɡrætʃ.ə.leɪt]** someone is to tell them that you are happy to them.
-- A **frame[freɪm]** is a border of the picture or the mirror.
-- **Heaven[ˈhev.ən]** is the place that people believe people go when they die.
-- If someone or something is **incredible[ɪnˈkred.ə.bəl]**, it is hard to believe they are true.
-- A **legend[ˈledʒ.ənd]** is a story from the past.
-- To **praise[preɪz]** is to show that you like someone or something.
-- To **proceed[proʊˈsiːd]** is to go in a certain direction.
-- If something is **pure[pjʊr]**, it is very clear and beautiful.
-- A **relative[ˈrel.ə.t̬ɪv]** is a family member.
-- If one is **senior[ˈsiː.njɚ]**, they are the oldest or have been there the longest.
-- If someone or something is **silent[ˈsaɪ.lənt]**, they make no sound.
-- To **sink[sɪŋk]** into something is to slowly fall into it.
-- If someone or something is **superior[səˈpɪr.i.ɚ]**, they are better than another.
-- To **surround[səˈraʊnd]** something is to close in on it from all sides.
-- If something is **thick[θɪk]**, it is wide and solid.
-- To **wrap[ræp]** is to cover something on all sides.
-----
 Today is the most important day of my life. I finally climbed Mt. Everest, the tallest mountain in the world.
 
 The top of the mountain was amazing. It felt like we were close to heaven. The snow was so thick that my boots sank. The air was silent. I looked at the beauty that surrounded me. Maybe my story will be a legend someday.

@@ -116,17 +116,122 @@ It was **pretty** good. (She didn't like it much.)
 
 - WH questions:
   - Why do you study *English* ?
-## 2.2. Rising
+### 2.2. Rising
 - Yes/No question:
   - Did they **call**?
 
 - Alternative questions: When you have `or` in a question, that's an alternative question.
   - Are they **coming** or *going* ?
 
-## 2.3. Fall-rising
+### 2.3. Fall-rising
 - Something is incomplete, we are uncertain of something or we still want to continue the sentence and it is not finished yet.
   - I don't play *ten***nis**, but I like watching it!
 
 - We can have fall-rise intonation separately on 2 different words.
   - She is *quite* a good **teacher**, but she's a *bit old*.
   
+
+## 3. Introduction
+
+## 4. Home Town
+- where your home town located, what is special about it, what laguagues are spoken,...
+
+### 4.1. Suggestions
+- Use: 
+	- present simple to talk about your home town
+	- past simple/ present perfect to describle changes
+- Statements:
+	- It located in the XX(southeast) of XX Province.
+	- It is very + adj (comfortable) living there.
+	- It is a/an + adj (nice, quite) place to live in.
+	- Living there is + adj (interesting, fascinating)
+	- I lived there for .. year./ ...year ago, I moved to ...
+	- I have been living there since I was born in ...
+	- My home town is well known/famous for ... throughout Vietnam/ all over the World.
+	- It is rich in ... It has a long history of ... dating back to the century.
+
+### 4.2. Examples
+**Q-1: Where do you come from ?Let's talk about your home town. What kind of place is it ?**
+
+A: I come from Quang Tri, a province in central VietNam. It's known for its historical landmarks and peaceful countryside.
+
+**Q-2: What is it like living there ?**
+A: Living there is very interesting, simple and quite, which I enjoy.
+
+**Q-3: How long have you lived there ?**
+A: I have been living there since I was born in 2001.
+
+**Q-4: Have you ever lived in any other part of VietNam ?**
+A: Yes, I lived in Ho Chi Minh City for five years for my education. After graduating, I worked in Ho Chi Minh City for a year. Then, I relocated to Da Nang, as it's closer to my hometown and more convenient for me.
+
+**Q-5: Can you tell me the street you live in ? How has the street chaned in recent years ?**
+A: I live on a regular, unnamed street in my hometown. It used to be a dirt road with trees on both sides, but now it's a concrete road, and the trees are gone.
+
+**Q-6: Are there any interesting places to see ?**
+A: There are several interesting places to see in my hometown, such as the Vinh Moc Tunnels[ˈtʌn.əl] and the Truong Son National Cemetery[ˈsem.ə.ter.i]. The most famous one is the Quang Tri Citadel.[ˈsɪt̬.ə.del]
+
+**Q-7: What can visitors do there ?**
+A: If you visit my hometown, I would recommend that you visit the Quang Tri Citadel. You can explore the ancient walls, learn about its history, and enjoy the peaceful atmosphere.
+
+**Q-8: What kind of jobs do people do in your home town?**
+A: Well, like people in other countryside(rural) areas, people in my hometown do a variety of jobs. But in general, most of them work in rice farming, as it is the main type of agriculture[ˈæɡ.rə.kʌl.tʃɚ]. (In addition, some people are involved in other activities such as fishing ...)
+
+**Q-9: Can you describle the people in your home town ?**
+It's a bit hard to say. People there are very friendly, helpful, hardworking, and diligent[ˈdɪl.ə.dʒənt].
+
+**Q-10: How does your home town compare with HCM ?**
+A: Well, I like my hometown better as it is more peaceful, quieter, and less crowded compared to Ho Chi Minh City. The pace of life is slower, which I find more relaxing. But both have advantages[ədˈvæn.t̬ɪdʒ] and disadvantages. You see(For example), working in Ho Chi Minh City offers more opportunities for jobs, education, and entertainment.
+
+## 5. Marriage and Family
+- describe your family, questions related to marriage
+
+
+### 5.1. Suggestion
+- Use present simple to talk about family
+- Present perfect or past simple is employed to discuss changes
+- Past simple must be used to talk about things happening in the past
+- There be ... to talk about your family members
+- ... years old, in one's(early/mid/late) twenties to talk about age.
+- Indicating married life:
+	+) I'v just got married / I got married 2 years ago/ I have been married to B for 4 years.
+	+) I am engaged to B / The've just got engaged.
+
+### 5.2. Examples 
+**Q-1: Could you tell me something about your family ? / Do you live in a big or small family ?**
+A: I have a small, happy family. There are three of us: my father, my older sister, and me. My father used to work in the field, but now he is retired. My sister works as a seller in Ho Chi Minh City. Both of us work in different locations, so we usually gather during Tet Holiday.
+
+
+**Q-2: Does your name affect your personality ?**
+Well, that's an interesting question. I don't think a name can affect a person's personality, but some people believe it can.
+
+Q-3: In what situation will one change his name ?
+In VietNam, there are several reasons why one will change his name.
+First of all,...
+Another situation,...
+
+
+**Q-4: Do you prefer a big family or a small one? Why?**
+I prefer to have a small family.
+For one thing, it's a state recommendation that a couple should have no more than two children.
+For another, I like children a lot, and I believe my child is the continuation of my life. Finally, a smaller family allows for more attention and resources to be focused on each child.
+
+**Q-5: How has family structure changed in the recent decades in Vietnam?**
+Family structure in Vietnam has changed a lot, generally from large to small.
+Traditionally, families were big, often with multiple generations living together. 
+With urbanization and economic development, many families have become smaller, with more people living independently in cities for work and education. 
+This shift has led to changes in the roles of each family member.
+
+**Q-6: Who does most of the housework in the family?**
+
+
+**Q-7: Do you think couples should share the housework or should the wife take the main responsibility ?**
+
+**Q-8: Who makes most of the decisions in your family, your mother or your father ?Why?**
+
+**Q-9: Are there many rules for children in VN ?**
+
+**Q-10: Has the rules for children changed very much recently ?**
+
+**Q-11: Who is the person that has influenced you most in your family ?**
+
+**Q-12: Can you describe a most important decision you have made recently ?**
