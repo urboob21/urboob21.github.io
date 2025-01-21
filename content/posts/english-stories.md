@@ -712,11 +712,11 @@ A deer told himself every day, “I am the most handsome deer in the forest. My 
 
 But he did not like his legs and hooves*. “My legs are narrow, and my hooves are ugly. They do not satisfy me.”
 
-One day, the deer saw a big dog. The deer made some noise and disturbed the dog. The dog woke up and chased him. The deer felt terror. He screamed. He did not want to be a victim, so he ran into the forest. His strong legs helped him run fast. His pale brown hooves were hard, so they were not sensitive to rough rocks. However, his horns got caught in branches, slowing him down. His large chest could not fit between thick trees.
+One day, the deer saw a big dog. The deer made some noise and disturbed the dog. The dog woke up and chased him. The deer felt terror. He screamed. He did not want to be a victim, so he ran into the forest. His strong legs helped him run fast. His pale /peɪl/ brown hooves were hard, so they were not sensitive to rough rocks. However, his horns got caught in branches, slowing him down. His large chest could not fit between thick trees.
 
 The deer estimated that he ran for an hour. He felt like he was running a marathon. In the end, the deer escaped the threat of the dog. He sat in the shade of a tree. “That was almost a disaster! I almost did not escape because of my chest and horns. My legs and hooves saved me.” As a consequence, the deer learned to honor his fast legs and have confidence in his strong hooves. “Pretty things only supplement important things,” he thought.
 
-*hooves - the feet of animals like deer and horses
+*hooves/huːvz/ - the feet of animals like deer and horses
 
 <br>
 
@@ -735,7 +735,8 @@ After fifteen minutes, I knew it was time to proceed down the mountain. The whol
 <br>
 
 ## 36. The Frog Prince
-> `abroad, anger, bride, brief, chase, disappoint, dive, exchange, favor, fee, forever, guy, lovely, mood, palace, permit, protest, sculpture, tribe, youth`
+> `abroad [əˈbrɔːd], anger [ˈæŋɡər], bride [braɪd], brief [briːf], chase [ʧeɪs], disappoint [ˌdɪsəˈpɔɪnt], dive [daɪv], exchange [ɪksˈtʃeɪndʒ], favor [ˈfeɪvər], fee [fiː], forever [fɔːˈrɛvər], guy [ɡaɪ], lovely [ˈlʌvli], mood [muːd], palace [ˈpælɪs], permit [ˈpɜːrmɪt], protest [ˈproʊtɛst], sculpture [ˈskʌlptʃər], tribe [traɪb], youth [juːθ]`
+
 
 A lovely princess sat by the pool and played with a sculpture of a bear. Suddenly, she dropped it, and it rolled away. She chased it, but it fell into the water. She began to cry. A large, ugly frog asked, “Why are you crying?” After the princess told him, the frog said, “I can get the sculpture. What will you give me in exchange for the favor?”
 
