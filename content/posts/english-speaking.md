@@ -133,6 +133,50 @@ It was **pretty** good. (She didn't like it much.)
 
 ## 3. Introduction
 
+### 3.1. Hello - Bye
+- Good morning. I'm very glad to meet you.
+- Thank you very much for your help. Goodbye.
+
+### 3.2. Give opinions
+- In my opinion, ....
+- To be honest, I think ...
+
+### 3.3. Ask for repetition
+- Sorry, I don't see what you mean/ I'm not exactly sure what you mean ?. Could you say that again, please ?
+- I'm sorry, would you mind saying that again ?
+
+### 3.4. Ask for clarification
+- Excuse me. I'm not quite clear about what you mean. Would you please explain it ?
+- I'm sorry, but could you explain what you mean by "status" ?
+
+### Something 
+- Well, I think/guess ...
+- That's an interesting/ a difficult question. I suppose/ guess
+
+### 3.5. Interrupt
+- Can I interrupt for a moment ?
+- Sorry to interrupt, but I have to go.
+
+### 3.6. Make clarifications
+
+
+### Express agreement/ disagreement
+- That's what I want to say/ I was thinking.
+- Yes, I agree.
+
+- I'm not sure I quite agree..
+- I'm afraid I cannot agree with you when you said
+
+### Finish
+I think that's all (I can tell you about ...)
+
+### Cannot answer now
+- I'm not quite sure how to answer that question, but I will look .
+- 
+
+
+
+
 ## 4. Home Town
 - where your home town located, what is special about it, what laguagues are spoken,...
 
