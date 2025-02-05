@@ -1,6 +1,6 @@
 ---
 author: "Phong Nguyen"
-title: "Jav"
+title: "Java Annotations"
 date: "2025-2-5"
 description: "Annotations in Java"
 tags: ["java"]   #tags search
