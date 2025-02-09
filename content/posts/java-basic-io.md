@@ -1,6 +1,6 @@
 ---
 author: "Phong Nguyen"
-title: "Java Platform Standard Edition"
+title: "Java Basic IO"
 date: "2024-11-14"
 description: "Java: Basic I/O."
 tags: ["java"]   #tags search
