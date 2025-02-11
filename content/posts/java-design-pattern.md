@@ -11,10 +11,11 @@ ShowToc: true    # Determines whether to display the Table of Contents (TOC) for
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
 weight: 11    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
-Explain how to use the design patterns.
+Explain how to use the design patterns. (Creational Patterns)
 [Refer1](https://github.com/kamranahmedse/design-patterns-for-humans?tab=readme-ov-file#-simple-factory)
 [Refer2](https://java-design-patterns.com/)
-[Refer3](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm)<br>
+[Refer3](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm)
+[Refer4](https://www.oodesign.com/factory-pattern)<br>
 ## 1. 🏠 Simple Factory
 - Factory is an object for creating other objects 
 - **Use cases:**
@@ -118,5 +119,120 @@ public class MainTestFactory {
 
 }
 
+
+```
+## 2. 🏭 Factory Method
+- Factory method provides a way to delegate the instantiation logic to child classes.Defines an interface for creating objects, but let subclasses to decide which class to instantiate. Refers to the newly created object through a common interface
+- **Use cases:**
+  - when class cannot anticipate the class of objects it must create.
+  - When class wants its subclasses to specify the objects it creates.
+  - when designing frameworks or libraries to give the best flexibility and isolation from concrete class types
+
+- **Examples:** You want to manufacture the products. You must be able to create both A and B (C,D) products and switch between them without modify the existing source codes.
+  -  Design UML:
+![image](/images/factory_method_pattern.png)
+ 
+  - Implementation codes:
+
+```java
+package design.patterns.factory.method;
+
+public interface IProduct {
+	public String getType();
+}
+
+package design.patterns.factory.method;
+
+public class ProductA implements IProduct {
+	private static String TYPE_NAME = "ProductA";
+	@Override
+	public String getType() {
+		return TYPE_NAME;
+	}
+
+}
+package design.patterns.factory.method;
+
+public class ProductB implements IProduct {
+	private static String TYPE_NAME = "ProductB";
+	@Override
+	public String getType() {
+		return TYPE_NAME;
+	}
+}
+
+package design.patterns.factory.method;
+
+public class ProductC implements IProduct {
+	private static String TYPE_NAME = "ProductC";
+	@Override
+	public String getType() {
+		return TYPE_NAME;
+	}
+
+}
+
+package design.patterns.factory.method;
+
+public abstract class AbstractFactory {
+	public abstract IProduct createProduct();
+	
+	public void doSomething() {
+		IProduct product = createProduct();
+		System.out.println("Do something with" + product.getType());
+	}
+}
+
+package design.patterns.factory.method;
+
+public class FactoryA extends AbstractFactory {
+
+	@Override
+	public IProduct createProduct() {
+		// TODO Auto-generated method stub
+		return new ProductA();
+	}
+
+}
+
+package design.patterns.factory.method;
+
+public class FactoryB extends AbstractFactory {
+
+	@Override
+	public IProduct createProduct() {
+		// TODO Auto-generated method stub
+		return new ProductB();
+	}
+}
+
+package design.patterns.factory.method;
+
+public class FactoryC extends AbstractFactory {
+
+	@Override
+	public IProduct createProduct() {
+		// TODO Auto-generated method stub
+		return new ProductC();
+	}
+}
+
+package design.patterns.factory.method;
+
+public class MainTestFactory {
+
+	public static void main(String[] args) {
+		AbstractFactory factoryA = new FactoryA();
+		factoryA.doSomething();
+		
+		AbstractFactory factoryB = new FactoryB();
+		factoryB.doSomething();
+		
+		AbstractFactory factoryC = new FactoryC();
+		factoryC.doSomething();
+				
+	}
+
+}
 
 ```
