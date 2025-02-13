@@ -45,11 +45,24 @@ public interface IDoingSomethingService {
 ```
 - Create the service implementation that implements service interface.
 ```java
+@Component(service = { DoingSomethingService.class, IDoingSomethingService.class }, immediate = false)
+public class DoingSomethingService implements IDoingSomethingService{
+
+    @Override
+    public void doSomething(){
+        syserr("DoingSomethingService did something");
+    }
+
+}
 
 ```
 
 
-- Testing
+- Testing: [ServiceCaller](https://help.eclipse.org/latest/nftopic/org.eclipse.platform.doc.isv/reference/api/org/eclipse/core/runtime/ServiceCaller.html)
+```java
+ ServiceCaller.callOnce(MyClass.class, IDoingSomethingService.class, (myService) -> myService.doSomething());
+
+```
 
 ## 3 DS Annotations
 ### 3.1. @Component
