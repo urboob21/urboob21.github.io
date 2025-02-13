@@ -177,7 +177,7 @@ package design.patterns.factory.method;
 public abstract class AbstractFactory {
 	public abstract IProduct createProduct();
 	
-	public void doSomething() {
+	public void pickProduct() {
 		IProduct product = createProduct();
 		System.out.println("Do something with" + product.getType());
 	}
@@ -223,14 +223,12 @@ public class MainTestFactory {
 
 	public static void main(String[] args) {
 		AbstractFactory factoryA = new FactoryA();
-		factoryA.doSomething();
-		
-		AbstractFactory factoryB = new FactoryB();
-		factoryB.doSomething();
-		
-		AbstractFactory factoryC = new FactoryC();
-		factoryC.doSomething();
-				
+		IProduct productA = factoryA.createProduct();
+		factoryA.pickProduct();
+
+		AbstractFactory factoryA1 = new FactoryB();
+		IProduct productA1 = factoryA1.createProduct();
+		factoryA1.pickProduct();
 	}
 
 }
