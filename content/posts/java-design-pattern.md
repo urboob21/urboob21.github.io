@@ -16,14 +16,16 @@ Explain how to use the design patterns. (Creational Patterns)
 [Refer2](https://java-design-patterns.com/)
 [Refer3](https://www.tutorialspoint.com/design_pattern/factory_pattern.htm)
 [Refer4](https://www.oodesign.com/factory-pattern)<br>
-## 1. 🏠 Simple Factory
+
+## 1. Creational Design Patterns. 
+## 1.1 🏠 Simple Factory
 - Factory is an object for creating other objects 
 - **Use cases:**
   - when the class does not know beforehand the exact types and dependencies of the objects it needs to create.
   - When a method returns one of several possible classes that share a common super class and wants to encapsulate the logic of which object to create.
   - when designing frameworks or libraries to give the best flexibility and isolation from concrete class types
 
-- **Examples:** You want to manufacture the products. You must be able to create both A and B (C,D) products and switch between them without modify the existing source codes.
+- **Examples:** You want to manufacture the products many times.
   -  Design UML:
 ![image](/images/factory_pattern.png)
  
@@ -121,14 +123,16 @@ public class MainTestFactory {
 
 
 ```
-## 2. 🏭 Factory Method
-- Factory method provides a way to delegate the instantiation logic to child classes.Defines an interface for creating objects, but let subclasses to decide which class to instantiate. Refers to the newly created object through a common interface
+<br>
+
+## 1.2. 🏭 Factory Method
+- **Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 - **Use cases:**
   - when class cannot anticipate the class of objects it must create.
-  - When class wants its subclasses to specify the objects it creates.
+  - When class **wants its subclasses** to **specify the objects it creates**.
   - when designing frameworks or libraries to give the best flexibility and isolation from concrete class types
 
-- **Examples:** You want to manufacture the products. You must be able to create both A and B (C,D) products and switch between them without modify the existing source codes.
+- **Examples:** You want to manufacture the products. You must be able to create both A and B (C,D) products and add/switch between them without modify the existing source codes.
   -  Design UML:
 ![image](/images/factory_method_pattern.png)
  
@@ -231,6 +235,161 @@ public class MainTestFactory {
 		factoryA1.pickProduct();
 	}
 
+}
+
+```
+
+<br>
+
+## 1.3. 🔨 Abstract Factory
+- **Abstract Factory** is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
+- **Use cases:**
+  - when need a way to **create individual furniture objects** so that they **match other objects of the same family**. 
+  - When don’t want to change existing code when adding new products or families of products to the program. 
+
+- **Examples:** You intend to manufacture a product line that included a family of related products: A,B,and C - along with several variants such as AWin,ALinux, BWin,BLinux, CWin, and CLinux. 
+  -  Design UML:
+![image](/images/factory_abstract_pattern.png)
+ 
+  - Implementation codes:
+
+```java
+package design.patterns.factoryabstract;
+
+public interface IProductA {
+	public String getType();
+}
+
+package design.patterns.factoryabstract;
+
+public interface IProductB {
+	public String getType();
+}
+
+package design.patterns.factoryabstract;
+
+public class ProductALinux implements IProductA {
+
+	private static final String TYPE = "ProductALinux";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
+
+}
+
+package design.patterns.factoryabstract;
+
+public class ProductAWin implements IProductA {
+
+	private static final String TYPE = "ProductAWin";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
+}
+
+package design.patterns.factoryabstract;
+
+public class ProductBLinux implements IProductB {
+
+	private static final String TYPE = "ProductBLinux";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
+}
+
+package design.patterns.factoryabstract;
+
+public class ProductBWin implements IProductB {
+
+	private static final String TYPE = "ProductBWin";
+
+	@Override
+	public String getType() {
+		return TYPE;
+	}
+}
+
+package design.patterns.factoryabstract;
+
+public interface IFactoryProduct {
+	public IProductA createProductA();
+
+	public IProductB createProductB();
+}
+
+package design.patterns.factoryabstract;
+
+public class FactoryProductLinux implements IFactoryProduct {
+
+	@Override
+	public IProductA createProductA() {
+		return new ProductALinux();
+	}
+
+	@Override
+	public IProductB createProductB() {
+		return new ProductBLinux();
+	}
+
+}
+
+package design.patterns.factoryabstract;
+
+public class FactoryProductWin implements IFactoryProduct {
+
+	@Override
+	public IProductA createProductA() {
+		return new ProductAWin();
+	}
+
+	@Override
+	public IProductB createProductB() {
+		return new ProductBWin();
+	}
+
+}
+
+package design.patterns.factoryabstract;
+
+public class UserApplication {
+	private IFactoryProduct factory;
+	private IProductA productA;
+	private IProductB productB;
+
+	public UserApplication(IFactoryProduct factory) {
+		this.factory = factory;
+	}
+
+	public void createProducts() {
+		productA = factory.createProductA();
+		productB = factory.createProductB();
+	}
+
+	public void someOperations() {
+		System.err.println(
+				"This is the User Application created with " + productA.getType() + " and " + productB.getType());
+	}
+}
+
+package design.patterns.factoryabstract;
+
+public class Main {
+
+	public static void main(String[] args) {
+		IFactoryProduct factory = new FactoryProductWin();
+//		IFactoryProduct factory = new FactoryProductLinux();
+
+		UserApplication userApp = new UserApplication(factory);
+		userApp.createProducts();
+		userApp.someOperations();
+
+	}
 }
 
 ```
