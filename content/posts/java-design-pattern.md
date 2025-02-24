@@ -9,7 +9,7 @@ FAseries: ["Themes Guide"]    #indicates that this post is part of a series of r
 aliases: ["migrate-from-jekyl"]    #Alternative URLs or paths that can be used to access this post, useful for redirects from old posts or similar content.
 ShowToc: true    # Determines whether to display the Table of Contents (TOC) for the post.
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
-weight: 11    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
+weight: 1    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
 Explain how to use the design patterns. (Creational Patterns)
 [Refer1](https://github.com/kamranahmedse/design-patterns-for-humans?tab=readme-ov-file#-simple-factory)
@@ -18,7 +18,7 @@ Explain how to use the design patterns. (Creational Patterns)
 [Refer4](https://www.oodesign.com/factory-pattern)<br>
 
 ## 1. Creational Design Patterns. 
-## 1.1 🏠 Simple Factory
+## 1.1 Simple Factory
 - Factory is an object for creating other objects 
 - **Use cases:**
   - when the class does not know beforehand the exact types and dependencies of the objects it needs to create.
@@ -125,7 +125,7 @@ public class MainTestFactory {
 ```
 <br>
 
-## 1.2. 🏭 Factory Method
+## 1.2. Factory Method
 - **Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 - **Use cases:**
   - when class cannot anticipate the class of objects it must create.
@@ -241,13 +241,13 @@ public class MainTestFactory {
 
 <br>
 
-## 1.3. 🔨 Abstract Factory
+## 1.3. Abstract Factory
 - **Abstract Factory** is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
 - **Use cases:**
   - when need a way to **create individual furniture objects** so that they **match other objects of the same family**. 
   - When don’t want to change existing code when adding new products or families of products to the program. 
 
-- **Examples:** You intend to manufacture a product line that included a family of related products: A,B,and C - along with several variants such as AWin,ALinux, BWin,BLinux, CWin, and CLinux. 
+- **Examples:** We intend to manufacture a product line that included a family of related products: A,B,and C - along with several variants such as AWin,ALinux, BWin,BLinux, CWin, and CLinux. 
   -  Design UML:
 ![image](/images/factory_abstract_pattern.png)
  
@@ -393,3 +393,16 @@ public class Main {
 }
 
 ```
+<br>
+
+## 1.4. Builder
+- **Builder** is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
+- **Use cases:**
+  -  build objects step by step, using only those steps that you really need. 
+
+- **Examples:** We need to create some products: A,B and C with multiple optional attributes.
+  -  Design UML:
+![image](/images/.png)
+ 
+  - Implementation codes:
+`https://www.baeldung.com/java-builder-pattern`
