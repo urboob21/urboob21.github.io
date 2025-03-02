@@ -1,6 +1,6 @@
 ---
 author: "Phong Nguyen"
-title: "Java OSGi Service"
+title: "Java Extension Points - Extensions"
 date: "2025-02-27"
 description: "Java: Eclipse Extensions and Extension Points"
 tags: ["java","eclipse"]   #tags search
@@ -11,7 +11,7 @@ ShowToc: true    # Determines whether to display the Table of Contents (TOC) for
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
 weight: 12    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
-Explain how to use the OSGi Service
+Explain how to use the Extension Point and Extensions.
 [Refer1](https://www.vogella.com/tutorials/EclipseExtensionPoint/article.html)
 [Refer2](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fguide%2Ftools%2Feditors%2Fmanifest_editor%2Fextension_points.htm)
 [Refer3](https://vogella.com/blog/getting-started-with-osgi-declarative-services-2024/)<br>
