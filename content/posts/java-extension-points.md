@@ -26,7 +26,7 @@ Explain how to use the Extension Point and Extensions.
 
 ## 2. Using Extension points/ Extensions
   
-## 2.1. Create an EXTENSION POINT
+### 2.1. Create an EXTENSION POINT
 - A plugin which declares an **extension point** must declare the extension point in its plugin.xml.
 - It will contain code to evaluate the **extensions**.
 ```xml
@@ -237,7 +237,7 @@ public interface IGreeter {
 ```
 <br>
 
-## 2.2. Create/adding EXTENSIONS to EXTENSION POINTS
+### 2.2. Create/adding EXTENSIONS to EXTENSION POINTS
 - **Examples**: Create a plugin named `com.extension.contribution` contained the a extension.
 ```XML
 // MANIFEST
@@ -276,7 +276,7 @@ public class GreeterExensionContribution implements IGreeter {
 }
 ```
 
-## 2.3. Accessing EXTENSIONS
+### 2.3. Accessing EXTENSIONS
 - The information about the available extensions point and the provided extensions are stored in a class of type `IExtensionRegistry` .
 - We can use the dependency injection mechanism to get the `IExtensionRegistry` class that injected.
 - `IExtensionRegistry` contains all extensions of all extensions point.
@@ -296,3 +296,49 @@ Platform.getExtensionRegistry().
         }
 
 ```
+
+## 3. Filter Element with Choice/ Sequence
+### 3.1. <sequence>
+- It means child elements must appear in the exact oder listed.
+```xml
+<sequence minOccurs="1" maxOccurs="unbounded">
+   <element ref="client1"/>
+   <element ref="client2"/>
+</sequence>
+
+<element name ="client1" type="string">
+<element name ="client2" type="string">
+```
+
+- Valid:
+
+```xml
+<c>
+  <client1>John</client1>
+  <client2>Doe</client2>
+</c>
+```
+
+### 3.2. <choice>
+- It means only one of the child elements is allowed at a time.
+```xml
+<choice>
+   <element ref="client1"/>
+   <element ref="client2"/>
+</choice>
+
+<element name ="client1" type="string">
+<element name ="client2" type="string">
+```
+
+- Valid:
+
+```xml
+<c>
+  <c1>John</c1>
+</c>
+
+```
+
+### 3.3. Filter
+-
