@@ -341,4 +341,4 @@ Platform.getExtensionRegistry().
 ```
 
 ### 3.3. Filter
--
+- Combine the <choice> and <sequence> to make the robust filter.

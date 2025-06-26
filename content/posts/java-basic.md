@@ -96,3 +96,25 @@ This trail covers the fundamentals of programming in the Java programming langua
 - [JavaSE-8](https://docs.oracle.com/javase/8/docs/)
 - [JavaSE-17](https://docs.oracle.com/en/java/javase/17/index.html)
 - [JavaSE-21](https://docs.oracle.com/en/java/javase/21/index.html)
+
+
+## 4. Study
+### 4.1. Pattern/Matcher - java.until.regex
+```java
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class REGEX {
+		public static void main(String[] args) {
+			String regex = "com\\.something.*"; //$NON-NLS-1$
+			String input = "com.something.test";
+			Pattern pattern = Pattern.compile(regex);
+			Matcher matcher = pattern.matcher(input);
+			if(matcher.matches()) {
+				System.err.println("Match !!!");
+			}else {
+				System.err.println("Do Not Match !!!");	
+			}
+		}
+}
+```
