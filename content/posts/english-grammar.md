@@ -9,7 +9,7 @@ FAseries: ["Themes Guide"]    #indicates that this post is part of a series of r
 aliases: ["migrate-from-jekyl"]    #Alternative URLs or paths that can be used to access this post, useful for redirects from old posts or similar content.
 ShowToc: true    # Determines whether to display the Table of Contents (TOC) for the post.
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
-weight: 3    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
+weight: 17    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
 This is where I study English grammar on my own every day. It’s a place where I not only improve my language skills but also discover new grammar rules. Step by step, I am working to become more confident in writing and communicating in English. The journey isn’t easy, but I believe that with patience and effort, I will continue to make progress.
 <br>
