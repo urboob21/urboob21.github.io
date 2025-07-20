@@ -4,7 +4,8 @@
 baseURL: "https://urboob21.github.io/"
 title: Phong Nguyen
 copyright: "Phong Nguyen ©2024 "
-paginate: 10 # number page
+pagination:
+  paperSize: 10 # number page
 theme: [hugo-PaperMod]
 
 enableInlineShortcodes: true
@@ -168,5 +169,5 @@ markup:
 services:
   instagram:
     disableInlineCSS: true
-  twitter:
+  x:
     disableInlineCSS: true

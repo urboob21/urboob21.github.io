@@ -1,7 +1,7 @@
 ---
 author: "Phong Nguyen"
 title: "Eclipse Project"
-date: "2025-2-5"
+date: "2025-02-05"
 description: "Eclipse Project."
 tags: ["eclipse"]   #tags search
 FAcategories: ["syntax"]    #The category of the post, similar to tags but usually for broader classification.

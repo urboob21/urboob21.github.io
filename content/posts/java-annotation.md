@@ -1,7 +1,7 @@
 ---
 author: "Phong Nguyen"
 title: "Java Annotations"
-date: "2025-2-5T00:00:00Z"
+date: "2025-02-05"
 description: "Annotations in Java"
 tags: ["java"]   #tags search
 FAcategories: ["syntax"]    #The category of the post, similar to tags but usually for broader classification.
