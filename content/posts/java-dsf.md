@@ -15,12 +15,14 @@ Explain how to use the DSF.
 [Refer1](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.cdt.doc.isv%2Fguide%2Fdsf%2Fintro%2Fdsf_programming_intro.html)
 <br>
 
+![image](/images/dsf_overview.png)
+
 ## 1. Introduction
-- Scenario: Debugger View Fetching Data
+- Scenario: **Debugger View Fetching Data**
 Context: We want to show variable values in the Variables View as the user steps through the code.
 
-- **Asynchronous**
-  - When the user steps through the program, the debugger needs to **fetch variable values** from the target (like a remote system). This operation might **take a few milliseconds or more**, depending on the connection. If we **block the UI thread, the UI freezes**.
+### 1.1. **Asynchronous**
+  - Req: When the user steps through the program, the debugger needs to **fetch variable values** from the target (like a remote system). This operation might **take a few milliseconds or more**, depending on the connection. If we **block the UI thread, the UI freezes**.
   - Solution: Use an asynchronous method to fetch variable data
 
 ```java
@@ -38,17 +40,17 @@ void getVariableValue(String varName, DataRequestMonitor<String> rm) {
     - Prevents blocking the UI.
     - Allows the Eclipse debug framework to continue updating other views.
 
-- **Synchronous** 
-  - We want to implement a feature like “evaluate expression” that requires the value immediately. We don’t want to rewrite your entire logic using async callbacks just to get the result of getVariableValue().
+### 1.2. **Synchronous** 
+  - We want to implement a feature like **evaluate expression** that requires the value immediately. We don’t want to rewrite your entire logic using async callbacks just to get the result of getVariableValue().
 
-  - Solution: Use a DSF Query to wrap the async call in a synchronous interface:
+  - Solution: Use a DSF Query to **wrap the async call in a synchronous interface**:
 
 ```java
 String getVariableValueSync(String varName) {
     Query<String> query = new Query<>() {
         @Override
         protected void execute(DataRequestMonitor<String> rm) {
-            getVariableValue(varName, rm);  // Asynchronous method
+            getVariableValue(varName, rm);  // Wrap Asynchronous method
         }
     };
 
@@ -66,25 +68,35 @@ String getVariableValueSync(String varName) {
     - Some contexts expect a result immediately.
     - Simplifies logic when integrating with legacy synchronous systems.
 
-- Summary Table:
+### 1.3. Summary Table:
+
 |Use Case | Method Type |	Reason |
 |---------|-------------|----------|
-|Fetching variable values in UI|	Asynchronous|	Avoid blocking UI thread|
-|Evaluating expressions in scripts|	Synchronous|	Scripts expect immediate result|
-|Performing batch operations|	Asynchronous|	Can parallelize or chain operations|
+|Fetching variable values in UI|	**Asynchronous**|	Avoid blocking UI thread|
+|Nested UI event (e.g., button click)|	**Asynchronous**|	Keeps UI responsive|
+|Performing batch operations|	**Asynchronous**|	Can parallelize or chain operations|
 |Calling legacy blocking logic|	Synchronous|	Synchronous integration is easier|
-|Nested UI event (e.g., button click)|	Asynchronous|	Keeps UI responsive|
+|Evaluating expressions in scripts|	Synchronous|	Scripts expect immediate result|
 
 ## 2. Asynchronous Methods: Request Monitor , Data Request Monitor,  Multi-Request Monitor
-- There is an standard callback object used in DSF, the request monitor, has following features:
-  - Executor
-  - Status
-  - Callback methods: handleCompleted(), handleOK(), handleError(),...
-  - Parent request monitor
+- `Async methods is a way that use a callback object to indicate their completion`.
+
+## 2.1. Request Monitor
+- There is an standard **callback object** used in DSF, the request monitor, has following features:
+  - **Executor**: executor to invoke the callback method
+  - **Status**: indicating the success or failure of the callback method
+  - **Callback methods**: methods which are invoked when the callback is invoked: handleCompleted(), handleOK(), handleError(),... -> overwrite these if need to perform additional process after async method completion.
+  - **Parent request monitor**: 
   - Returning values to the caller. ( Data Request Monitor)
   - Done count. (Multi-Request Monitor)
 
-- Examples: 
+## 2.2. Data Request Monitor
+- The **Request Monitor** can return status of the async method but do not return a value to caller. **Data Request Monitor** can be used for that purpose.
+
+## 2.3. Counting Request Monitor
+- When we need to manage the completion of several request monitor. It is configured such that it's done() method needs to be called a count number of times before the callback method is invoked. 
+
+## 2.4 Examples:
 ```java
 import java.util.concurrent.Executor;
 
@@ -98,7 +110,7 @@ public class Test {
 		Executor executor = ImmediateExecutor.getInstance(); // Get the Executor
 		RequestMonitor rm1 = new RequestMonitor(executor, null) {
 			@Override
-			protected void handleCompleted() {
+			protected void handleCompleted() {   // callback function 
 				System.out.println("Fcn1 has done");
 			}
 		};
@@ -106,7 +118,7 @@ public class Test {
 
 		DataRequestMonitor<Integer> rm2 = new DataRequestMonitor<>(executor, null) {
 			@Override
-			protected void handleCompleted() {
+			protected void handleCompleted() {  // callback function
 				Integer data = getData();
 				System.out.println("Fcn2 has done");
 				System.out.println("Returned data: " + data);
@@ -117,7 +129,7 @@ public class Test {
 
 	static void asyncFcn1(RequestMonitor rm) {
 		System.out.println("Run Fcn1");
-		rm.done();
+		rm.done(); // notify that the async method done -> will run the callback function 
 	}
 
 	static void asyncFcn2(int value, DataRequestMonitor<Integer> rm) {
@@ -137,9 +149,9 @@ Fcn2 has done
 Returned data: 2
 ```
 
-## 3. Concurrent
+## 3. Concurrency
 ### 3.1. Query ( implements Runnable)
-- Using a query can use a execute() implementation in order to call other asynchronous method.
+- Using a Query can use a execute() (overwrite) implementation in order **to call other asynchronous method** from a **sync method**
 ```java
 
 import java.util.concurrent.Executor;
@@ -156,13 +168,13 @@ public class TestQuery {
 		System.out.println("Result: " + result); // Expected output: Result: 5
 	}
 
-	// Asynchronous addition method ( fetch value etc, take more time here)
+	// Asynchronous method ( fetch value etc, take more time here)
 	static void asyncAdd(int a, int b, DataRequestMonitor<Integer> rm) {
 		rm.setData(a + b);
 		rm.done();
 	}
 
-	// Synchronous method using DSF Query
+	// Synchronous method using DSF Query to call a async method
 	static int syncAdd(final int a, final int b, final Executor executor) {
 		Query<Integer> query = new Query<>() {
 			@Override
@@ -185,4 +197,11 @@ public class TestQuery {
 ```
 
 ### 3.2. Synchronization
+- DSF uses a single-threaded executor (DSF Executor thread) as the primary mechanism for safe access to date. (race conditions + deadlocks)
+ 
+### 3.3. Annotations
+- DSF defines a number of annotations that can be used to determine what are the rules governing access to the various data objects.
+
+## 4. Services
+### 4.1. OSGi
 
