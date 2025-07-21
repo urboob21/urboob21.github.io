@@ -18,7 +18,8 @@ Explain how to use the design patterns. (Creational Patterns)
 [Refer4](https://www.oodesign.com/factory-pattern)<br>
 
 ## 1. Creational Design Patterns. 
-## 1.1 Simple Factory
+- Creational design patterns provide various **object creation mechanisms**, which increase flexibility and reuse of existing code.
+### 1.1 Simple Factory
 - Factory is an object for creating other objects 
 - **Use cases:**
   - when the class does not know beforehand the exact types and dependencies of the objects it needs to create.
@@ -125,7 +126,7 @@ public class MainTestFactory {
 ```
 <br>
 
-## 1.2. Factory Method
+### 1.2. Factory Method
 - **Factory Method** is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
 - **Use cases:**
   - when class cannot anticipate the class of objects it must create.
@@ -241,7 +242,7 @@ public class MainTestFactory {
 
 <br>
 
-## 1.3. Abstract Factory
+### 1.3. Abstract Factory
 - **Abstract Factory** is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
 - **Use cases:**
   - when need a way to **create individual furniture objects** so that they **match other objects of the same family**. 
@@ -395,7 +396,7 @@ public class Main {
 ```
 <br>
 
-## 1.4. Builder
+### 1.4. Builder
 - **Builder** is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
 - **Use cases:**
   -  build objects step by step, using only those steps that you really need. 
@@ -406,3 +407,15 @@ public class Main {
  
   - Implementation codes:
 `https://www.baeldung.com/java-builder-pattern`
+
+## 2. Structural Design Patterns. 
+- Structural design patterns explain how to **assemble objects and classes into larger structures**, while keeping these structures flexible and efficient. (ava.util.Arrays#asList())
+### 2.1. Adapter
+- The adapter pattern is adapting between classes and objects
+- **Use cases:**
+  - when we want to convert the interface of a class into another interface clients expect
+  - make incompatible objects work together.
+
+- **UML:**
+![image](/images/adapter_pattern.png)
+
