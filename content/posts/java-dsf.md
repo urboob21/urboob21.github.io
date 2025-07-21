@@ -204,4 +204,139 @@ public class TestQuery {
 
 ## 4. Services
 ### 4.1. OSGi
+- DSF builds on top of OSGi service, so there are some of the OSGi service APIs basic:
+  - Registration: BundleContext.registerService(), ServiceRegistration.unregister() 
+  - References: BundleContext.getServiceReference(s) .getAllServiceReferences()
+  - Events: ServiceListener
+
+### 4.2. DSF Session
+- DSF services are organized into sessions to help coordinate and distinguish the services. A DSF session is a way to associate a set of DSF services
+- DSF Session features include:
+  - Session ID
+  - DSF Executor: Each session has a DSF Executor. All the services registered with the same session share a single DSF Executor. 
+  - Service Events
+  - Model Adapters
+(Một session đại diện cho một quá trình đang hoạt động. Mỗi session gắn với một executor, và chứa các services cần thiết (breakpoint, memory, register…).)
+
+### 4.3. DSF Executor
+For DSF, the main rule for executors is that they have to use a single thread to execute the runnable and that the runnables be executed in the order that they were submitted
+```java
+void java.util.concurrent.Executor.execute(
+Runnable command
+)
+```
+(Nó là một thread executor (kiểu như một thread riêng biệt) mà DSF sử dụng để chạy tất cả các tác vụ (services, events) một cách tuần tự. Mục tiêu là đảm bảo mọi thứ chạy trên một thread riêng biệt để tránh xung đột.)
+
+### 4.4. DSF Services Tracker (Tracker)
+- Both `org.osgi.util.tracker.ServiceTracker` and `org.eclipse.cdt.dsf.service.DsfServicesTracker` are used to **track and retrieve services** dynamically.
+- DsfServicesTracker:
+  - Tracks all services within a given DSF session
+  - getService(s)
+  - <constructor>: DSF service trackers can be used after being constructor
+  - dispose(): disposes and un-gets all service references
+
+(Là công cụ để tra cứu các service cụ thể bên trong một session.
+Ví dụ bạn có thể dùng nó để lấy IBreakpointService, IMemoryService, IStackService, v.v.)
+
+### 4.5. Initialization/ Shutdown
+- Every DSF service must implement the initialize() and shutdowns() methods.
+
+### 4.6. Events
+- To generate an event, service must call : `DsfSession.dispatchEvent(Object event, Dictionary<?, ?> serviceProperties)`
+- To receive DSF events, client must: 
+  - Declare a public event listener method, which takes an event parameter.
+  - Add itself as a service listener by calling `DsfSession.addServiceEventListener()`
+
+
+### 4.7. Example
+```java
+    DsfExecutor fExecutor = new DefaultDsfExecutor();    // dsf executor use for a new session with some services
+	DsfSession fSession = DsfSession.startSession(fExecutor, "Timers(DSF Example)"); // dsf session
+	DsfServicesTracker fServices = new DsfServicesTracker(DsfExamplesPlugin.getBundleContext(), fSession.getId()); // dsf services tracker for this session
+
+    // Start some services    
+	ServicesStartupSequence startupSeq = new ServicesStartupSequence(fSession);
+	fSession.getExecutor().execute(startupSeq);
+	try {
+		startupSeq.get();    // blocks until startup done
+	} catch (InterruptedException e) {
+		assert false;
+	} catch (ExecutionException e) {
+		assert false;
+	}
+
+    // Get and execute a service (e.g. TimerService class)
+	fExecutor.execute(() -> fServices.getService(TimerService.class).startTimer());
+```
+
+## 5. Data Model 
+- Introduce the natural structure of the data that is being retrieved by the DSF services.
+-  [target → process → thread → stack frame → variable, v.v.]
+### 5.1. IDMContext
+- Represents a handle to a chunk data in Data Model
+- Features:
+  - hierarchical: Contexts can have other contexts as parents.
+  - extends IAdaptable: allows decorators, retargetable actions,..
+  - associated with a DSF Session: IDMContext.getSessionID()
+
+### 5.2. DMContext
+- The utility class contains a few static methods:
+  - `getAncestorOfType()`:  Searches for a context of a specific type in the hierarchy of the given context.
+  - `isAncestorOf()`: checks whether the one contexts is in the hierarchy of the other
+  - `toList()`
+
+### 5.3. Context Hierarchy
+- We can  get the immediate ancestors of a given context and following the parents' parents allows clients to traverse the full hierarchy of a context.
+- E.g.
+```java
+@Immutable
+	public static class AlarmDMContext extends AbstractDMContext {
+        //
+	}
+
+@Immutable
+	public static class TimerDMContext extends AbstractDMContext {
+        //
+	}
+
+    
+public boolean isAlarmTriggered(AlarmDMContext alarmCtx){
+    		TimerDMContext timerCtx = DMContexts.getAncestorOfType(alarmCtx,
+				TimerDMContext.class);
+
+            if(timerCtx != null){
+                // Returns the ancestor if found
+            }
+}
+```
+
+
+
+## 0. Timer Clone From CDT/DSF Example
+
+1. Contribute to Shop view
+```xml
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="cdt-dsf-timers-clone.category.id"
+            name="My Category Views">    # category views
+      </category>
+      <view
+            category="cdt-dsf-timers-clone.category.id"
+            class="views.TimersView"    # the class extend ViewPart
+            icon="icons/timer.gif"
+            id="cdt-dsf-timers-clone.view.id"
+            name="Timers View Clone" # view
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>
+```
+
+- Use `org.eclipse.ui.views` extension to contribute the category views/view
+
+- Bundle-Activator is the fully qualified name of the BundleActivator implementation that will be used to start and stop the bundle, and it refers to the class we’ve just written. (`Bundle-Activator: activator.TimerPluginActivator`)
 
