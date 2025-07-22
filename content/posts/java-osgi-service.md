@@ -11,22 +11,133 @@ ShowToc: true    # Determines whether to display the Table of Contents (TOC) for
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
 weight: 3    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
-Explain how to use the OSGi Service
+Explain how to use the OSGi Service <br>
 [Refer1](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/different-between-osgi-services-and-osgi-component/m-p/621761)<br>
 [Refer2](https://www.vogella.com/tutorials/OSGi/article.html#osgi-services)<br>
 [Refer3](https://vogella.com/blog/getting-started-with-osgi-declarative-services-2024/)<br>
+[Refer4](https://docs.osgi.org/specification/osgi.cmpn/7.0.0/service.component.html)<br>
 ## 1. Introduction
 - **OSGi Services** are essentially Java objects that provide a specific functionality or interface, and other components,plugins can dynamically discover and use these services.
 - Multiple plugins can provide a service implementation for the service interface. Plugins can access the service implementation via the service interface.
 - **E.g.** When you want to create modular that can be added or removed at runtime, you can use the OSGi service.
 
+![picture](/images/osgi_introduce.png)
+
+- `Bundle A` prove/publish a service implementation `S`.
+- `Bundle B` can consume it by finding the service and binding to it when it is found.
+- There can be multile `service implementation` (Bundle A', A''') published at the same time for the same type `S`.
+- Services in OSGi are dynamic and can come and go at runtime.
+- `OSGi Service Registry` is a controller.
+
+- `OSGI` vs `Equinox Extension Point`:
+  - `OSGi` is **many-to-many** relationship (multiple bundles can provide <-> multiple bundles can consume). 
+  - `Equinox Extension Point` is **one-to-many** relationship (actually we can workaround accessing via `ExtensionRegistry`).
+  - `OSGi Services` are retried by `type` -> safe
+  - `Equinox Extension Point` access via `ID`
+
+> With OSGi Declarative Services it is not necessary to register or consume services programmatically. This needs to be done with plain OSGi services where a service is typically registered (publish) to the ServiceRegistry in an Activator and consumed (find-bind) via ServiceTracker (also mostly via Activator). Instead of this a Service Component is declared via Component Description when using declarative services. The Component Description is an XML file that is processed by a Service Component Runtime (SCR, e.g. Felix SCR) when a bundle is activated. It is responsible for managing the components and their life cycle. That means, if you want to use declarative services in your application, you need to ensure that a Service Component Runtime bundle is installed and activated in your environment.
+
+### 1.1. Components
+- `Service Component`: A Java class that is declared via Component Description - not every component provides a service (e.g. in `DoingSomethingService.java`  - @Component(service = IDoingSomethingService.class))
+- `Component Description`: The declaration of a `Service Component`, contained in the XML file (OSGI-INF/myservice.xml)
+- `Component Properties`: A set of properties, specific by the `Component Description`
+- `Component Property Type`: User define annotation type to define the Component Properties
+- `Component Configuration`: 
+- `Component Instance`:
+
+
+- e.g:
+- MANIFEST.MF
+```xml
+Service-Component: OSGI-INF/componentDescription.xml,
+```
+- Java:
+```java
+@ComponentPropertyType
+public @interface MyComponentProperties{
+    String value();
+    boolean isOk();
+}
+public interface IMyService{
+    void doSomething();
+}
+
+@Component(service = IMyService.class)
+@MyComponentProperties(value = "1", isOke = true)
+public class MyService implements IMyService{
+    @Override
+    void doSomething(){
+        // do something here
+    }
+}
+```
+- XML automatically generate for OSGi Declare Service
+
+### 1.2. Declaring a Component
+- A component requires the following artifacts in the bundle:
+  - An XML document that contains the component description.
+  - The Service-Component manifest header which names the XML documents that contain the component descriptions.
+  - An implementation class that is specified in the component description.
+
+### 1.2.1 Immediate Component
+- An immediate component **is activated as soon as its dependencies are satisfied**.
+- `/OSGI-INF/activator.xml`:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component name="example.activator"
+    xmlns:scr="http://www.osgi.org/xmlns/scr/v1.4.0">
+    <implementation class="com.acme.impl.Activator"/>
+</scr:component>
+```
+- The manifest header `Service-Component` must also be specified in the bundle manifest (MANIFEST.MF)
+```xml
+Service-Component: OSGI-INF/activator.xml
+```
+- Java class for this component
+```java
+public class Activator {
+    protected
+    public Activator() {...}
+
+    @Activate
+    private void activate(BundleContext context) {...}
+    private void deactivate() {...}  
+}
+```
+> The activate method is called when SCR activates the component configuration and the deactivate method is called when SCR deactivates the component configuration. If the activate method throws an Exception, then the component configuration is not activated and will be discarded.
+
+### 1.2.2 Delayed Component
+- Normally, it specifies a service
+- If its configuration is satisfied, SRC must register the component in the service registry.
+- When it is requested via `Service Caller`, it will be activated.
+- `/OSGI-INF/handle.xml`:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component name="example.handler"
+    xmlns:scr="http://www.osgi.org/xmlns/scr/v1.4.0">
+    <implementation class="com.acme.impl.HandlerImpl"/>
+    <property name="event.topics">some/topic</property>
+    <service> 
+        <provide interface="org.osgi.service.event.EventHandler"/> 
+    </service>
+</scr:component>
+```
+- Java class declare:
+```java
+public class HandlerImpl implements EventHandler{
+    public void handleEvent(Event evt ) {
+        ...
+  }
+}
+```
+
 ## 2. Using OSGi
 - There are several ways of defining, providing and consuming service.
 - Let's start with create the API project to provide the external APIs for other components.
   
-## 2.1. Create API project
+### 2.1. Create API project
 
-## 2.2. Specific the API
+### 2.2. Specific the API
 - Create an interface for the service definition.
 
 ```java
@@ -113,8 +224,8 @@ public class MyComponent {
         myService.execute();
     }
 }
-✅ Khi MyService có trong OSGi Service Registry, nó sẽ tự động được inject vào myService.
-❌ Nếu không có MyService, myService sẽ là null.
+ Khi MyService có trong OSGi Service Registry, nó sẽ tự động được inject vào myService.
+ Nếu không có MyService, myService sẽ là null.
 ```
 
 - Method Injection
@@ -134,7 +245,7 @@ public class MyComponent {
         }
     }
 }
-✅ Phương thức bind (bindMyService): Được gọi khi MyService có sẵn trong Service Registry.
-✅ Phương thức unbind (unbindMyService): Được gọi khi service bị gỡ khỏi Registry.
+ Phương thức bind (bindMyService): Được gọi khi MyService có sẵn trong Service Registry.
+ Phương thức unbind (unbindMyService): Được gọi khi service bị gỡ khỏi Registry.
 ❗ Đây là cách tốt để xử lý service lifecycle (khi service bị remove).
 ```

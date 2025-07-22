@@ -340,3 +340,5 @@ public boolean isAlarmTriggered(AlarmDMContext alarmCtx){
 
 - Bundle-Activator is the fully qualified name of the BundleActivator implementation that will be used to start and stop the bundle, and it refers to the class we’ve just written. (`Bundle-Activator: activator.TimerPluginActivator`)
 
+2. Create the View
+

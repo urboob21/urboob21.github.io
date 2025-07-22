@@ -81,4 +81,48 @@ Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: org.eclipse.ui.win32
 ```
 
+## 2. Eclipse Runtime
+- Eclipse runtimes defines the plugins (osgi & runtime) on which all other plugins depend.
+- `org.eclipse.osgi`: the OSGi (Open Services Gateway initiative) framework implementation
 
+- `org.eclipse.core.runtime`: provides runtime services like extension registry, preferences, logging, etc.
+
+### 2.1. Runtime application model
+- `Applications`: an Eclipse application is a plug-in that creates an extension for the extension point `org.eclipse.core.runtime.applications`
+- `Application Container`: control and execute applications. It discovers all available applications and register and `ApplicationDescriptor` OSGi service for each application.
+- `ApplicationDescriptor`: can be used to launch an application
+- `ApplicationHandle`: when an application is launch, this one OSGi service is registered to represent the instance of the running application, can be used to shutdown an app.
+
+#### 2.1.1. The Default Application
+- A given configurations may contain many products and applications.
+- The default app can be specified:
+  - `eclipse.product`
+  - `eclipse.application`
+
+#### 2.1.2. Defining an Application
+- Using the `org.eclipse.core.runtime.applications` extension.
+- The class which implements the applications is used to launch and shutdown the app instances.
+- e.g.
+
+```xml
+   <extension id="coolApplication" point="org.eclipse.core.runtime.applications"> 
+      <application> 
+         <run class="com.xyz.applications.Cool"> 
+            <parameter name="optimize" value="true"/> 
+         </run> 
+      </application> 
+   </extension> 
+```
+
+```java
+public class Cool implements IApplication{
+	@Override
+	public Object start(IApplicationContext context) throws Exception {
+    // do something here
+    return IApplication.EXIT_OK;
+  }
+}
+
+```
+
+- `eclipse -application coolApplication`
