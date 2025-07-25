@@ -249,3 +249,20 @@ public class MyComponent {
  Phương thức unbind (unbindMyService): Được gọi khi service bị gỡ khỏi Registry.
 ❗ Đây là cách tốt để xử lý service lifecycle (khi service bị remove).
 ```
+
+## 0.
+`.settings/org.eclipse.pde.ds.annotations.prefs`
+
+dsVersion=V1_4                          # Sử dụng phiên bản Declarative Services 1.4 (OSGi R7)
+
+eclipse.preferences.version=1          # Phiên bản định dạng file .prefs (mặc định của Eclipse)
+
+enabled=true                           # Bật xử lý annotation DS (bắt buộc để sinh file XML)
+
+generateBundleActivationPolicyLazy=true  # Tự động thêm "Bundle-ActivationPolicy: lazy" vào MANIFEST.MF
+
+path=OSGI-INF                          # Thư mục sẽ chứa file XML được sinh (mặc định là OSGI-INF)
+
+validationErrorLevel=error             # Nếu annotation sai thì hiện lỗi trong Eclipse (mức: error)
+
+validationErrorLevel.missingImplicitUnbindMethod=error  # Báo lỗi nếu thiếu unbind method khi dùng @Reference
