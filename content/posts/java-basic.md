@@ -118,3 +118,24 @@ public class REGEX {
 		}
 }
 ```
+
+### 4.2. URL - URI
+- `URI`: Uniform Resource Identifier: the complete identification of any resources. e.g. `urn:isbn:1234567890` 
+- `URL`: Uniform Resource Locator: a subset of URI that, in addition to identifying where a resource is available. And let we know the mechanism to access it. e.g. `"http://somehost:80/path?thequery"`
+
+- Every `URL` is a `URI`, but the opposite is not true.
+
+- URI syntax: `scheme:[//authority][/path][?query][#fragment]`
+  - `scheme`: protocol to access the resource
+  - `authority`: optional part, include user,host, port,...
+  - `path`: identify a resource
+  - `query`: also identify a resource, for URLs, this is the query string
+  - `fragment`: optional part, specific  part of the resource
+
+- URI have  ftp, http, https, file wil be a URL.
+> The easiest way to see the difference between URL and URI is to remember that:
+URI = identifier (the broad concept — anything that uniquely names or locates a resource)
+URL = locator (a URI that tells you where and how to get it)
+URI
+├── URL   → has location + access method
+└── URN   → name only, no access method

@@ -1,8 +1,8 @@
 ---
 author: "Phong Nguyen"
-title: "Eclipse Project"
+title: "Eclipse Platform Plug-in Development"
 date: "2025-02-05"
-description: "Eclipse Project."
+description: "Platform Plug-in Developer Guide."
 tags: ["eclipse"]   #tags search
 FAcategories: ["syntax"]    #The category of the post, similar to tags but usually for broader classification.
 FAseries: ["Themes Guide"]    #indicates that this post is part of a series of related posts
@@ -14,7 +14,9 @@ weight: 10    # The order in which the post appears in a list of posts. Lower nu
 Explain how to create the eclipse project.    
 **References:** 
 [Wizards and Dialogs](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fguide%2Ftools%2Fproject_wizards%2Fnew_fragment_project.htm)
-[Eclipse fragment projects - Tutorial](https://www.vogella.com/tutorials/EclipseFragmentProject/article.html#example-manifest-for-a-fragment)<br>
+[Eclipse fragment projects - Tutorial](https://www.vogella.com/tutorials/EclipseFragmentProject/article.html#example-manifest-for-a-fragment)
+[Refer](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2FresInt.htm)<br>
+
 ## 1. New Project Creation Wizards
 - Every `plugin, fragment, feature` and update site is represented by a single project in the workspace and allow PDE(Plugin Development Environment) to validate their manifest file(s). 
 - `File > New > Project... > Plug-in Development`
@@ -126,3 +128,95 @@ public class Cool implements IApplication{
 ```
 
 - `eclipse -application coolApplication`
+
+## 3. Resources
+- The resources plug-in (**org.eclipse.core.resource**) provides services for accessing the projects, folders, and files that a user is working with.
+### 3.1. Resources and Workspace
+- The resources plug-in provides APIs for resources in a workspace. Our plug-in can also use these APIs.
+### 3.2. Resources and file system
+-  `.metadata`: platform metadata directory for holding its internal information, including workspace structure.
+-  `.project`: project metadata
+-  `IWorkspace`: an instance represent of the workspace when the platform is running and resources plug-in is active.
+-  `IWorkspaceRoot`: the top o the resource hierarchy in the workspace
+-  `IProjectDescription`: contain the project information (like .project)
+-  `IProject, IFolder, IFile`: resource types
+-  `org.eclipse.core.runtime.IPath`: resouce /file system paths. A path is simple (String -> IPath) or (String -> URI)
+-  `IProgressMonitor`: use to report progress and allow user to cancel etc, use this when our code has a user interface (UI). `null` indicating no progress monitor
+
+- Based on `java.io.File`
+
+```java
+// get workspace/workspace root
+IWorkspace workspace = ResourcesPlugin.getWorkspace();
+IWorkspaceRoot workspaceRoot = workspace.getRoot();
+
+// get and must open project
+IProject projectA = workspaceRoot.getProject("projectNameA");
+if(projectA != null && !projectA.isOpen()){
+    projectA.open(null);
+}
+
+// open folder and create st
+IFolder folder = projectA.getFolder("folderName");
+if(folder.exists()){
+    // create a new file
+    IFile newFile = folder.getFile("newFile.txt");
+
+    FileInputStream fileStream = new FileInputStream(
+        "c:/MyOtherData/newLogo.png");
+    newLogo.create(fileStream, false, null);
+    // create closes the file stream, so no worries.   
+    
+}
+```
+## 3.3 Mapping resources to disk locations
+- Resource paths are always based o the project's location (workspace directory e.g. C:\MySDK\workspace). e.g. IFile file1 = src/com/example/Main.java.
+- To get the full file system path to a resource, we must query its location using `IResource.getLocationURI`
+- To get the corresponding resource object given a file system path, we can using `IWorkspaceRoot.findFilesForLocationURI/findContainersForLocationURI`
+
+- When we make some changes to resource files using external methods, we need to call a file system refresh to sync with platform. e.g. `IResource.refreshLocal(int dept, IProgressMonitor monitor)`
+
+## 3.4. Resource Properties
+- There are two kinds of this:
+  - Session properties: cache
+  - Persistent properties: 
+- Using `IResource API` to get this info.
+
+## 3.5. Project-scoped preferences
+- How to define additional scope for preferences.
+- TBD
+
+## 3.6. File encoding and content types
+- Content types for data stream (Charset etc)
+- TBD
+
+## 3.7. Linked resources
+- This concept let we know how the files and folders inside a project can be stored in a file system outside of the project's location.
+-
+
+## 4. Advanced resource
+## 4.1. Alternate file system
+- How to contribute/work with resources stored in the different file systems.
+### 4.1.1. File System API
+- The `org.eclipse.core.filesystem` plug-in provides a lot of API which is similar to `java.io.File`. With a few differences:
+    - Plug-ins can install providers for different types of file systems.
+    - All methods integrate support for reporting progress and responding to cancelation, making it easier to integrate into a graphical user interface.
+    - There is support for some additional functionality not available in java.io.File, such as getting and setting file permissions.
+    - There are more convenience methods, such as copy, move, and recursive deletion.
+  
+- `java.net.URI`: represent for any given file in the File System API
+- `IFileStore`: represents a single file (like IResource). Use this to create, delete, copy, move...
+- `IFileSystem`: represents a single URI scheme (e.g. file:, ftp: )
+- `IFileInfo`: represents the state(isExist etc) of a file at a particular moment
+- `org.eclipse.core.filesystem.EFS`: is the main entry point for clients of the Eclipse file system API. This class has factory methods for obtaining instances of file systems and file stores, and provides constants for option values and error codes.
+
+```java
+URI uri = ...;
+IFileStore store = EFS.getStore(uri); // get file store from URI
+store.openOutputStream(EFS.APPEND, null); // using EFS flag to allow extra options
+
+IFileInfo info = store.fetchInfo();
+boolean state = info.isDirectory();
+
+```
+### 4.1.2. Working With Resources in Other File Systems
