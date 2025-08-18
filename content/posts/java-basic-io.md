@@ -225,3 +225,107 @@ e.g.
 
 		}
 ```
+
+
+## 2.5. java.nio.file.Files.java
+- This class offers a rich set of static methods for reading, writing, and manipulating files and directories.
+- The methods works on instances of Path objects.
+
+- 1. Checking a File or Directory
+- 2. Deleting a File or Directory
+- 3. Copying a File or Directory
+- 4. Moving a File or Directory
+```java
+public class FileOperations {
+	public static void main(String[] args) throws IOException {
+		// 1. Checking Files or Directory:
+		// Checking exist
+		Path path = Paths.get("resources/files");
+		if (Files.exists(path)) {
+			System.out.println(path.toString() + " is exist !!");
+		}
+
+		// Checking Accessis
+		boolean isRegularFile = Files.isDirectory(path) && Files.isReadable(path) && Files.isWritable(path);
+		if (isRegularFile) {
+			System.out.println(path.toString() + " is regular");
+		}
+
+		// Checking whether two paths locate the sample file
+		Path p1 = Paths.get("resources/files");
+		Path p2 = Paths.get("resources/files");
+
+		if (Files.isSameFile(p1, p2)) {
+			// Logic when the paths locate the same file
+			System.out.println("They are location the same file");
+		}
+
+		// 2. Deleting
+		try {
+			// Files.delete(p1);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		// 3. Copying
+//		Files.copy(source, target, REPLACE_EXISTING);
+		
+		// 4. Moving
+//		Files.move(source, target, REPLACE_EXISTING);
+	}
+}
+```
+
+### 2.5.1. Managing Metadata (File and File Store Attributes)
+### 2.5.2 Reading, Writing, and Creating Files
+- There are a wide array of file I/O methods to choose
+  - `ReadAllBytes/ReadAllLines`: commonly used, small files
+  - `newBuffedReader/newBufferedWriter`: text files
+  - `newInputStream/newOutputStream`: streams, unbuffered,
+  - `newByteChannel`: channel and byte buffers
+  - `FileChannel`: advanced,file-locking
+
+
+-  Creating regular/temporary files
+- Creating files:
+```java
+Path file = ...;
+try {
+    // Create the empty file with default permissions, etc.
+    Files.createFile(file);
+} catch (FileAlreadyExistsException x) {
+    System.err.format("file named %s" +
+        " already exists%n", file);
+} catch (IOException x) {
+    // Some other sort of failure, such as permissions.
+    System.err.format("createFile error: %s%n", x);
+}
+```
+
+
+### 2.5.3 Walking the File Tree
+- This will recursively visit all the files in a file tree.
+
+1. Create the FileVisitor
+- `FileVisitor Interface`: interface has four methods 
+  - `pre/postVisitDirectory`:Invoked before/after a directory's entries are visited.
+  - `visitFile`: invoked on the file being visited
+  - `visitFileFailed`: invoked when the file cannot be accessed.
+- `SimpleFileVisitor`: class which implements FileVisitor interface, we can extend this
+
+2. Kickstarting the process
+```java
+Path startingDir = ...;
+PrintFiles pf = new PrintFiles();
+Files.walkFileTree(startingDir, pf);
+```
+
+
+### 2.5.4 Others
+- 7. Random Access Files
+- 8. Creating and Reading Directories
+- 9. Links, Symbolic or Otherwise
+- 11. Finding Files
+- 12. Watching a Directory for Changes
+- 13. Other Useful Methods
+- 14. Legacy File I/O Code
