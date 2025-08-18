@@ -20,6 +20,7 @@ Explain how to use basic I/O.
 - A stream is a sequence of data.
 - `input stream`: is used to **read** data from source, once item at a time.
 - `outputs stream`: is used to **write** data to a destination, once item |at a time.
+ 
 ```
 --stream-->
 0101010101...
@@ -27,9 +28,25 @@ Explain how to use basic I/O.
 ```
 - **java.io** package
 
+- **Streams**:
+  - Byte streams: `InputStream/OutputStream/FileInputStream/FileOutputStream`
+  - Character streams: `Reader/Writer/FileReader/FileWriter`
+  - Buffered streams: `BufferedReader/BufferedWriter/BufferedInputStream/BufferedOutputStream`
+  
+- **Scanner**: `Scanner.java`
+- **Formatter**: `sys.printf/String.format`
+
+- **Always close streams.**
+- **Line Terminator**: 
+  -  a carriage-return/line-feed sequences `\r\n`
+  -  a single carriage-return `\r`
+  -  a single line-feed `\n`
+  -  
 ### 1.1. Bytes Streams
-- Bytes Streams is used to perform input and output of 8-bit bytes.
+- Bytes Streams is used to perform input and output of `8-bit bytes`.
 - All other stream types are built on byte streams.
+- All byte stream classes are descended from `InputStream.java` and `OutputStream.java`
+
 - Examples:
 ```java
 import java.io.FileInputStream;
@@ -66,6 +83,9 @@ public class CopyBytes {
 ### 1.2. Character Streams
 - Character values is stored using Unicode conventions.
 - Character stream I/O **automatically** translates this internal format to and from the local character set.( E.g: Western: ASCII, Japan:Shift-JIS)
+- All character stream classes are descended[dɪˈsend] from `Reader.java` and `Writer.java`
+
+
 - Example:
 ```java
 	private boolean writeXmlFile(Map<String, String> object, IPath filePath) {
@@ -96,3 +116,43 @@ public class CopyBytes {
 		return false;
 	}
 ```
+
+=> They are using the int variable to store the temp value.However, CopyBytes: int variable hold its last 8 bits , CopyCharacters hold 16bits.
+
+> UTF-8 là một encoding để biểu diễn ký tự Unicode dưới dạng 1–4 bytes.
+Ví dụ:
+Ký tự ASCII 'A' → 0x41 → lưu 1 byte trong file.
+Ký tự 'é' (U+00E9) → UTF-8 là 11000011 10101001 → lưu 2 byte.
+Ký tự '𠜎' (U+2070E) → UTF-8 là 11110000 10100000 10011100 10001110 → lưu 4 byte.
+=> Chung ta can encode/decode dung.
+
+## 1.3. Buffered Streams
+- The unbuffered IO are much less efficient because they call directly to the OS/native I/O (triggers disk access etc.) => Should use the buffered IO streams to reduce system call -> faster for most of use cases 
+-  `BufferedReader/BufferedWriter`: create buffered `character streams`
+-  `BufferedInputStream/BufferedOutputStream`: create the buffered `bytes streams`
+
+- **Flushing buffered streams**: to write out a buffer
+  - the buffer full
+  - close stream
+  - flushing the buffer (.flush)
+  - auto flushing (.`println` or `format` )
+
+## 1.4. Scanning and Formatting
+- Scanning: API breaks input into individual tokens associated with bits of datas
+- Formatting: API assembles data into nicely format, human-readable
+### 1.4.1 Scanning: Scanner.java
+- Breaking Input into Tokens: by default, we uses a scanner uses while space to separate tokens
+- We can use a different token separator, invoke `useDelimiter()`, specifying a regular expression.
+
+### 1.4.2 Formatting: 
+- Bytes stream class: `PrintStream`, syserr,sysout ,  using String
+e.g.
+`System.out.println("The square root of " + i + " is " + r + ".")`
+
+- Character stream class: `PrintWriter`, printf, using format
+`        System.out.format("The square root of %d is %f.%n", i, r)`
+
+- `%x`: conversions
+- In the Java programming language, the `\n` escape always generates the linefeed character (\u000A). Don't use `\n` unless you specifically want a linefeed character. To get the correct line separator for the local platform, use `%n`.
+
+
