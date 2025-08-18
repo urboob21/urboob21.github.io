@@ -156,3 +156,72 @@ e.g.
 - In the Java programming language, the `\n` escape always generates the linefeed character (\u000A). Don't use `\n` unless you specifically want a linefeed character. To get the correct line separator for the local platform, use `%n`.
 
 
+## 2. File I/O
+- **java.nio** package
+
+### 2.1. Path
+- File systems store the files in a tree structure, included: One root nodes and files and directories (folders), subdirectories(subfolders) 
+- Delimiter is the character to separate the directories names: linux OS uses the `forwardslash`(/), windows using the `backslash`(\)
+-  Root: `/` or `C:\`
+-  Folders: `/home/phong/myfolder` or `C:\phong\myfolder`
+
+=> **Path used to identify a file through the system file**.
+
+### 2.2. Relative/ Absolute:
+- A path is either relative or absolute.
+- **Absolute** path always contains the root element. e.g. `/home/phong/myfolder`
+- **Relative** needs to be combined with another path in order to access file. e.g.g `/phong/foo`
+
+
+### 2.3. Symbolic link
+- A symbolic link is a special file that serves as a reference to another file.
+- Reading or writing to a symbolic link is the same as reading or writing to any other file or directory. For example, resolving `logFile` yields `dir/logs/HomeLogFile` (actual)
+
+## 2.4. java.nio.file.Path.java
+- `Path.java`: A Path instance contains the information used to specify the location of a file or directory
+- `Paths.java`: Helper class
+
+
+- 1. Creating a Path
+- 2. Retrieving information
+- 3. Removing redundancies
+- 4. Converting a path
+- 5. Joining two paths
+- 6. Create a Path between two paths
+- 7. Comparing two paths
+```java
+// 1. Creating a path
+		// String filePath = "resources/files"; // forward-slash
+		String filePath = "resources\\files"; // back-slash
+		Path path = Paths.get(filePath);
+
+		// 2. Retrieving the info
+		System.out.format("toString: %s%n", path.toString());
+
+		// 3. Removing Redundancies From a Path
+		// Path path.normalize();
+
+		// 4. Converting a Path
+		// path.torUr()
+
+		// 5. Joining two paths
+		Path parentPath = Paths.get(filePath);
+		String subFolderName = "subfolder";
+		Path subPath = parentPath.resolve(subFolderName);
+		System.out.format("subPath toString: %s%n", subPath.toString());
+
+		// 6. Creating a path between two paths
+		Path path1 = Paths.get("path1");
+		Path path2 = Paths.get("path2");
+		Path p2_to_p1 = path2.relativize(path1); // get relative path1 from path2
+		System.out.format("p2_to_p1 toString: %s%n", p2_to_p1.toString());
+
+		// 7. Comparing two paths
+		if (path1.equals(path2)) {
+
+		} else if (path1.endsWith(path2)) {
+
+		} else if (path1.startsWith(path2)) {
+
+		}
+```

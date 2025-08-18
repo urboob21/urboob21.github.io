@@ -139,3 +139,6 @@ URL = locator (a URI that tells you where and how to get it)
 URI
 ├── URL   → has location + access method
 └── URN   → name only, no access method
+```java
+URI.create("file:///Users/joe/FileTest.java"
+```
