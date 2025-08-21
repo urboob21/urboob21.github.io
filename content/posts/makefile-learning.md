@@ -12,6 +12,9 @@ TocOpen: true    # Controls whether the TOC is expanded when the post is loaded.
 weight: 2    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
 ## Introduction
+>It's a build tool (specifically, make is a build automation utility).
+How it works: Reads a file called Makefile that describes rules for how to build source files into targets (executables, libraries, etc.).
+
 GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files.
 Make get its knowledge of how to build your program from a file called the `makefile`, which lists each of the non-source files and how to compute it from the other files.
 When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program.
