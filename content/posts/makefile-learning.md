@@ -263,7 +263,7 @@ Pattern rules contain a `%` in the target. We can look at them as two ways:
 ```makefile
 %.o : %.c
 		$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
-# gcc -c -Wall -O2 -I./include main.c -o main.o
+# gcc -c -Wall -O2 -I./include main.c -o main.o 
 ```
 #### Explain:
 - `%.o`: This is target matching any `.o` object file.
