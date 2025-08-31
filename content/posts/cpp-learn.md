@@ -129,7 +129,7 @@ Hello world
 - `Variable`: an object has a name(identifier)
 - `Initialization`:  provides an initial value for a variable.
 
-1. **Initialization**
+### 4.1. Initialization
 ```cpp
 // 1. default
 int a; 
@@ -167,7 +167,7 @@ Foo f4(3.14);  //  OK direct init works with explicit → calls Foo(double)
 ```
 
 
-2. **iostream**
+### 4.2. iostream
 - `std::cin >> x`: console input to x
 - `std::cout << x`: console output
 - `\n` vs `std::endl`:
@@ -194,17 +194,17 @@ int main() {
 ```
 
 
-3. **Keywords and identifiers**
+### 4.3. Keywords and identifiers
 - Keywords: alignas alignof and and_eq asm auto bitand bitor bool break case catch char char8_t (since C++20) char16_t char32_t class compl concept (since C++20) const consteval (since C++20) constexpr constinit (since C++20) const_cast continue co_await (since C++20) co_return (since C++20) co_yield (since C++20) decltype default delete do double dynamic_cast else enum explicit export extern false float for friend goto if inline int long mutable namespace new noexcept not not_eq nullptr operator or or_eq private protected public register reinterpret_cast requires (since C++20) return short signed sizeof static static_assert static_cast struct switch template this thread_local throw true try typedef typeid typename union unsigned using virtual void volatile wchar_t while xor xor_eq
 
 - Identifiers: `snake_case` vs `camelCase`
 > When working in an existing program, use the conventions of that program. Use modern best practices when writing new programs.
 
-3. **Literals vs Operators**
+### 4.4. Literals vs Operators
 - `Literals`: fixed values like 42, 3.14, 'A', "Hello", true, nullptr.
 - `Operators`:   symbols that act on values (+ - * / %, == != < >, && || !, = += -=, etc.).
 
-4. **Expression**
+### 4.5. Expression
 - An expression is anything that produces a value.
 ```cpp
 5 + 3        // expression → evaluates to 8
@@ -214,7 +214,7 @@ true && flag // logical expression
 ```
 
 ## 5. C++ Basic: Functions and Files
-1. **Function**
+### 5.1. Function
 - Syntax:
 ```cpp
 returnType functionName(); // forward declaration
@@ -229,7 +229,7 @@ returnType functionName() // This is the function header (tells the compiler abo
 - A `forward declaration` allows us to tell the compiler about the existence of an identifier before actually defining the identifier.
 class B;  
 
-2. **name space**
+### 5.2. name space
 - `namespace` is a way to group names (variables, functions, classes) together and avoid name conflicts. It guarantees that all identifiers within the namespace are unique
 ```cpp
 // Issue
@@ -253,7 +253,7 @@ int main() {
 
 - `using namespace`: this is a using-directive that allows us to access names in the std namespace with no namespace prefix
 
-3. **Preprocessor**
+### 5.3. Preprocessor 
 - The preprocessor is a process that runs on the code before it is compiled.
 ```cpp
 #include <iostream>     // insert file contents
@@ -264,7 +264,7 @@ std::cout << NAME;
 #endif
 ```
 
-4. **Header files**
+### 5.4. Header files
 - Header files are files designed to propagate declarations to code files. 
 - Include header files:
 ```cpp
@@ -288,10 +288,166 @@ g++ -o main -I./source/includes -I/home/abc/moreHeaders main.cpp
 #include "myOtherHeader.h"
 ```
 
-5. **Header guard**
+### 5.5. Header guard 
 - Header guards prevent the contents of a header from being included more than once into a given code file. 
 - For cross-platform library code, `#ifndef` is safest.
 - For modern projects using GCC/Clang/MSVC, `#pragma once` is simpler and safe.
 
-6. **Others**
+### 5.6. Others 
 `https://www.learncpp.com/cpp-tutorial/how-to-design-your-first-programs/`
+
+
+## 6. Debugging C++ Programs
+
+## 7. Fundamental Data Types
+- Memory can only store bits. Data type help compiler and CPU take care of encoding the value into the sequence of bits.
+  
+### 7.1. Basic datatype (Primitive type)
+
+| Types                                                                 | Category               | Meaning                                      | Example   |
+|----------------------------------------------------------------------|------------------------|----------------------------------------------|-----------|
+| float, double, long double                                            | Floating Point         | a number with a fractional part              | 3.14159   |
+| bool                                                                  | Integral (Boolean)     | true or false                                | true      |
+| char, wchar_t, char8_t (C++20), char16_t (C++11), char32_t (C++11)   | Integral (Character)   | a single character of text                   | 'c'       |
+| short int, int, long int, long long int (C++11)                      | Integral (Integer)     | positive and negative whole numbers, including 0 | 64    |
+| std::nullptr_t (C++11)                                                | Null Pointer           | a null pointer                               | nullptr   |
+| void                                                                  | Void                   | no type                                      | n/a       |
+
+### 7.2. Sizeof 
+- We can use `sizeof` can be used to return the `size of a type in bytes`.
+
+| Category        | Type          | Minimum Size       | Typical Size       |
+|-----------------|---------------|--------------------|--------------------|
+| Boolean         | bool          | 1 byte             | 1 byte             |
+| Character       | char          | 1 byte (exactly)   | 1 byte             |
+| Character       | wchar_t       | 1 byte             | 2 or 4 bytes       |
+| Character       | char8_t       | 1 byte             | 1 byte             |
+| Character       | char16_t      | 2 bytes            | 2 bytes            |
+| Character       | char32_t      | 4 bytes            | 4 bytes            |
+| Integral        | short         | 2 bytes            | 2 bytes            |
+| Integral        | int           | 2 bytes            | 4 bytes            |
+| Integral        | long          | 4 bytes            | 4 or 8 bytes       |
+| Integral        | long long     | 8 bytes            | 8 bytes            |
+| Floating point  | float         | 4 bytes            | 4 bytes            |
+| Floating point  | double        | 8 bytes            | 8 bytes            |
+| Floating point  | long double   | 8 bytes            | 8, 12, or 16 bytes |
+| Pointer         | std::nullptr_t| 4 bytes            | 4 or 8 bytes       |
+
+### 7.3. Signed/ Unsigned 
+-  a signed integer can hold both positive and negative numbers (and 0). 
+-  Unsigned integers are integers that can only hold non-negative whole numbers.
+
+### 7.4. Fixed-width integers and size_t
+- `fixed-width integers`: C++11 provides an alternate set of integer types that are guaranteed to be the same size on any architecture
+```cpp
+#include <cstdint>
+// Fixed-width integer types
+
+std::int8_t   i8;   // 1 byte signed   range: -128 to 127
+std::uint8_t  u8;   // 1 byte unsigned range: 0 to 255
+
+std::int16_t  i16;  // 2 bytes signed  range: -32,768 to 32,767
+std::uint16_t u16;  // 2 bytes unsigned range: 0 to 65,535
+
+std::int32_t  i32;  // 4 bytes signed  range: -2,147,483,648 to 2,147,483,647
+std::uint32_t u32;  // 4 bytes unsigned range: 0 to 4,294,967,295
+
+std::int64_t  i64;  // 8 bytes signed  range: -9,223,372,036,854,775,808 
+                    //        to  9,223,372,036,854,775,807
+std::uint64_t u64;  // 8 bytes unsigned range: 0 to 18,446,744,073,709,551,615
+```
+
+- `fast integers`: guarantee at least # bits, but pick the type that the CPU can process fastest (even if it uses more memory).
+- `least integers`: guarantee at least # bits, but pick the type that uses the least memory (even if it’s slower).
+```cpp
+#include <cstdint> // for fast and least types
+#include <iostream>
+
+int main()
+{
+	std::cout << "least 8:  " << sizeof(std::int_least8_t)  * 8 << " bits\n";
+	std::cout << "least 16: " << sizeof(std::int_least16_t) * 8 << " bits\n";
+	std::cout << "least 32: " << sizeof(std::int_least32_t) * 8 << " bits\n";
+	std::cout << '\n';
+	std::cout << "fast 8:  "  << sizeof(std::int_fast8_t)   * 8 << " bits\n";
+	std::cout << "fast 16: "  << sizeof(std::int_fast16_t)  * 8 << " bits\n";
+	std::cout << "fast 32: "  << sizeof(std::int_fast32_t)  * 8 << " bits\n";
+
+	return 0;
+}
+``` 
+
+### 7.5. std::size_t 
+- The type returned by the `sizeof`.
+- size_t is an unsigned integral type that is used to represent the size or length of objects.
+
+```cpp
+#include <cstddef> // for std::size_t
+#include <iostream>
+
+int main()
+{
+	std::cout << sizeof(std::size_t) << '\n';
+
+	return 0;
+}
+```
+
+### 7.6. Scientific notation 
+- `e`/`E`:  to represent the “times 10 to the power of” part of the equation. (e.g. 5.9722 x 10²⁴ -> 5.9722e24)
+
+### 7.7. Floating point number 
+- `std::cout` has a default precision of 6
+- We can override the default precision that std::cout shows by using an output manipulator function named `std::setprecision()`
+  
+- `f` suffix means float
+- `rounding error `: cannot be represented exactly in binary floating-point, so printing with high precision reveals a tiny rounding error.
+```cpp
+#include <iomanip> // for std::setprecision()
+#include <iostream>
+
+int main()
+{
+    double d{0.1};
+    std::cout << d << '\n'; // use default cout precision of 6     -> 0.1
+    std::cout << std::setprecision(17); //                         -> 0.10000000000000001
+    std::cout << d << '\n';
+
+    return 0;
+}
+```
+
+- `Inf`: which represents infinity. Inf is signed, and can be positive (+Inf) or negative (-Inf). (5/0)
+- `NaN`: which stands for “Not a Number”. (mathematically invalid)
+
+### 7.8. Boolean values 
+- `std::boolalpha`: use to print true or false (and allow std::cin to accept the words false and true as inputs)
+
+### 7.9. Chars 
+- The integer stored by a `char` variable are intepreted as an `ASCII character`.
+- `std::cin.get()` this function does not ignore leading whitespace
+- `Escape sequences`:
+  
+| Name            | Symbol     | Meaning                                                  |
+|-----------------|------------|----------------------------------------------------------|
+| Alert           | `\a`       | Makes an alert, such as a beep                          |
+| Backspace       | `\b`       | Moves the cursor back one space                         |
+| Formfeed        | `\f`       | Moves the cursor to next logical page                   |
+| Newline         | `\n`       | Moves cursor to next line                               |
+| Carriage return | `\r`       | Moves cursor to beginning of line                       |
+| Horizontal tab  | `\t`       | Prints a horizontal tab                                 |
+| Vertical tab    | `\v`       | Prints a vertical tab                                   |
+| Single quote    | `\'`       | Prints a single quote                                   |
+| Double quote    | `\"`       | Prints a double quote                                   |
+| Backslash       | `\\`       | Prints a backslash                                      |
+| Question mark   | `\?`       | Prints a question mark *(no longer relevant)*           |
+| Octal number    | `\{number}`| Translates into char represented by octal               |
+| Hex number      | `\x{number}` | Translates into char represented by hex number        |
+
+
+- `'t'`: Text between single quotes is treated as a char literal, which represents a single character.
+- `"text"`: Text between double quotes (e.g. “Hello, world!”) is treated as a C-style string literal, which can contain multiple characters.
+
+### 7.10. Type conversion
+-  `implicit type conversion`: e.g. `double d { 5 };` // okay: int to double is safe
+-  `explicit type conversion`: `static_cast<new_type>(expression)`

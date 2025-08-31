@@ -25,10 +25,9 @@ weight: 2    # The order in which the post appears in a list of posts. Lower num
 ## 3. How to work with CMake
 
 1. Create CMakeLists.txt and resources file
-2. Run `cmake <dir-contain-CMakeLists.txt>` to set up & generate build system.
-3. Run `cmake --build <dir-contain-buildsystem>` to actually build/compile the project.
+2. Create and cd to `project-build` folder & Run `cmake <dir-contain-CMakeLists.txt>` (`cmake ../`) to set up & generate build system.
+3. Run `cmake --build <dir-contain-buildsystem>` ( `cmake --build ./`) to actually build/compile the project.
 4. Run the target build (e.g. `./targetName`)
-
 
 ### 3.1. 
 > CMakeLists.txt
