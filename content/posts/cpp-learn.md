@@ -227,7 +227,6 @@ returnType functionName() // This is the function header (tells the compiler abo
 }
 ```
 - A `forward declaration` allows us to tell the compiler about the existence of an identifier before actually defining the identifier.
-class B;  
 
 ### 5.2. name space
 - `namespace` is a way to group names (variables, functions, classes) together and avoid name conflicts. It guarantees that all identifiers within the namespace are unique
@@ -451,3 +450,111 @@ int main()
 ### 7.10. Type conversion
 -  `implicit type conversion`: e.g. `double d { 5 };` // okay: int to double is safe
 -  `explicit type conversion`: `static_cast<new_type>(expression)`
+
+
+## 8. Constant
+- In programming, a constant is a value that may not be changed during the program’s execution.
+- **Named constants** are constant values that are associated with an identifier. Included:
+  - Constant variables
+  - Macros with substitution text
+  - Enumerated constant
+- **Literal constants** are constant values that are not associated with an identifier.Literals are values that are inserted directly into the code.
+
+### 8.1. Named constants
+```cpp
+// Const variable
+const double gravity { 9.8 }; 
+
+// Object-like macros with substitution text
+#define MY_NAME "Phong" 
+
+// Enumerated constant
+```
+> As of C++23, C++ only has two type qualifiers: const and volatile. The volatile qualifier is used to tell the compiler that an object may have its value changed at any time. This rarely-used qualifier disables certain types of optimizations.
+
+
+### 8.2. Literals
+- **Literals** are values that are inserted directly into the code.
+- **Type of a literal** is deduced from the literal's value.
+```cpp
+return 5;                     // 5 is an integer literal -> type: int
+bool myNameIsAlex { true };   // true is a boolean literal -> type: bool
+double d { 3.4 };             // 3.4 is a double literal -> type: double
+std::cout << "Hello, world!"; // "Hello, world!" is a C-style string literal -> type: const char[14]
+```
+- **Literal suffixes** used to explicitly declare the type for a literal.
+```cpp
+#include <iostream>
+
+int main()
+{
+    std::cout << 5.0 << '\n';  // 5.0 (no suffix) is type double (by default)
+    std::cout << 5.0f << '\n'; // 5.0f is type float
+
+    return 0;
+}
+```
+
+### 8.3. Numeral systems (decimal, binary, hexadecimal, and octal)
+- Numeral system literals in C++:
+    - Decimal (no prefix, 42)
+    - Binary (0b101010)
+    - Hexadecimal (0x2A)
+    - Octal (052) — all represent the same value.
+```cpp
+#include <iostream>
+
+int main()
+{
+    int bin{};    // assume 16-bit ints
+    bin = 0x0001; // assign binary 0000 0000 0000 0001 to the variable
+    bin = 0b1;        // assign binary 0000 0000 0000 0001 to the variable
+    bin = 0b11;       // assign binary 0000 0000 0000 0011 to the variable
+
+    std::cout << std::bitset<4>{ 0b1010 } << '\n'; // create a temporary std::bitset and print it
+
+    // -  C++14 also adds the ability to use a quotation mark (‘) as a digit separator.
+    int bin { 0b1011'0010 };  // assign binary 1011 0010 to the variable
+    long value { 2'132'673'462 }; // much easier to read than 2132673462
+    return 0;
+}
+```
+- Can change the output format via use of the `std::dec, std::oct, and std::hex` I/O manipulators:
+- We can define a `std::bitset` variable and tell `std::bitset` how many bits we want to store.
+  
+### 8.4. Constant expressions & Constexpr variables
+- `Constant expressions`: expressions whose values can be fully determined at compile time.
+- `constexpr` is used to ensure we get a compile-time constant variable where we desire one. Means that the object can be used in a constant expression. The value of the initializer must be known at compile-time. The constexpr object can be evaluated at runtime or compile-time.
+> Benefits:
+Compile-time evaluation → reduces runtime overhead by precomputing values.
+Safer code → ensures that certain values (like array sizes, template parameters) are truly constant.
+Optimizations → allows the compiler to inline and optimize more aggressively.
+Expressiveness → lets you write functions and objects that can be used in both compile-time and runtime contexts.
+
+```cpp
+#include <iostream>
+// The return value of a non-constexpr function is not constexpr
+int five()
+{
+    return 5;
+}
+
+int main()
+{
+    constexpr double gravity { 9.8 }; // ok: 9.8 is a constant expression
+    constexpr int sum { 4 + 5 };      // ok: 4 + 5 is a constant expression
+    constexpr int something { sum };  // ok: sum is a constant expression
+
+    std::cout << "Enter your age: ";
+    int age{};
+    std::cin >> age;
+
+    constexpr int myAge { age };      // compile error: age is not a constant expression
+    constexpr int f { five() };       // compile error: return value of five() is not constexpr
+
+    return 0;
+}
+```
+
+## 9. std::string
+- The easiest way to work with strings and string objects in C++ is via the `std::string`/`<string>`
