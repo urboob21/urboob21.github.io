@@ -11,7 +11,8 @@ ShowToc: true    # Determines whether to display the Table of Contents (TOC) for
 TocOpen: true    # Controls whether the TOC is expanded when the post is loaded. 
 weight: 10    # The order in which the post appears in a list of posts. Lower numbers make the post appear earlier.
 ---
-Explain how to create the eclipse project.    
+Notes for the eclipse plugin development.
+
 **References:** 
 [Wizards and Dialogs](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fguide%2Ftools%2Fproject_wizards%2Fnew_fragment_project.htm)
 [Eclipse fragment projects - Tutorial](https://www.vogella.com/tutorials/EclipseFragmentProject/article.html#example-manifest-for-a-fragment)
@@ -23,7 +24,7 @@ Explain how to create the eclipse project.
 
 - Use a Plugin Project if we're building new functionality.
 - Use a Fragment Project if we need to modify an existing plugin without changing its core code.
-## 1.1. Plugin project
+### 1.1. Plugin project
 - **A plugin project** (or "bundle") is the fundamental building block in an Eclipse-based application.
 
 - **Use-cases:**
@@ -56,7 +57,7 @@ PATCH version (X.Y.Z): Backward-compatible bug fixes.
 <br>
 
 
-## 1.2. Fragment project
+### 1.2. Fragment project
 - **A fragment** is an optional attachment to another plug-in. This other plug-in is called the host plug-in. At runtime the fragment is merged with its host plug-in.
 
 - **Use-cases:**
@@ -169,35 +170,35 @@ if(folder.exists()){
     
 }
 ```
-## 3.3 Mapping resources to disk locations
+### 3.3 Mapping resources to disk locations
 - Resource paths are always based o the project's location (workspace directory e.g. C:\MySDK\workspace). e.g. IFile file1 = src/com/example/Main.java.
 - To get the full file system path to a resource, we must query its location using `IResource.getLocationURI`
 - To get the corresponding resource object given a file system path, we can using `IWorkspaceRoot.findFilesForLocationURI/findContainersForLocationURI`
 
 - When we make some changes to resource files using external methods, we need to call a file system refresh to sync with platform. e.g. `IResource.refreshLocal(int dept, IProgressMonitor monitor)`
 
-## 3.4. Resource Properties
+### 3.4. Resource Properties
 - There are two kinds of this:
   - Session properties: cache
   - Persistent properties: 
 - Using `IResource API` to get this info.
 
-## 3.5. Project-scoped preferences
+### 3.5. Project-scoped preferences
 - How to define additional scope for preferences.
 - TBD
 
-## 3.6. File encoding and content types
+### 3.6. File encoding and content types
 - Content types for data stream (Charset etc)
 - TBD
 
-## 3.7. Linked resources
+### 3.7. Linked resources
 - This concept let we know how the files and folders inside a project can be stored in a file system outside of the project's location.
 -
 
 ## 4. Advanced resource
-## 4.1. Alternate file system
+### 4.1. Alternate file system
 - How to contribute/work with resources stored in the different file systems.
-### 4.1.1. File System API
+#### 4.1.1. File System API
 - The `org.eclipse.core.filesystem` plug-in provides a lot of API which is similar to `java.io.File`. With a few differences:
     - Plug-ins can install providers for different types of file systems.
     - All methods integrate support for reporting progress and responding to cancelation, making it easier to integrate into a graphical user interface.
@@ -219,4 +220,91 @@ IFileInfo info = store.fetchInfo();
 boolean state = info.isDirectory();
 
 ```
-### 4.1.2. Working With Resources in Other File Systems
+#### 4.1.2. Working With Resources in Other File Systems
+
+
+## 5. System property & Dynamic variables
+[refer](https://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html)
+
+### 5.1. System properties
+- **System properties** include information about the current user, the current version of the Java runtime, and the character used to separate components of a file path name.
+- The `System` class/ a `Properties` object
+> Key - Meaning:s
+"file.separator" -	Character that separates components of a file path. This is "/" on UNIX and "\" on Windows.
+"java.class.path"	- Path used to find directories and JAR archives containing class files. Elements of the class path are separated by a platform-specific character specified in the path.separator property.
+"java.home"	- Installation directory for Java Runtime Environment (JRE)
+"java.vendor"	- JRE vendor name
+"java.vendor.url"	- JRE vendor URL
+"java.version"	- JRE version number
+"line.separator"	- Sequence used by operating system to separate lines in text files
+"os.arch"	- Operating system architecture
+"os.name"	- Operating system name
+"os.version" -	Operating system version
+"path.separator" -	Path separator character used in java.class.path
+"user.dir" -	User working directory
+"user.home" -	User home directory
+"user.name" -	User account name
+
+- Examples:
+```xml
+VM Arguments
+-Dmykey="stringValue"
+
+
+```
+
+- **Read/write system properties**:
+```java
+System.getProperty("user.home"); // get value of "user.home"
+System.getProperties().list(System.out); // print out all the system properties
+
+
+```
+
+### 5.2. Dynamic variables (Eclipse dynamic variables)
+- Eclipse dynamic variables are placeholders (like macros) that Eclipse can resolve at runtime to context-specific values.
+- Some commonly used Eclipse dynamic variables:
+  - `${eclipse_home}` → resolves to the Eclipse installation directory.
+  - `${workspace_loc}` → resolves to the absolute path of the current workspace.
+  - `${project_loc:MyProject}` → resolves to the path of the project MyProject.
+  - `${resource_loc}` → resolves to the full path of the selected resource in the workspace.
+  - `${java_home}` → resolves to the JRE home directory used by Eclipse.
+
+- Example:
+```xml
+Program arguments
+-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog
+
+```
+
+- Define a dynamic variables: [refer](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fextension-points%2Forg_eclipse_core_variables_dynamicVariables.html)
+
+```java
+ <extension point="org.eclipse.core.variables.dynamicVariables">
+   <variable 
+      name="resource_name"
+      expanderClass="com.example.ResourceNameExpander"
+      description="The name of the selected resource">
+   </variable>
+ </extension>
+
+public class MyVariable implements IDynamicVariableResolver {
+
+	@Override
+	public String resolveValue(IDynamicVariable variable, String argument) throws CoreException {
+		return "myVariableVarlue";
+	}
+
+}
+```
+
+
+- Use the defined dynamic variables:
+```java
+import org.eclipse.core.variables.VariablesPlugin;
+
+final static String getDynamicVariableValue(String variableName){
+    return VariablesPlugin.getDefault().getStringVariableManager().getDynamicVariable(variableName).getValue(null);
+} 
+
+```

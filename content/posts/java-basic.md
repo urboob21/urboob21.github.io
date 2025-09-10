@@ -104,6 +104,7 @@ This trail covers the fundamentals of programming in the Java programming langua
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// Example 1: check matching
 public class REGEX {
 		public static void main(String[] args) {
 			String regex = "com\\.something.*"; //$NON-NLS-1$
@@ -117,6 +118,34 @@ public class REGEX {
 			}
 		}
 }
+
+// Example 2: Find and replace
+Map<String, String> replacements = new HashMap<String, String>() {{
+    put("${env1}", "1");
+    put("${env2}", "2");
+    put("${env3}", "3");
+}};
+
+String line ="${env1}sojods${env2}${env3}";
+String rx = "(\\$\\{[^}]+\\})";
+
+StringBuilder sb = new StringBuilder(); //use StringBuffer before Java 9
+// Note: StringBuffer is sync but slower than StringBuilder
+Pattern p = Pattern.compile(rx);
+Matcher m = p.matcher(line);
+
+while (m.find())
+{
+    // Avoids throwing a NullPointerException in the case that you
+    // Don't have a replacement defined in the map for the match
+    String repString = replacements.get(m.group(1));
+    if (repString != null)    
+        m.appendReplacement(sb, repString);
+}
+m.appendTail(sb);
+
+System.out.println(sb.toString());
+
 ```
 
 ### 4.2. URL - URI
