@@ -453,12 +453,12 @@ int main()
 
 
 ## 8. Constant
-- In programming, a constant is a value that may not be changed during the program’s execution.
+- A constant is a value that may not be changed during the program’s execution. C++ supports two types of constants: named constants, and literals.
 - **Named constants** are constant values that are associated with an identifier. Included:
   - Constant variables
   - Macros with substitution text
   - Enumerated constant
-- **Literal constants** are constant values that are not associated with an identifier.Literals are values that are inserted directly into the code.
+- **Literal** are constant values that are not associated with an identifier.Literals are values that are inserted directly into the code.
 
 ### 8.1. Named constants
 ```cpp
@@ -524,6 +524,8 @@ int main()
   
 ### 8.4. Constant expressions & Constexpr variables
 - `Constant expressions`: expressions whose values can be fully determined at compile time.
+- A compile-time constant is a constant whose value is known at compile-time.
+- A runtime constant is a constant whose initialization value isn’t known until runtime.
 - `constexpr` is used to ensure we get a compile-time constant variable where we desire one. Means that the object can be used in a constant expression. The value of the initializer must be known at compile-time. The constexpr object can be evaluated at runtime or compile-time.
 > Benefits:
 Compile-time evaluation → reduces runtime overhead by precomputing values.
@@ -558,3 +560,15 @@ int main()
 
 ## 9. std::string
 - The easiest way to work with strings and string objects in C++ is via the `std::string`/`<string>`
+### 9.1. std::cout << , std::cin >> , std::getLine(std::cin >> std::ws, std::string string)
+- `std::ws` tells `std::cin` to ignore leading whitespace(tab/enter/newline(s)) before extraction.  
+- `std::string::length` returns length of a string that does not included the null terminator character.
+- `s` suffix is a `std::string` literally, no suffix is a C-style string literally. e.g. `std::cout << "goo\n"s`
+> Initializing and copy a `std::string` is slow. That's inefficient 
+### 9.2. std::string_view  (C++17)
+- std::string_view provides read-only access to an existing string (a C-style string literal, a std::string, or a char array) without making a copy. 
+- A std::string_view that is viewing a string that has been destroyed is sometimes called a dangling view. When a std::string is modified, all views into that std::string are invalidated, meaning those views are now invalid. Using an invalidated view (other than to revalidate it) will produce undefined behavior.
+
+- `sv` suffix is a `std::string_view` literally
+- Modify a std::string is likely to invalidate all std::string_view that view into that.
+- It may or may not be null-terminated.
