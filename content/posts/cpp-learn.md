@@ -17,6 +17,73 @@ See plus plus :) .
 
 [Refer](https://www.learncpp.com/)
 
+## 0. Notes
+### printf/snprintf Cheat Sheet {C / C++}
+
+#### Integer
+
+| Data type                         | Specifier | Notes           |
+| --------------------------------- | --------- | --------------- |
+| `int8_t` / `signed char`          | `%hhd`    | signed 8-bit    |
+| `uint8_t` / `unsigned char`       | `%hhu`    | unsigned 8-bit  |
+| `int16_t` / `short`               | `%hd`     | signed 16-bit   |
+| `uint16_t` / `unsigned short`     | `%hu`     | unsigned 16-bit |
+| `int32_t` / `long`                | `%ld`     | signed 32-bit   |
+| `uint32_t` / `unsigned long`      | `%lu`     | unsigned 32-bit |
+| `int64_t` / `long long`           | `%lld`    | signed 64-bit   |
+| `uint64_t` / `unsigned long long` | `%llu`    | unsigned 64-bit |
+
+#### Floating point
+
+| Data type     | Specifier | Notes                       |
+| ------------- | --------- | --------------------------- |
+| `float`       | `%f`      | 4-byte float                |
+| `double`      | `%f`      | Arduino AVR: double = float |
+| `long double` | `%Lf`     | depends on platform         |
+
+- `%e` → scientific notation  
+- `%g` → auto select `%f` or `%e`
+
+#### Char / String
+
+| Data type          | Specifier | Notes                  |
+| ------------------ | --------- | ---------------------- |
+| `char`             | `%c`      | single character       |
+| `char*` / `String` | `%s`      | null-terminated string |
+
+#### Pointer / Address
+
+| Data type | Specifier | Notes               |
+| --------- | --------- | ------------------- |
+| `void*`   | `%p`      | memory address, hex |
+
+#### Hex / Octal / Binary
+
+| Data type    | Specifier   | Notes       |
+| ------------ | ----------- | ----------- |
+| unsigned int | `%x` / `%X` | hexadecimal |
+| unsigned int | `%o`        | octal       |
+| Arduino only | `%b`        | binary      |
+
+#### Flags, Width, Precision
+
+- `%-10d` → left-justify, width 10  
+- `%010d` → pad with zeros, width 10  
+- `%.2f` → 2 decimal digits  
+- `%*d` → dynamic width  
+
+#### Specific Notes
+
+- `uint32_t` → `%lu`  
+- `int32_t` → `%ld`  
+- `uint16_t` → `%u`  
+- `int16_t` → `%d` or `%hd`  
+- `uint8_t` → `%u` or `%hhu`  
+- `int8_t` → `%d` or `%hhd`  
+- `float` → `%f`  
+- Use `snprintf()` with correctly sized buffer to avoid overflow
+
+
 ## 1. Introduction
 - C++ was developed as an extension to C. It adds man few features to the C language, and tis perhaps best through of as a superset of C. 
 
@@ -303,34 +370,34 @@ g++ -o main -I./source/includes -I/home/abc/moreHeaders main.cpp
   
 ### 7.1. Basic datatype (Primitive type)
 
-| Types                                                                 | Category               | Meaning                                      | Example   |
-|----------------------------------------------------------------------|------------------------|----------------------------------------------|-----------|
-| float, double, long double                                            | Floating Point         | a number with a fractional part              | 3.14159   |
-| bool                                                                  | Integral (Boolean)     | true or false                                | true      |
-| char, wchar_t, char8_t (C++20), char16_t (C++11), char32_t (C++11)   | Integral (Character)   | a single character of text                   | 'c'       |
-| short int, int, long int, long long int (C++11)                      | Integral (Integer)     | positive and negative whole numbers, including 0 | 64    |
-| std::nullptr_t (C++11)                                                | Null Pointer           | a null pointer                               | nullptr   |
-| void                                                                  | Void                   | no type                                      | n/a       |
+| Types                                                              | Category             | Meaning                                          | Example |
+| ------------------------------------------------------------------ | -------------------- | ------------------------------------------------ | ------- |
+| float, double, long double                                         | Floating Point       | a number with a fractional part                  | 3.14159 |
+| bool                                                               | Integral (Boolean)   | true or false                                    | true    |
+| char, wchar_t, char8_t (C++20), char16_t (C++11), char32_t (C++11) | Integral (Character) | a single character of text                       | 'c'     |
+| short int, int, long int, long long int (C++11)                    | Integral (Integer)   | positive and negative whole numbers, including 0 | 64      |
+| std::nullptr_t (C++11)                                             | Null Pointer         | a null pointer                                   | nullptr |
+| void                                                               | Void                 | no type                                          | n/a     |
 
 ### 7.2. Sizeof 
 - We can use `sizeof` can be used to return the `size of a type in bytes`.
 
-| Category        | Type          | Minimum Size       | Typical Size       |
-|-----------------|---------------|--------------------|--------------------|
-| Boolean         | bool          | 1 byte             | 1 byte             |
-| Character       | char          | 1 byte (exactly)   | 1 byte             |
-| Character       | wchar_t       | 1 byte             | 2 or 4 bytes       |
-| Character       | char8_t       | 1 byte             | 1 byte             |
-| Character       | char16_t      | 2 bytes            | 2 bytes            |
-| Character       | char32_t      | 4 bytes            | 4 bytes            |
-| Integral        | short         | 2 bytes            | 2 bytes            |
-| Integral        | int           | 2 bytes            | 4 bytes            |
-| Integral        | long          | 4 bytes            | 4 or 8 bytes       |
-| Integral        | long long     | 8 bytes            | 8 bytes            |
-| Floating point  | float         | 4 bytes            | 4 bytes            |
-| Floating point  | double        | 8 bytes            | 8 bytes            |
-| Floating point  | long double   | 8 bytes            | 8, 12, or 16 bytes |
-| Pointer         | std::nullptr_t| 4 bytes            | 4 or 8 bytes       |
+| Category       | Type           | Minimum Size     | Typical Size       |
+| -------------- | -------------- | ---------------- | ------------------ |
+| Boolean        | bool           | 1 byte           | 1 byte             |
+| Character      | char           | 1 byte (exactly) | 1 byte             |
+| Character      | wchar_t        | 1 byte           | 2 or 4 bytes       |
+| Character      | char8_t        | 1 byte           | 1 byte             |
+| Character      | char16_t       | 2 bytes          | 2 bytes            |
+| Character      | char32_t       | 4 bytes          | 4 bytes            |
+| Integral       | short          | 2 bytes          | 2 bytes            |
+| Integral       | int            | 2 bytes          | 4 bytes            |
+| Integral       | long           | 4 bytes          | 4 or 8 bytes       |
+| Integral       | long long      | 8 bytes          | 8 bytes            |
+| Floating point | float          | 4 bytes          | 4 bytes            |
+| Floating point | double         | 8 bytes          | 8 bytes            |
+| Floating point | long double    | 8 bytes          | 8, 12, or 16 bytes |
+| Pointer        | std::nullptr_t | 4 bytes          | 4 or 8 bytes       |
 
 ### 7.3. Signed/ Unsigned 
 -  a signed integer can hold both positive and negative numbers (and 0). 
@@ -427,21 +494,21 @@ int main()
 - `std::cin.get()` this function does not ignore leading whitespace
 - `Escape sequences`:
   
-| Name            | Symbol     | Meaning                                                  |
-|-----------------|------------|----------------------------------------------------------|
-| Alert           | `\a`       | Makes an alert, such as a beep                          |
-| Backspace       | `\b`       | Moves the cursor back one space                         |
-| Formfeed        | `\f`       | Moves the cursor to next logical page                   |
-| Newline         | `\n`       | Moves cursor to next line                               |
-| Carriage return | `\r`       | Moves cursor to beginning of line                       |
-| Horizontal tab  | `\t`       | Prints a horizontal tab                                 |
-| Vertical tab    | `\v`       | Prints a vertical tab                                   |
-| Single quote    | `\'`       | Prints a single quote                                   |
-| Double quote    | `\"`       | Prints a double quote                                   |
-| Backslash       | `\\`       | Prints a backslash                                      |
-| Question mark   | `\?`       | Prints a question mark *(no longer relevant)*           |
-| Octal number    | `\{number}`| Translates into char represented by octal               |
-| Hex number      | `\x{number}` | Translates into char represented by hex number        |
+| Name            | Symbol       | Meaning                                        |
+| --------------- | ------------ | ---------------------------------------------- |
+| Alert           | `\a`         | Makes an alert, such as a beep                 |
+| Backspace       | `\b`         | Moves the cursor back one space                |
+| Formfeed        | `\f`         | Moves the cursor to next logical page          |
+| Newline         | `\n`         | Moves cursor to next line                      |
+| Carriage return | `\r`         | Moves cursor to beginning of line              |
+| Horizontal tab  | `\t`         | Prints a horizontal tab                        |
+| Vertical tab    | `\v`         | Prints a vertical tab                          |
+| Single quote    | `\'`         | Prints a single quote                          |
+| Double quote    | `\"`         | Prints a double quote                          |
+| Backslash       | `\\`         | Prints a backslash                             |
+| Question mark   | `\?`         | Prints a question mark *(no longer relevant)*  |
+| Octal number    | `\{number}`  | Translates into char represented by octal      |
+| Hex number      | `\x{number}` | Translates into char represented by hex number |
 
 
 - `'t'`: Text between single quotes is treated as a char literal, which represents a single character.
@@ -498,8 +565,8 @@ int main()
 ### 8.3. Numeral systems (decimal, binary, hexadecimal, and octal)
 - Numeral system literals in C++:
     - Decimal (no prefix, 42)
-    - Binary (0b101010)
-    - Hexadecimal (0x2A)
+    - Binary (0b101010) `b`
+    - Hexadecimal (0x2A) `x`
     - Octal (052) — all represent the same value.
 ```cpp
 #include <iostream>
