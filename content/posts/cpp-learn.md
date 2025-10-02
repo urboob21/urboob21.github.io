@@ -272,7 +272,10 @@ int main() {
 - `Operators`:   symbols that act on values (+ - * / %, == != < >, && || !, = += -=, etc.).
 
 ### 4.5. Expression
-- An expression is anything that produces a value.
+- An expression is anything that produces a value when compilling.
+> Khai báo: tên biến chỉ là identifier (chưa phải expression).
+Sử dụng: tên biến trở thành một expression
+
 ```cpp
 5 + 3        // expression → evaluates to 8
 x * y - 2    // expression → depends on x, y
@@ -367,7 +370,7 @@ g++ -o main -I./source/includes -I/home/abc/moreHeaders main.cpp
 
 ## 7. Fundamental Data Types
 - Memory can only store bits. Data type help compiler and CPU take care of encoding the value into the sequence of bits.
-  
+- Fundamental Data Types Compound Data Types
 ### 7.1. Basic datatype (Primitive type)
 
 | Types                                                              | Category             | Meaning                                          | Example |
@@ -627,6 +630,7 @@ int main()
 
 ## 9. std::string
 - The easiest way to work with strings and string objects in C++ is via the `std::string`/`<string>`
+- 
 ### 9.1. std::cout << , std::cin >> , std::getLine(std::cin >> std::ws, std::string string)
 - `std::ws` tells `std::cin` to ignore leading whitespace(tab/enter/newline(s)) before extraction.  
 - `std::string::length` returns length of a string that does not included the null terminator character.
@@ -639,3 +643,89 @@ int main()
 - `sv` suffix is a `std::string_view` literally
 - Modify a std::string is likely to invalidate all std::string_view that view into that.
 - It may or may not be null-terminated.
+
+
+## 12. Compound Types: References and Pointers
+### 12.1. lvalues and rvalues
+- `lvalues` is an expression that evaluates to an identifiable object or function (or bit-field). Can be accessed via an identifier, reference, or pointer, and typically have a lifetime longer than a single expression or statement.
+- `rvalues` is an expression that evaluate to a value. Only exist within the scope of the expression in which they are used.
+- `lvalues` can be used anywhere an `rvalue` is expected.
+- An **assignment operation** requires its `left` operand to be a modifiable `lvalue` expression. And its `right` operand to be a `rvalue` expression.
+
+### 12.2. References
+- `references` is an alias for an existing object/function. 
+  - Any operation on the reference is applied to the object being referenced.
+  - All references must be initialized.
+  - Cannot be reseated.
+  - They aren't objects
+  - Can only accept modifiable lvalue arguments (const or non-const)
+
+- `pass-by-reference` allows us:
+  - to pass arguments to a function without making copies of those arguments each time the function is called. (class types)
+  - to change the value of an argument
+
+- `pass-by-const-reference` guaranteeing that the function can not change the value being referenced.
+- `lvalue-reference` just a reference for an existing lvalue.
+- `lvalue-reference-types` determines what type of object it can reference by using a single ampersand  `<type>&` .
+- `lvalue-reference-variable` is a variable that acts as a reference to an lvalue.
+- `lvalue-reference-to-const` can bind with const or non-const objects.
+
+- E.g.
+```cpp
+#include <iostream>
+#include <string>
+
+// ---------------------------
+// Example of references
+// ---------------------------
+void increment(int& x) {   // pass-by-reference (modifiable lvalue reference)
+    x += 1;                // changes original argument
+}
+
+void printConstRef(const std::string& s) { // pass-by-const-reference
+    // s cannot be modified here
+    std::cout << "Const-ref: " << s << "\n";
+}
+
+int main() {
+    int a = 10;
+    
+    // ---- Reference basics ----
+    int& ref = a;       // reference must be initialized
+    ref = 20;           // modifies 'a', since ref is just an alias
+    std::cout << "a = " << a << "\n";  // prints 20
+    
+    // Cannot reseat: once 'ref' is bound to 'a', it cannot be bound to another variable
+    int b = 30;
+    // ref = &b;  ❌ invalid, would assign value instead of rebinding
+    
+    // ---- Pass by reference ----
+    increment(a);  // modifies original 'a'
+    std::cout << "a after increment = " << a << "\n"; // prints 21
+
+    // ---- Pass by const reference ----
+    std::string text = "Hello";
+    printConstRef(text);  // avoids making a copy
+
+    // ---- Lvalue reference variable ----
+    int& lref = a;  // lref is an lvalue-reference-variable to 'a'
+    lref += 5;      // modifies 'a'
+    std::cout << "a after lref += 5: " << a << "\n";
+
+    // ---- Lvalue reference to const ----
+    const int x = 100;
+    const int& cref1 = x; // bind to const object
+    const int& cref2 = a; // also works with non-const object
+    std::cout << "cref1 = " << cref1 << ", cref2 = " << cref2 << "\n";
+    
+    // ---- They aren't objects ----
+    // sizeof(ref) == sizeof(a), because ref is just an alias
+    std::cout << "sizeof(a) == sizeof(ref): "
+              << (sizeof(a) == sizeof(ref)) << "\n";
+
+    return 0;
+}
+```
+
+
+
