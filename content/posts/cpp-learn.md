@@ -646,29 +646,32 @@ int main()
 
 
 ## 12. Compound Types: References and Pointers
+- `Compound data types` (also called composite data type) are data types that can be constructed from fundamental data types (or other compound data types).
+- 
 ### 12.1. lvalues and rvalues
-- `lvalues` is an expression that evaluates to an identifiable object or function (or bit-field). Can be accessed via an identifier, reference, or pointer, and typically have a lifetime longer than a single expression or statement.
+- `lvalues` is an expression that evaluates to an identifiable object or function (or bit-field). Can be accessed via an identifier, reference, or pointer, and typically have a lifetime longer than a single `expression` or `statement`.
 - `rvalues` is an expression that evaluate to a value. Only exist within the scope of the expression in which they are used.
 - `lvalues` can be used anywhere an `rvalue` is expected.
 - An **assignment operation** requires its `left` operand to be a modifiable `lvalue` expression. And its `right` operand to be a `rvalue` expression.
 
 ### 12.2. References
-- `references` is an alias for an existing object/function. 
+- **references** is an alias for an existing object/function. 
+  - Declared as `<type>& reference_name`
   - Any operation on the reference is applied to the object being referenced.
   - All references must be initialized.
   - Cannot be reseated.
   - They aren't objects
   - Can only accept modifiable lvalue arguments (const or non-const)
 
-- `pass-by-reference` allows us:
+- **pass-by-reference** allows us:
   - to pass arguments to a function without making copies of those arguments each time the function is called. (class types)
   - to change the value of an argument
 
-- `pass-by-const-reference` guaranteeing that the function can not change the value being referenced.
-- `lvalue-reference` just a reference for an existing lvalue.
-- `lvalue-reference-types` determines what type of object it can reference by using a single ampersand  `<type>&` .
-- `lvalue-reference-variable` is a variable that acts as a reference to an lvalue.
-- `lvalue-reference-to-const` can bind with const or non-const objects.
+- **pass-by-const-reference** guaranteeing that the function can not change the value being referenced.
+- **lvalue-reference** just a reference for an existing lvalue.
+- **lvalue-reference-types** determines what type of object it can reference by using a single ampersand  `<type>&` .
+- **lvalue-reference-variable** is a variable that acts as a reference to an lvalue.
+- **lvalue-reference-to-const** can bind with const or non-const objects. `const <type>& name`
 
 - E.g.
 ```cpp
@@ -727,5 +730,231 @@ int main() {
 }
 ```
 
+### 12.3. Pointer
+- **address-of-operator (&<variable>)** returns the memory address of its operand, **but not as an address literal. Instead, it returns a pointer to the operand.** This pointer holds the address value, and when passed to cout, the stream simply prints that value.
+- **dereference-operator  (*<address>)** returns the value at a given memory address as an lvalue, used to access the object being pointed at.
+- **pointer** is an object that holds a memory address as its value:
+  - declared as `<type>* ptr_name`
+  -  This allows us to store the address of some other object to use later.
+  -  we should init the pointers.
+  -  the size of pointer is allways the same (32 or 64-bit architecture)
+  -  can assign an invalid pointer a new value, such as `nullptr`
+  -  `wild pointer`: pointer that has not been initialized is sometimes called a .
+  -   `dangling pointer`: pointer that is holding the address of an object that is no longer valid
+- **pointer-type** is a type that specifies a pointer (like reference-type) by using an asterisk `(<type>*)`.The type of the pointer has to match the type of the object being pointed at.
+- **null-pointer** (its type is `std::nullptr_t`) means something has no value. It often associated with memory address 0. 
 
+- **pointer-to-const**: that points to a value that cannot be modified through the pointer, but the pointer itself is not const.
+  - declared as `const <type> ptr_name*`.
+  - cannot change the value being pointed to, but can make the pointer point to a different address.
+  - may also point to non-const variables.
+- **const-pointer**: whose stored address cannot be changed after initialization, but the value at that address can be modified.
+  - declared as `<type>* const ptr_name`.
+  - fixed to one address, but we can change the value at that address.
+- **const-pointer-to-const**: cannot be reseated (address fixed) and cannot modify the value it points to.
+  - declared as `const <type>* const ptr_name`.
+  - can only be dereferenced to read the value.
+
+- e.g.
+```cpp
+#include <iostream>
+#include <cstdint>  // for uintptr_t
+
+int main() {
+    int x = 42;
+
+    // address-of operator (&) returns a pointer to x (not an address literal)
+    int* ptr = &x;  
+    
+    // Printing the pointer: cout prints the stored address value
+    std::cout << "Address of x (&x): " << &x << "\n";
+    std::cout << "Value stored in pointer (ptr): " << ptr << "\n";
+
+    // dereference operator (*) gives access to the value at the stored address
+    std::cout << "Value of x via *ptr: " << *ptr << "\n";
+
+    // a pointer is an object that holds a memory address
+    // we can change its value
+    ptr = nullptr;  
+    std::cout << "Pointer reset to nullptr: " << ptr << "\n";
+
+    // pointer type is declared with '*'
+    double d = 3.14;
+    double* pd = &d;    // type matches: double* for double
+    // uintptr_t lets us see the raw numeric value of the address
+    std::cout << "Numeric address of d: " << (uintptr_t)pd << "\n";
+    std::cout << "Value of d via *pd: " << *pd << "\n";
+    
+    // NullPTR =======
+    int* myNullPtr {};        // value-initialized to nullptr
+    int* myNullPtr2 {nullptr}; // explicitly initialized to nullptr
+
+    // Old C-style (still works, but less safe in C++):
+    // int* myNullPtr3 {NULL};   // requires <cstddef>
+    
+    // Const ptr =======
+    int a = 10;
+    int b = 20;
+    // 1. pointer-to-const (const int*)
+    const int* p1 = &a;      // can point to non-const variable
+    // *p1 = 15;             // ❌ error: cannot modify value through p1
+    p1 = &b;                 // ✅ can point to another address
+    std::cout << "p1 points to: " << *p1 << '\n';
+    // 2. const-pointer (int* const)
+    int* const p2 = &a;      // must be initialized, fixed address
+    *p2 = 30;                // ✅ can modify the value at that address
+    // p2 = &b;              // ❌ error: cannot change stored address
+    std::cout << "p2 points to: " << *p2 << '\n';
+    // 3. const-pointer-to-const (const int* const)
+    const int* const p3 = &b; // fixed address + read-only value
+    // *p3 = 40;             // ❌ error: cannot modify value
+    // p3 = &a;              // ❌ error: cannot reseat pointer
+    std::cout << "p3 points to: " << *p3 << '\n';
+       
+
+    return 0;
+}
+```
+
+### 12.4. Pass by value/reference/address
+
+```cpp
+#include <iostream>
+#include <string>
+
+void printByValue(std::string val) // The function parameter is a copy of str
+{
+    std::cout << val << '\n'; // print the value via the copy
+}
+
+void printByReference(const std::string& ref) // The function parameter is a reference that binds to str
+{
+    std::cout << ref << '\n'; // print the value via the reference
+}
+
+void printByAddress(const std::string* ptr) // The function parameter is a pointer that holds the address of str
+{
+    std::cout << *ptr << '\n'; // print the value via the dereferenced pointer
+}
+
+int main()
+{
+    std::string str{ "Hello, world!" };
+
+    printByValue(str); // pass str by value, makes a copy of str
+    printByReference(str); // pass str by reference, does not make a copy of str
+    printByAddress(&str); // pass str by address, does not make a copy of str
+
+    return 0;
+}
+```
+- **pass-by-address** allows us: ~ **pass-by-references**
+  - to pass arguments to a function without making copies of those arguments each time the function is called. (class types)
+  - to change the value of an argument
+  - #null checking
+> Pass by reference when you can, pass by address when you must
+
+- **!! C++ really passes everything by value**
+
+### 12.5. Return by value/reference/address
+- **T returnValue(...)**: returns a copy (or move) of the object. The caller gets its own value.
+- **T& returnReference(...)** returns a reference to an existing object. The caller does not own it, so the object must outlive the reference.
+- **T * returnAddress(...)** returns a pointer (an address) to an object. The caller must handle the pointer carefully (ensure it’s valid and points to a live object).
+
+- `return-by-reference`:
+  - avoids making a copy of the object.
+  - the referenced object must live beyond the scope of the function, otherwise the reference will dangle.
+  - never return a non-static local variable or temporary by reference.
+- `return-by-address` works almost identically to return-by-reference.
+- `return-by-value` just make a copy
+> Prefer return by reference over return by address unless the ability to return “no object” (using nullptr) is important.
+
+- e.g.
+```cpp
+#include <iostream>
+
+int global = 42;
+
+// Return by value: makes a copy
+int returnValue() {
+    int x = 10;
+    return x; // copy returned
+}
+
+// Return by reference: must refer to existing object
+int& returnReference() {
+    return global; // safe: global outlives the function
+}
+
+// Return by address: returns a pointer
+int* returnAddress(bool valid) {
+    if (valid)
+        return &global; // valid pointer
+    else
+        return nullptr; // no object
+}
+
+int main() {
+    int a = returnValue();
+    std::cout << "By value: " << a << '\n';
+
+    int& b = returnReference();
+    std::cout << "By reference: " << b << '\n';
+    b = 100; // modifies global
+    std::cout << "Global after modification: " << global << '\n';
+
+    int* c = returnAddress(true);
+    if (c) std::cout << "By address: " << *c << '\n';
+
+    int* d = returnAddress(false);
+    if (!d) std::cout << "By address: got nullptr\n";
+}
+```
+
+### 12.6. In/Out Params
+- `in-parameters`:are typically passed `by value` or `by const reference`
+- `out-parameters`:a function parameter that is used only for the purpose of returning information back to the caller.
+  - Avoid out-parameters (except in the rare case where no better options exist).
+  - Prefer pass by reference for non-optional out-parameters.
+
+- e.g.
+```cpp
+#include <iostream>
+#include <string>
+
+// In-parameter by value (cheap to copy)
+void greet(std::string name) {
+    std::cout << "Hello, " << name << "!\n";
+}
+
+// In-parameter by const reference (avoid copy for large objects)
+int length(const std::string& text) {
+    return text.size();
+}
+
+// Out-parameter by reference (rare case)
+void square(int input, int& output) {
+    output = input * input;
+}
+
+int main() {
+    // in-parameter by value
+    greet("Alice");
+
+    // in-parameter by const reference
+    std::string msg = "Hello World";
+    std::cout << "Length = " << length(msg) << "\n";
+
+    // out-parameter by reference (not preferred, but possible)
+    int result;
+    square(5, result);
+    std::cout << "Square = " << result << "\n";
+}
+```
+
+### 12.7. Type deduction (auto) with pointers, references, and const
+https://www.learncpp.com/cpp-tutorial/type-deduction-with-pointers-references-and-const/
+
+### 12.8. std::optional
+https://www.learncpp.com/cpp-tutorial/stdoptional/
 
