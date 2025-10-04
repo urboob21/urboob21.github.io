@@ -321,6 +321,34 @@ int main() {
 ```
 
 - `using namespace`: this is a using-directive that allows us to access names in the std namespace with no namespace prefix
+- define namespaces and use the scope resolution operator (::) to access.
+- the scope resolution operator can also be used in front of an identifier without providing a namespace name.
+- namespaces can be nested inside other namespaces.
+- we can create namespace aliases, which allow us to temporarily shorten a long sequence of namespaces into something shorter.
+
+```cpp
+void doSomething() // this print() lives in the global namespace
+{
+	std::cout << " there\n";
+}
+namespace Foo // define a namespace named Foo
+{
+    // This doSomething() belongs to namespace Foo
+    int doSomething(int x, int y)
+    {
+        return x + y;
+    }
+}
+
+int main()
+{
+    std::cout << Foo::doSomething(4, 3) << '\n'; // use the doSomething() that exists in namespace Foo
+    std::cout << ::doSomething(4, 3) << '\n'; // use the global doSomething()
+
+    namespace Active = Foo::Goo; // active now refers to Foo::Goo
+    return 0;
+}
+``` 
 
 ### 5.3. Preprocessor 
 - The preprocessor is a process that runs on the code before it is compiled.
@@ -644,17 +672,308 @@ int main()
 - Modify a std::string is likely to invalidate all std::string_view that view into that.
 - It may or may not be null-terminated.
 
+## 10. Operators & Bit Manipulation
+### 10.1. Operators
+- ez , refer : https://www.learncpp.com/cpp-tutorial/operator-precedence-and-associativity/
+- `Increment/decrement`:
+  -  `++x`: increment x, then return x
+  -  `x++`: copy x, then increment x, return the copy
+- `Comma`: 
+  - `(x, y)`: Evaluate x then y, returns value of y
+  - avoid use this
 
-## 12. Compound Types: References and Pointers
+### 10.2. bit manipulation.
+- To define a set of bit flags, use `uint8/16/32`... or `std::bitset`
+- Refers: https://www.learncpp.com/cpp-tutorial/bit-flags-and-bit-manipulation-via-stdbitset/
+
+## 11. Scope, duration, and linkage summary
+> A variable’s duration determines when it is created and destroyed.
+Variables with automatic duration: are created at the point of definition, and destroyed when the block they are part of is exited. This includes:
+    - Local variables
+    - Function parameters
+Variables with static duration: are created when the program begins and destroyed when the program ends. This includes:
+    - Global variables
+    - Static local variables
+Variables with dynamic duration:  are created and destroyed by programmer request. This includes:
+    - Dynamically allocated variables
+
+> extern	static (or thread_local) storage duration and external linkage	
+static	static (or thread_local) storage duration and internal linkage	
+thread_local	thread storage duration	
+mutable	object allowed to be modified even if containing class is const	
+auto	automatic storage duration	Deprecated in C++11
+register	automatic storage duration and hint to the compiler to place in a register	Deprecated in C++17
+
+![image](/images/learncpp_1.png)
+
+<br>
+
+### 11.1. Internal linkage
+- An identifier’s linkage determines whether a declaration of that same identifier in a different scope refers to the same entity (object, function, reference, etc…) or not.
+
+- An identifier with no linkage means another declaration of the same identifier refers to a unique entity. Entities whose identifiers have no linkage include:
+Local variables
+Program-defined type identifiers (such as enums and classes) declared inside a block
+
+- An identifier with `internal linkage` means a declaration of the same identifier within the same translation unit refers to the same object or function. Entities whose identifiers have internal linkage include:
+    - Static global variables (initialized or uninitialized)
+    - Static functions
+    - Const global variables
+    - Unnamed namespaces and anything defined within them
+- To get it, we can:
+  - `static` global variables/functions
+  - `const` and `constexpr` globals ((and thus don’t need the static keyword -- if it is used, it will be ignored)) ## C
+  - unnamed namespace { ... } (modern C++)
+
+- `static` <global_variable>: make the global variable  to internal linkage
+- `static` <local_variable>: changes its duration from automatic duration to static duration. And its initializer is only executed once.
+- `static` <const/constexpr local_varialbe>: used to avoid expensive local object initialization each time a function is called because it inits once time.
+
+- e.g.
+```cpp
+// a.cpp ============================================================
+#include <iostream>
+
+static int g_internal { 42 };    // internal linkage (only in a.cpp)
+static void helper() {           // internal function
+    std::cout << "Helper in a.cpp\n";
+}
+
+int main() {
+    std::cout << g_internal << '\n'; // OK
+    helper();                         // OK
+    return 0;
+}
+
+// main.cpp ============================================================
+extern int g_internal; // ❌ ERROR: g_internal not visible outside a.cpp
+void helper();         // ❌ ERROR: helper not visible outside a.cpp
+
+int main() {
+    // g_internal; // linker error if uncommented
+    // helper();   // linker error if uncommented
+    return 0;
+}
+```
+
+### 11.2. External linkage
+- An identifier with `external linkage` means a declaration of the same identifier within the entire program refers to the same object or function. Entities whose identifiers have external linkage include:
+    - Non-static functions
+    - Non-const global variables (initialized or uninitialized)
+    - Extern const global variables
+    - Inline const global variables
+    - Namespaces
+- `functions`: default external linkage
+- `global variables`: 
+  - `non-const globals`: external by default.
+  - `const/constexpr globals`: internal by default
+- To access an external global variable from another file, use `extern` without initializer (forward declaration).
+
+- e.g.
+```cpp
+// a.cpp ============================================================
+#include <iostream>
+
+int g_external { 100 };            // external by default
+extern const int g_limit { 200 };  // const made external
+
+void sayHello() {                  // external by default
+    std::cout << "Hello from a.cpp\n";
+}
+
+// main.cpp ============================================================
+#include <iostream>
+
+extern int g_external;       // forward declaration 
+extern const int g_limit;    // forward declaration > < const int g_limit: definition
+void sayHello();             // forward declaration
+
+int main() {
+    sayHello();
+    std::cout << g_external << " / " << g_limit << '\n';
+    return 0;
+}
+```
+
+### 11.3. Inline functions and variables
+> When a call to min() is encountered, the CPU must store the address of the current instruction it is executing (so it knows where to return to later) along with the values of various CPU registers (so they can be restored upon returning). Then parameters x and y must be instantiated and then initialized. Then the execution path has to jump to the code in the min() function. When the function ends, the program has to jump back to the location of the function call, and the return value has to be copied so it can be output. This has to be done for each function call.
+All of the extra work that must happen to setup, facilitate, and/or cleanup after some task (in this case, making a function call) is called overhead.
+#include <iostream>
+int min(int x, int y)
+{
+    return (x < y) ? x : y;
+}
+int main()
+{
+    std::cout << min(5, 6) << '\n';
+    std::cout << min(3, 2) << '\n';
+    return 0;
+}
+For functions that are large and/or perform complex tasks, the overhead of the function call is typically insignificant compared to the amount of time the function takes to run. However, for small functions (such as min() above), the overhead costs can be larger than the time needed to actually execute the function’s code! In cases where a small function is called often, using a function can result in a significant performance penalty over writing the same code in-place.
+However, inline expansion has its own potential cost: if the body of the function being expanded takes more instructions than the function call being replaced, then each inline expansion will cause the executable to grow larger.
+
+- `inline-expansion`:
+  - is a process where a function call is replaced by the code from the called function’s definition.
+  - use this to avoid such overhead cost.
+  - do not use the `inline` keyword to request inline expansion for your functions, because optimizing compilers.
+- `modernly-inline`: 
+  - should not implement functions (with external linkage) in header files because it lead to `multiple definitions` error.
+  - so we can use `inline-function`, it's useful for header-only libraries
+
+### 11.4. Sharing global constants
+- 1. `global constants as internal variables`: 
+  - Advantages:
+    - Works prior to C++17.
+    - Can be used in constant expressions in any translation unit that includes them.
+  - Downsides:
+    - Changing anything in the header file requires recompiling files including the header.
+    - Each translation unit including the header gets its own copy of the variable.
+- e.g.
+```cpp
+// constants.h:============================================================
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+// Define your own namespace to hold constants
+namespace constants
+{
+    // Global constants have internal linkage by default
+    constexpr double pi { 3.14159 };
+    constexpr double avogadro { 6.0221413e23 };
+    constexpr double myGravity { 9.2 }; // m/s^2 -- gravity is light on this planet
+    // ... other related constants
+}
+#endif
+
+// main.cpp::============================================================
+#include "constants.h" // include a copy of each constant in this file
+#include <iostream>
+
+int main()
+{
+    std::cout << "Enter a radius: ";
+    double radius{};
+    std::cin >> radius;
+
+    std::cout << "The circumference is: " << 2 * radius * constants::pi << '\n';
+
+    return 0;
+}
+```
+
+<br>
+
+- 2. `global constants as external variables`: 
+  - Advantages:
+    - Works prior to C++17.
+    - Only one copy of each variable is required.
+    - Only requires recompilation of one file if the value of a constant changes.
+  - Downsides:
+    - Forward declarations and variable definitions are in separate files, and must be kept in sync.
+    - Variables not usable in constant expressions outside of the file in which they are defined.
+- e.g.
+```cpp
+// constants.h:============================================================
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+namespace constants
+{
+    // Since the actual variables are inside a namespace, the forward declarations need to be inside a namespace as well
+    // We can't forward declare variables as constexpr, but we can forward declare them as (runtime) const
+    extern const double pi;
+    extern const double avogadro;
+    extern const double myGravity;
+}
+
+#endif
+
+// constants.cpp:============================================================
+#include "constants.h"
+
+namespace constants
+{
+    // We use extern to ensure these have external linkage
+    extern constexpr double pi { 3.14159 };
+    extern constexpr double avogadro { 6.0221413e23 };
+    extern constexpr double myGravity { 9.2 }; // m/s^2 -- gravity is light on this planet
+}
+
+// main.cpp::============================================================
+#include "constants.h" // include all the forward declarations
+#include <iostream>
+
+int main()
+{
+    std::cout << "Enter a radius: ";
+    double radius{};
+    std::cin >> radius;
+
+    std::cout << "The circumference is: " << 2 * radius * constants::pi << '\n';
+
+    return 0;
+}
+```
+- 3. `global constants as inline variables`: 
+  - If you need global constants and your compiler is C++17 capable, prefer defining inline constexpr global variables in a header file.
+  - Advantages:
+    - Can be used in constant expressions in any translation unit that includes them.
+    - Only one copy of each variable is required.
+  - Downsides:
+    - Only works in C++17 onward.
+    - Changing anything in the header file requires recompiling files including the header.
+- e.g.
+```cpp
+// constants.h:============================================================
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+// define your own namespace to hold constants
+namespace constants
+{
+    inline constexpr double pi { 3.14159 }; // note: now inline constexpr
+    inline constexpr double avogadro { 6.0221413e23 };
+    inline constexpr double myGravity { 9.2 }; // m/s^2 -- gravity is light on this planet
+    // ... other related constants
+}
+#endif
+
+// main.cpp::============================================================
+#include "constants.h"
+#include <iostream>
+
+int main()
+{
+    std::cout << "Enter a radius: ";
+    double radius{};
+    std::cin >> radius;
+
+    std::cout << "The circumference is: " << 2 * radius * constants::pi << '\n';
+
+    return 0;
+}
+```
+
+## 12x. Control Flow
+
+## 13. Error Detection and Handling
+
+## 14. Type Conversion, Type Aliases, and Type Deduction
+
+## 15. Function Overloading and Function Templates
+
+## 16. Constexpr functions
+
+## 17. Compound Types: References and Pointers
 - `Compound data types` (also called composite data type) are data types that can be constructed from fundamental data types (or other compound data types).
 - 
-### 12.1. lvalues and rvalues
+### 17.1. lvalues and rvalues
 - `lvalues` is an expression that evaluates to an identifiable object or function (or bit-field). Can be accessed via an identifier, reference, or pointer, and typically have a lifetime longer than a single `expression` or `statement`.
 - `rvalues` is an expression that evaluate to a value. Only exist within the scope of the expression in which they are used.
 - `lvalues` can be used anywhere an `rvalue` is expected.
 - An **assignment operation** requires its `left` operand to be a modifiable `lvalue` expression. And its `right` operand to be a `rvalue` expression.
 
-### 12.2. References
+### 17.2. References
 - **references** is an alias for an existing object/function. 
   - Declared as `<type>& reference_name`
   - Any operation on the reference is applied to the object being referenced.
@@ -730,7 +1049,7 @@ int main() {
 }
 ```
 
-### 12.3. Pointer
+### 17.3. Pointer
 - **address-of-operator (&<variable>)** returns the memory address of its operand, **but not as an address literal. Instead, it returns a pointer to the operand.** This pointer holds the address value, and when passed to cout, the stream simply prints that value.
 - **dereference-operator  (*<address>)** returns the value at a given memory address as an lvalue, used to access the object being pointed at.
 - **pointer** is an object that holds a memory address as its value:
@@ -816,7 +1135,7 @@ int main() {
 }
 ```
 
-### 12.4. Pass by value/reference/address
+### 17.4. Pass by value/reference/address
 
 ```cpp
 #include <iostream>
@@ -856,7 +1175,7 @@ int main()
 
 - **!! C++ really passes everything by value**
 
-### 12.5. Return by value/reference/address
+### 17.5. Return by value/reference/address
 - **T returnValue(...)**: returns a copy (or move) of the object. The caller gets its own value.
 - **T& returnReference(...)** returns a reference to an existing object. The caller does not own it, so the object must outlive the reference.
 - **T * returnAddress(...)** returns a pointer (an address) to an object. The caller must handle the pointer carefully (ensure it’s valid and points to a live object).
@@ -911,7 +1230,7 @@ int main() {
 }
 ```
 
-### 12.6. In/Out Params
+### 17.6. In/Out Params
 - `in-parameters`:are typically passed `by value` or `by const reference`
 - `out-parameters`:a function parameter that is used only for the purpose of returning information back to the caller.
   - Avoid out-parameters (except in the rare case where no better options exist).
@@ -952,9 +1271,18 @@ int main() {
 }
 ```
 
-### 12.7. Type deduction (auto) with pointers, references, and const
+### 17.7. Type deduction (auto) with pointers, references, and const
 https://www.learncpp.com/cpp-tutorial/type-deduction-with-pointers-references-and-const/
 
-### 12.8. std::optional
+### 17.8. std::optional
 https://www.learncpp.com/cpp-tutorial/stdoptional/
 
+## 18. Compound Types: Enums and Structs
+
+## 19. OOP
+- Classes
+- Object Relationships
+- Inheritance
+- Virtual Functions
+
+## 20 
