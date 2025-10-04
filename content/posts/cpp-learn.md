@@ -624,13 +624,13 @@ int main()
 - `Constant expressions`: expressions whose values can be fully determined at compile time.
 - A compile-time constant is a constant whose value is known at compile-time.
 - A runtime constant is a constant whose initialization value isn’t known until runtime.
-- `constexpr` is used to ensure we get a compile-time constant variable where we desire one. Means that the object can be used in a constant expression. The value of the initializer must be known at compile-time. The constexpr object can be evaluated at runtime or compile-time.
+- `constexpr` is used to ensure we get a compile-time constant variable where we desire one. Means that the object can be used in a constant expression. The value of the initializer must be known at compile-time. The constexpr object can be evaluated at runtime or compile-time.(immediate constant expression)
 > Benefits:
 Compile-time evaluation → reduces runtime overhead by precomputing values.
 Safer code → ensures that certain values (like array sizes, template parameters) are truly constant.
 Optimizations → allows the compiler to inline and optimize more aggressively.
 Expressiveness → lets you write functions and objects that can be used in both compile-time and runtime contexts.
-
+- `const` can be fully determined at runtime\compile time.
 ```cpp
 #include <iostream>
 // The return value of a non-constexpr function is not constexpr
@@ -658,7 +658,7 @@ int main()
 
 ## 9. std::string
 - The easiest way to work with strings and string objects in C++ is via the `std::string`/`<string>`
-- 
+
 ### 9.1. std::cout << , std::cin >> , std::getLine(std::cin >> std::ws, std::string string)
 - `std::ws` tells `std::cin` to ignore leading whitespace(tab/enter/newline(s)) before extraction.  
 - `std::string::length` returns length of a string that does not included the null terminator character.
@@ -746,8 +746,8 @@ int main() {
 }
 
 // main.cpp ============================================================
-extern int g_internal; // ❌ ERROR: g_internal not visible outside a.cpp
-void helper();         // ❌ ERROR: helper not visible outside a.cpp
+extern int g_internal; //  ERROR: g_internal not visible outside a.cpp
+void helper();         //  ERROR: helper not visible outside a.cpp
 
 int main() {
     // g_internal; // linker error if uncommented
@@ -954,7 +954,105 @@ int main()
 }
 ```
 
-## 12x. Control Flow
+## 12. Control Flow
+![image](/images/learncpp_2.png)
+### 12.1. Constexpr if statement
+- C++17, that requires the conditional to be a constant expression. It means the condition will be evaluated at runtime.
+- Favor constexpr if statements over non-constexpr if statements when the conditional is a constant expression.
+- e.g. 
+```cpp
+#include <iostream>
+int main()
+{
+	constexpr double gravity{ 9.8 };
+
+	if constexpr (gravity == 9.8) // now using constexpr if
+		std::cout << "Gravity is normal.\n";
+	else
+		std::cout << "We are not on Earth.\n";
+
+	return 0;
+}
+```
+### 12.2. Switch fallthrough and scoping
+- The `[[fallthrough]]` attribute modifies a null statement to indicate that fallthrough is intentional (and no warnings should be triggered).
+- Initialization is not allowed before case labels because control flow in a switch may jump over the initializer, leaving the variable uninitialized.
+- Declarations without an initializer are allowed before case labels because they only reserve space for the variable in the function’s stack frame (decided at compile time). No runtime initialization code is generated, so nothing can be “skipped” by jumping to a case.
+- e.g.
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 2;
+
+    switch (x) {
+        int a;       //  allowed (no initializer, just reserves space)
+        // int b{5}; //  not allowed (initializer may be skipped)
+
+    case 1:
+        a = 10; // safe: 'a' exists, we assign here
+        std::cout << "Case 1, a = " << a << '\n';
+        [[fallthrough]]; //  intentional fallthrough to case 2
+
+    case 2:
+        a = 20; // reassign
+        std::cout << "Case 2, a = " << a << '\n';
+        break;
+
+    default:
+        std::cout << "Default case\n";
+        break;
+    }
+
+    return 0;
+}
+```
+### 12.3. Halts
+- Halts allow us to terminate our program.Only use a halt if there is no safe or reasonable way to return normally from the main function. If you haven’t disabled exceptions, prefer using exceptions for handling errors safely.
+- `std::exit` is called implicitly when main() returns, it does not clean up local variables in the current function or up the call stack.
+- `std::abort()` function causes your program to terminate abnormally. Abnormal termination means the program had some kind of unusual runtime error and the program couldn’t continue to run. 
+- `std::terminate()` function is typically used in conjunction with exceptions . By default, it calls `std::abort()`
+- e.g.
+```cpp
+#include <iostream>
+#include <cstdlib>    // for std::exit, std::abort
+#include <exception>  // for std::terminate
+
+void cleanup() {
+    std::cout << "Cleaning up...\n";
+}
+
+void riskyFunction(bool fatalError) {
+    if (fatalError) {
+        std::cout << "Fatal error occurred!\n";
+
+        // std::abort: abnormal termination, no cleanup
+        std::abort();
+
+        // Or: std::terminate(); // usually called when exception handling fails
+    }
+}
+
+int main() {
+    cleanup(); // local function call
+
+    // Example 1: return normally from main
+    std::cout << "Program running normally...\n";
+
+    // Example 2: using std::exit (implicit when main returns)
+    if (false) {
+        std::cout << "Exiting via std::exit...\n";
+        std::exit(0); // does not call destructors of locals in main()
+    }
+
+    // Example 3: risky code that might abort/terminate
+    riskyFunction(true);
+
+    // Example 4: normal end of main calls std::exit implicitly
+    std::cout << "Main returns normally.\n";
+    return 0; // std::exit(0) is called implicitly here
+}
+```
 
 ## 13. Error Detection and Handling
 
@@ -1019,7 +1117,7 @@ int main() {
     
     // Cannot reseat: once 'ref' is bound to 'a', it cannot be bound to another variable
     int b = 30;
-    // ref = &b;  ❌ invalid, would assign value instead of rebinding
+    // ref = &b;   invalid, would assign value instead of rebinding
     
     // ---- Pass by reference ----
     increment(a);  // modifies original 'a'
@@ -1116,18 +1214,18 @@ int main() {
     int b = 20;
     // 1. pointer-to-const (const int*)
     const int* p1 = &a;      // can point to non-const variable
-    // *p1 = 15;             // ❌ error: cannot modify value through p1
-    p1 = &b;                 // ✅ can point to another address
+    // *p1 = 15;             //  error: cannot modify value through p1
+    p1 = &b;                 //  can point to another address
     std::cout << "p1 points to: " << *p1 << '\n';
     // 2. const-pointer (int* const)
     int* const p2 = &a;      // must be initialized, fixed address
-    *p2 = 30;                // ✅ can modify the value at that address
-    // p2 = &b;              // ❌ error: cannot change stored address
+    *p2 = 30;                //  can modify the value at that address
+    // p2 = &b;              //  error: cannot change stored address
     std::cout << "p2 points to: " << *p2 << '\n';
     // 3. const-pointer-to-const (const int* const)
     const int* const p3 = &b; // fixed address + read-only value
-    // *p3 = 40;             // ❌ error: cannot modify value
-    // p3 = &a;              // ❌ error: cannot reseat pointer
+    // *p3 = 40;             //  error: cannot modify value
+    // p3 = &a;              //  error: cannot reseat pointer
     std::cout << "p3 points to: " << *p3 << '\n';
        
 
