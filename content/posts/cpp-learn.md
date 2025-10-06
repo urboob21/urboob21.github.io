@@ -704,6 +704,10 @@ mutable	object allowed to be modified even if containing class is const
 auto	automatic storage duration	Deprecated in C++11
 register	automatic storage duration and hint to the compiler to place in a register	Deprecated in C++17
 
+- When you write an implementation file (.cpp, .cxx, etc) your compiler generates a translation unit. This is the source file from your implementation plus all the headers you #included in it.
+Internal linkage refers to everything only in scope of a translation unit.
+External linkage refers to things that exist beyond a particular translation unit. In other words, accessible through the whole program, which is the combination of all translation units (or object files).
+
 ![image](/images/learncpp_1.png)
 
 <br>
@@ -720,7 +724,7 @@ Program-defined type identifiers (such as enums and classes) declared inside a b
     - Static functions
     - Const global variables
     - Unnamed namespaces and anything defined within them
-- To get it, we can:
+- To make things to internal linkage, we can:
   - `static` global variables/functions
   - `const` and `constexpr` globals ((and thus don’t need the static keyword -- if it is used, it will be ignored)) ## C
   - unnamed namespace { ... } (modern C++)
@@ -729,6 +733,7 @@ Program-defined type identifiers (such as enums and classes) declared inside a b
 - `static` <local_variable>: changes its duration from automatic duration to static duration. And its initializer is only executed once.
 - `static` <const/constexpr local_varialbe>: used to avoid expensive local object initialization each time a function is called because it inits once time.
 
+- Internal linkage for const global variables can change to external with the keyword `extern`. e.g. `extern const PI = 3.14;`
 - e.g.
 ```cpp
 // a.cpp ============================================================
@@ -1072,7 +1077,7 @@ int main() {
 - An **assignment operation** requires its `left` operand to be a modifiable `lvalue` expression. And its `right` operand to be a `rvalue` expression.
 
 ### 17.2. References
-- **references** is an alias for an existing object/function. 
+- **references** is an alias for an existing object/function. `reference` itself is like a `const pointer`
   - Declared as `<type>& reference_name`
   - Any operation on the reference is applied to the object being referenced.
   - All references must be initialized.
@@ -1089,6 +1094,8 @@ int main() {
 - **lvalue-reference-types** determines what type of object it can reference by using a single ampersand  `<type>&` .
 - **lvalue-reference-variable** is a variable that acts as a reference to an lvalue.
 - **lvalue-reference-to-const** can bind with const or non-const objects. `const <type>& name`
+
+>The const applies to what is immediately to its left, unless there’s nothing to its left, in which case it applies to what’s on the right.
 
 - E.g.
 ```cpp
@@ -1171,7 +1178,14 @@ int main() {
 - **const-pointer-to-const**: cannot be reseated (address fixed) and cannot modify the value it points to.
   - declared as `const <type>* const ptr_name`.
   - can only be dereferenced to read the value.
-
+>pointer-to-pointer
+void allocateArray(int** ptr, int size) {
+    *ptr = new int[size]; // allocate memory and update the original pointer
+}
+int* myArray = nullptr;
+allocateArray(&myArray, 5);
+myArray[0] = 10; // works
+delete[] myArray;
 - e.g.
 ```cpp
 #include <iostream>
