@@ -655,6 +655,46 @@ int main()
     return 0;
 }
 ```
+### 8.6. Constexpr functions
+-  `constexpr` function is a function that is allowed to be called in a constant expression. 
+  -  guaranteed to be evaluated at compile-time when used in a context that requires a constant expression.
+  -  may be evaluated at compile-time (if eligible) or runtime in a other contexts.
+  -  are implicitly inline, and the compiler must see the full definition of the constexpr function to call it at compile-time.
+- `consteval` function is a function that must evaluate at compile-time. Consteval functions otherwise follow the same rules as constexpr functions.
+
+- e.g.
+```cpp
+#include <iostream>
+#include <array>
+
+//  constexpr function: can be evaluated at compile-time *or* runtime
+constexpr int square(int x) {
+    return x * x;
+}
+
+//  consteval function: must be evaluated at compile-time
+consteval int cube(int x) {
+    return x * x * x;
+}
+
+int main() {
+    // --- Compile-time evaluation ---
+    constexpr int a = square(5);     // evaluated at compile-time
+    constexpr int b = cube(3);       // must be compile-time
+
+    // --- Runtime evaluation ---
+    int n;
+    std::cin >> n;                   // input at runtime
+    int c = square(n);               // evaluated at runtime (since n is not constant)
+    // int d = cube(n);              //  ERROR: consteval requires compile-time argument
+
+    std::cout << "square(5) = " << a << "\n";
+    std::cout << "cube(3) = " << b << "\n";
+    std::cout << "square(n) = " << c << "\n";
+
+    return 0;
+}
+```
 
 ## 9. std::string
 - The easiest way to work with strings and string objects in C++ is via the `std::string`/`<string>`
