@@ -868,7 +868,7 @@ However, inline expansion has its own potential cost: if the body of the functio
 ### 11.4. Sharing global constants
 - 1. `global constants as internal variables`: 
   - Advantages:
-    - Works prior to C++17.
+    - Works prior to C++16.
     - Can be used in constant expressions in any translation unit that includes them.
   - Downsides:
     - Changing anything in the header file requires recompiling files including the header.
@@ -910,7 +910,7 @@ int main()
 
 - 2. `global constants as external variables`: 
   - Advantages:
-    - Works prior to C++17.
+    - Works prior to C++16.
     - Only one copy of each variable is required.
     - Only requires recompilation of one file if the value of a constant changes.
   - Downsides:
@@ -1102,21 +1102,81 @@ int main() {
 ## 13. Error Detection and Handling
 
 ## 14. Type Conversion, Type Aliases, and Type Deduction
+```xml
+Type conversions
+│
+├── Implicit conversions (compiler tự làm)
+│   ├── Numeric promotions             ← an toàn, không mất dữ liệu
+│   │    ├── char → int
+│   │    └── float → double
+│   │
+│   └── Numeric conversions            ← có thể mất dữ liệu
+│        ├── Widening conversions      ← mở rộng, thường an toàn (int → double)
+│        └── Narrowing conversions     ← thu hẹp, có thể mất dữ liệu (double → int, int → char)
+│
+└── Explicit conversions (do lập trình viên ép kiểu)
+     ├── static_cast<int>(3.14)
+     ├── reinterpret_cast
+     ├── const_cast
+     └── (int)3.14   // C-style cast
+```
+### 14.1. Implicit type conversion
+- **Implicit type conversion** is performed automatically by the compiler when an expression of some type is supplied in a context where some other type is expected.
+-  **numeric promotion**  is the conversion of certain smaller numeric types to certain larger numeric types (typically int or double).no data loss.
+   -  `floating point promotion`:  a value of type float can be converted to a value of type double.
+   -  `integral promotions`:
+      -  signed char or signed short can be converted to int.
+      -  unsigned char, char8_t, and unsigned short can be converted to int if int can hold the entire range of the type, or unsigned int otherwise.
+      -  If char is signed by default, it follows the signed char conversion rules above. If it is unsigned by default, it follows the unsigned char conversion rules above.
+      -  bool can be converted to int, with false becoming 0 and true becoming 1.
+- **numeric conversion** is a type conversion between fundamental types that isn’t a numeric promotion. A narrowing conversion is a numeric conversion that may result in the loss of value or precision.
+  - :( https://www.learncpp.com/cpp-tutorial/narrowing-conversions-list-initialization-and-constexpr-initializers/)
+
+### 14.2. Explicit type conversion
+- C++ supports 5 different types of casts: `static_cast`, `dynamic_cast`, `const_cast`, `reinterpret_cast`, and `C-style` casts
+- 1. `C-style` casts
+  - Using operator`(<type>)value`. and the value to convert to placed immediately to the right of the closing parenthesis `)`. e.g. `(int)7/3`
+- 2. `static_cast` casts
+  - Using `static_cast<type>(value)
+  - provides compile-time type checking
+  - less powerful than a C-style cast
+  - direct-initialized vs list-initialization
+### 14.3. Typedefs and type aliases
+- `type aliases`: use the `using` keyworld
+  - `using <NewtypeAlias> = <type>`
+- `typedefs`: is an old way of creating an alias for a type. Using `typedef` keyworld.
+  - `typedef <type> <NewtypeAlias> ` 
+- Prefer `type alias` over `typedef`
+```cpp
+using MyDouble = double;
+typedef double MyDouble;
+
+typedef int (*FcnType)(double, char); // FcnType hard to find
+using FcnType = int(*)(double, char); // FcnType easier to find
+```
+### 14.5. Type deduction using auto keyworld
+- Type deduction allows the compiler to deduce the type of an object from the object’s initializer. 
+- using `auto` keyworld.
+- Type deduction must have something to deduce from
+- Type deduction drops const from the deduced type
+- ... (more)
+- Use type deduction for your variables when the type of the object doesn’t matter.
+- Auto can also be used as a function return type to have the compiler infer the function’s return type from the function’s return statements, though this should be avoided for normal functions.
+
+<br>
 
 ## 15. Function Overloading and Function Templates
 
-## 16. Constexpr functions
-
-## 17. Compound Types: References and Pointers
+## 16. Compound Types: References and Pointers
 - `Compound data types` (also called composite data type) are data types that can be constructed from fundamental data types (or other compound data types).
 - 
-### 17.1. lvalues and rvalues
+### 16.1. lvalues and rvalues
 - `lvalues` is an expression that evaluates to an identifiable object or function (or bit-field). Can be accessed via an identifier, reference, or pointer, and typically have a lifetime longer than a single `expression` or `statement`.
 - `rvalues` is an expression that evaluate to a value. Only exist within the scope of the expression in which they are used.
 - `lvalues` can be used anywhere an `rvalue` is expected.
 - An **assignment operation** requires its `left` operand to be a modifiable `lvalue` expression. And its `right` operand to be a `rvalue` expression.
 
-### 17.2. References
+### 16.2. References
 - **references** is an alias for an existing object/function. `reference` itself is like a `const pointer`
   - Declared as `<type>& reference_name`
   - Any operation on the reference is applied to the object being referenced.
@@ -1194,7 +1254,7 @@ int main() {
 }
 ```
 
-### 17.3. Pointer
+### 16.3. Pointer
 - **address-of-operator (&<variable>)** returns the memory address of its operand, **but not as an address literal. Instead, it returns a pointer to the operand.** This pointer holds the address value, and when passed to cout, the stream simply prints that value.
 - **dereference-operator  (*<address>)** returns the value at a given memory address as an lvalue, used to access the object being pointed at.
 - **pointer** is an object that holds a memory address as its value:
@@ -1287,7 +1347,7 @@ int main() {
 }
 ```
 
-### 17.4. Pass by value/reference/address
+### 16.4. Pass by value/reference/address
 
 ```cpp
 #include <iostream>
@@ -1327,7 +1387,7 @@ int main()
 
 - **!! C++ really passes everything by value**
 
-### 17.5. Return by value/reference/address
+### 16.5. Return by value/reference/address
 - **T returnValue(...)**: returns a copy (or move) of the object. The caller gets its own value.
 - **T& returnReference(...)** returns a reference to an existing object. The caller does not own it, so the object must outlive the reference.
 - **T * returnAddress(...)** returns a pointer (an address) to an object. The caller must handle the pointer carefully (ensure it’s valid and points to a live object).
@@ -1382,7 +1442,7 @@ int main() {
 }
 ```
 
-### 17.6. In/Out Params
+### 16.6. In/Out Params
 - `in-parameters`:are typically passed `by value` or `by const reference`
 - `out-parameters`:a function parameter that is used only for the purpose of returning information back to the caller.
   - Avoid out-parameters (except in the rare case where no better options exist).
@@ -1423,10 +1483,10 @@ int main() {
 }
 ```
 
-### 17.7. Type deduction (auto) with pointers, references, and const
+### 16.7. Type deduction (auto) with pointers, references, and const
 https://www.learncpp.com/cpp-tutorial/type-deduction-with-pointers-references-and-const/
 
-### 17.8. std::optional
+### 16.8. std::optional
 https://www.learncpp.com/cpp-tutorial/stdoptional/
 
 ## 18. Compound Types: Enums and Structs
