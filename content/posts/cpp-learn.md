@@ -296,7 +296,31 @@ returnType functionName() // This is the function header (tells the compiler abo
     // This is the function body (tells the compiler what the function does)
 }
 ```
-- A `forward declaration` allows us to tell the compiler about the existence of an identifier before actually defining the identifier.
+- A `forward declaration` allows us to tell the compiler about the existence of an identifier before actually defining the identifier. We have to be explicit about the return type.
+- e.g.
+```cpp
+#include <iostream>
+#include <type_traits> // for std::common_type_t
+
+// Forward declare
+template <typename T, typename U>
+auto max(T x, U y) -> std::common_type_t<T, U>; // returns the common type of T and U
+
+int main()
+{
+    std::cout << max(2, 3.5) << '\n';
+
+    return 0;
+}
+
+// Definition
+template <typename T, typename U>
+auto max(T x, U y) -> std::common_type_t<T, U>
+{
+    return (x < y) ? y : x;
+}
+
+```
 
 ### 5.2. name space
 - `namespace` is a way to group names (variables, functions, classes) together and avoid name conflicts. It guarantees that all identifiers within the namespace are unique
@@ -1162,10 +1186,135 @@ using FcnType = int(*)(double, char); // FcnType easier to find
 - ... (more)
 - Use type deduction for your variables when the type of the object doesn’t matter.
 - Auto can also be used as a function return type to have the compiler infer the function’s return type from the function’s return statements, though this should be avoided for normal functions.
+- The auto keyword can also be used to declare functions using a trailing return syntax, where the return type is specified after the rest of the function prototype.
+- e.g.
+```cpp
+int add(int x, int y)
+{
+  return (x + y);
+}
+
+// Using the trailing return syntax, this could be equivalently written as:
+auto add(int x, int y) -> int
+{
+  return (x + y);
+}
+
+#include <type_traits> // for std::common_type
+
+std::common_type_t<int, double> compare(int, double);         // harder to read (where is the name of the function in this mess?)
+auto compare(int, double) -> std::common_type_t<int, double>; // easier to read (we don't have to read the return type unless we care)
+```
 
 <br>
 
+
 ## 15. Function Overloading and Function Templates
+### 15.1. Function overloading
+- `function overloading` allows us to create multiple functions with the same name, so long as each identically named function has different parameter types/numbers.  Return types are not considered for 
+- `function delete` using `delete` keywork. delete means “I forbid this”, not “this doesn’t exist”. 
+- e.g.
+```cpp
+#include <iostream>
+
+// This function will take precedence for arguments of type int
+void printInt(int x)
+{
+    std::cout << x << '\n';
+}
+
+// This function template will take precedence for arguments of other types
+// Since this function template is deleted, calls to it will halt compilation
+template <typename T>
+void printInt(T x) = delete;
+
+int main()
+{
+    printInt(97);   // okay
+    printInt('a');  // compile error
+    printInt(true); // compile error
+
+    return 0;
+}
+```
+- `default-arguments`: is a default value provided for a function parameter. Parameters with default arguments must always be the rightmost parameters, and they are not used to differentiate functions when resolving overloaded functions.
+
+### 15.2. Function Templates
+- The template system was designed to simplify the process of creating functions (or classes) that are able to work with different data types (that are compiled and executed).
+- `template types` are sometimes called generic types, and programming using templates is sometimes called generic programming.
+- `placeholder types` use for any parameter types, return types, or types used in the function body that we want to be specified later, by the user of the template.
+- `template parameter declaration` defines any template parameters that will be subsequently used.
+- `function templates` allow us to create a function-like definition that serves as a pattern for creating related functions. In a function template, we use type template parameters as placeholders for any types we want to be specified later. The syntax that tells the compiler we’re defining a template and declares the template types is called a template parameter declaration.
+- Using function templates in multiple files. should be defined in a header file, and then #included wherever needed. 
+- `template argument deduction` to have the compiler deduce the actual type that should be used from the argument types in the function call.
+- e.g. 
+```cpp
+template <typename T> // this is the template parameter declaration defining T as a type template parameter , `typename` or `class` can be used
+T max(T x, T y) // this is the function template definition for max<T>
+{
+    return (x < y) ? y : x;
+}
+
+template<>
+int max<int>(int x, int y) // the generated function max<int>(int, int)
+{
+    return (x < y) ? y : x;
+}
+
+template<>
+double max<double>(double x, double y) // the generated function max<double>(double, double)
+{
+    return (x < y) ? y : x;
+}
+
+int main()
+{
+    std::cout << max<int>(1, 2) << '\n'; // calls max<int>(int, int)
+    std::cout << max<>(1, 2) << '\n';    // deduces max<int>(int, int) (non-template functions not considered)
+    std::cout << max(1, 2) << '\n';      // calls max(int, int)
+
+    return 0;
+}
+```
+
+- `function templates with multiple template` types example:
+```cpp
+#include <iostream>
+
+template <typename T, typename U>
+auto max(T x, U y) // ask compiler can figure out what the relevant return type is
+{
+    return (x < y) ? y : x;
+}
+
+int main()
+{
+    std::cout << max(2, 3.5) << '\n';
+
+    return 0;
+}
+```
+
+- `non-type template parameter` is a template parameter with a fixed type that serves as a placeholder for a constexpr value passed in as a template argument.
+```cpp
+#include <iostream>
+
+template <int N> // int non-type template parameter
+void print()
+{
+    std::cout << N << '\n';
+}
+
+int main()
+{
+    print<5>();   // no conversion necessary
+    print<'c'>(); // 'c' converted to type int, prints 99
+
+    return 0;
+}
+```
+
+<br>
 
 ## 16. Compound Types: References and Pointers
 - `Compound data types` (also called composite data type) are data types that can be constructed from fundamental data types (or other compound data types).
