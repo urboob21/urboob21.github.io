@@ -1317,8 +1317,15 @@ int main()
 <br>
 
 ## 16. Compound Types: References and Pointers
+
+| Type            | Meaning                                                                                                           | Examples                              |
+|-----------------|-------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| **Fundamental** | A basic type built into the core C++ language                                                                    | `int`, `std::nullptr_t`               |
+| **Compound**    | A type defined in terms of other types                                                                            | `int&`, `double*`, `std::string`, `Fraction` |
+| **User-defined** | A class type or enumerated type <br> (Includes those defined in the standard library or implementation) <br> (In casual use, typically used to mean program-defined types) | `std::string`, `Fraction`             |
+| **Program-defined** | A class type or enumerated type <br> (Excludes those defined in standard library or implementation)            | —                                     |
+
 - `Compound data types` (also called composite data type) are data types that can be constructed from fundamental data types (or other compound data types).
-- 
 ### 16.1. lvalues and rvalues
 - `lvalues` is an expression that evaluates to an identifiable object or function (or bit-field). Can be accessed via an identifier, reference, or pointer, and typically have a lifetime longer than a single `expression` or `statement`.
 - `rvalues` is an expression that evaluate to a value. Only exist within the scope of the expression in which they are used.
@@ -1639,6 +1646,236 @@ https://www.learncpp.com/cpp-tutorial/type-deduction-with-pointers-references-an
 https://www.learncpp.com/cpp-tutorial/stdoptional/
 
 ## 18. Compound Types: Enums and Structs
+- `program-defined-types` are types that programmers create themself.
+> In C++, struct, class, and union automatically create a new type name, so you don’t need to prefix variables with the keywords struct or union as in C.
+### 18.1. Enumerations
+- `enum` is a compound types where every possible value is defined as a symbolic constant.
+- Named starting with a capital letter. Named enumerators starting with a lower case letter.
+- `unscoped-enum`: put their enumerator names into the same scope as the enumeration definition itself 
+- `scoped-enum`: keep their enumerators inside the enum’s own scope.Using `enum class` keyworld.
+- `using enum <EnumName>` statement imports all the emnumerators from an enum into the current scope. 
+- putting your enumerations inside a named scope region (such as a namespace or class) so the enumerators don’t pollute the global namespace.
+- Specify the base type of an enumeration only when necessary.
+- e.g.
+```cpp
+#include <iostream>
+#include <cstdint>   // for uint8_t
+
+//  Good naming style:
+// Enum name: Capitalized
+// Enumerator names: lowercase
+
+enum Color {
+    red,
+    green,
+    blue
+};
+
+//  Scoped enum — enumerators are inside the enum’s scope
+enum class Shape {
+    circle,
+    square,
+    triangle
+};
+
+//  Scoped enum inside a namespace — prevents name pollution
+namespace Game {
+    enum class Direction {
+        up,
+        down,
+        left,
+        right
+    };
+}
+
+//  Scoped enum with explicit base type
+enum class Status : uint8_t {
+    ok = 0,
+    error = 1,
+    unknown = 2
+};
+
+int main() {
+    // Using unscoped enum
+    Color c = red;               //  direct access (same scope)
+    std::cout << "Color value: " << c << "\n";
+
+    // Using scoped enum
+    Shape s = Shape::circle;     //  must use scope name
+    if (s == Shape::circle)
+        std::cout << "Shape is circle\n";
+
+    // Scoped enum inside namespace
+    Game::Direction dir = Game::Direction::up;
+    if (dir == Game::Direction::up)
+        std::cout << "Direction is up\n";
+
+    // Scoped enum with base type
+    Status st = Status::ok;
+    if (st == Status::ok)
+        std::cout << "Status OK (base type uint8_t)\n";
+
+    return 0;
+}
+```
+
+- **Union**: https://www.geeksforgeeks.org/cpp/cpp-unions/
+
+### 18.2. Struct
+- A **struct** is a *class type* (just like `classes` or `union`),  allows us to bundle multiple variables together into a single type. As such, anything that applies to class types applies to structs.
+- **Defining structs** using `struct` keywords.
+- **Access struct members**:
+  - Use member selection operator(dot operator) `.` for reference/object.
+  - Use arrow operator `->` for pointers. `ptr->id = (*ptr).id`
+- **Initialization**: 
+  - using brace-initialization `{}` or by defining default member values.
+  - should provide a default value for all members
+- **Passing and returning structs**:
+  - Passingy reference (efficient and avoids copying)
+  - Passing temporary 
+  - Create a struct variable and return
+  - Returning a temporary (unnamed/anonymous) object 
+- **Struct size and data structure alignment**:the size of a struct will be at least as large as the size of all the variables it contains. But it could be larger! For performance reasons, the compiler will sometimes add gaps into structures this is called **padding**. We can minimize padding by defining your members in **decreasing order of size**.(e.g., double → int → char).
+
+- e.g.
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Define a struct
+struct SensorData {
+    double voltage{0.0};   // Default initialization
+    int id{0};
+    char status{'N'};      // 'N' = normal, 'E' = error
+    string label{"Unknown"};
+
+    // Member function
+    void print() const { // Const class objects and const member functions
+        cout << "Sensor " << id 
+             << " [" << label << "] "
+             << "Voltage: " << voltage 
+             << " Status: " << status << endl;
+    }
+};
+
+// Function that accepts struct by reference
+void updateVoltage(SensorData &data, double newV) {
+    data.voltage = newV;
+}
+
+// Function returning a temporary struct
+SensorData makeSensor(int id, double v, const string &label) {
+    return {v, id, 'N', label};
+}
+
+int main() {
+    // Initialization using braces
+    SensorData s1{3.3, 1, 'N', "Temperature"};
+    s1.print();
+
+    // Pointer access
+    SensorData *ptr = &s1;
+    ptr->status = 'E';
+    ptr->print();
+
+    // Passing by reference
+    updateVoltage(s1, 4.8);
+    s1.print();
+
+    // Returning temporary struct
+    SensorData s2 = makeSensor(2, 5.0, "Pressure");
+    s2.print();
+
+    cout << "Size of struct = " << sizeof(SensorData) << " bytes" << endl;
+    return 0;
+}
+```
+
+### 18.3. Class template
+- a **class template** is a template definition for instantiating class types (structs, classes, or unions). Class template argument deduction (CTAD) is a C++17 feature that allows the compiler to deduce the template type arguments from an initializer.
+- Using class template in a function:
+- e.g.
+```cpp
+#include <iostream>
+
+template <typename T>
+struct Pair
+{
+    T first{};
+    T second{};
+};
+
+template <typename T>
+constexpr T max(Pair<T> p)
+{
+    return (p.first < p.second ? p.second : p.first);
+}
+
+int main()
+{
+    Pair<int> p1{ 5, 6 };        // instantiates Pair<int> and creates object p1
+    std::cout << p1.first << ' ' << p1.second << '\n';
+
+    Pair<double> p2{ 1.2, 3.4 }; // instantiates Pair<double> and creates object p2
+    std::cout << p2.first << ' ' << p2.second << '\n';
+
+    Pair<double> p3{ 7.8, 9.0 }; // creates object p3 using prior definition for Pair<double>
+    std::cout << p3.first << ' ' << p3.second << '\n';
+
+    std::cout << max<int>(p1) << " is larger\n"; // explicit call to max<int>
+
+    return 0;
+}
+
+// Compiler ===================================================================================
+#include <iostream>
+
+// A declaration for our Pair class template
+// (we don't need the definition any more since it's not used)
+template <typename T>
+struct Pair;
+
+// Explicitly define what Pair<int> looks like
+template <> // tells the compiler this is a template type with no template parameters
+struct Pair<int>
+{
+    int first{};
+    int second{};
+};
+
+// Explicitly define what Pair<double> looks like
+template <> // tells the compiler this is a template type with no template parameters
+struct Pair<double>
+{
+    double first{};
+    double second{};
+};
+
+int main()
+{
+    Pair<int> p1{ 5, 6 };        // instantiates Pair<int> and creates object p1
+    std::cout << p1.first << ' ' << p1.second << '\n';
+
+    Pair<double> p2{ 1.2, 3.4 }; // instantiates Pair<double> and creates object p2
+    std::cout << p2.first << ' ' << p2.second << '\n';
+
+    Pair<double> p3{ 7.8, 9.0 }; // creates object p3 using prior definition for Pair<double>
+    std::cout << p3.first << ' ' << p3.second << '\n';
+
+    return 0;
+}
+```
+
+- **Using class templates in multiple files**:Just like function templates, class templates are typically defined in header files
+
+- **Alias templates**: is a template that can be used to instantiate type aliases.
+- e.g.
+```cpp
+// Alias templates must be defined in global scope
+template <typename T>
+using Coord = Pair<T>; // Coord is an alias for Pair<T>
+```
 
 ## 19. OOP
 - Classes
