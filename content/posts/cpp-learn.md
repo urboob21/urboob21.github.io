@@ -1730,6 +1730,11 @@ int main() {
 - **Initialization**: 
   - using brace-initialization `{}` or by defining default member values.
   - should provide a default value for all members
+  - Struct aggregate initializations:
+```cpp
+    Employee frank = { 1, 32, 60000.0 }; // copy-list initialization using braced list
+    Employee joe { 2, 28, 45000.0 };     // list initialization using braced list (preferred)
+``` 
 - **Passing and returning structs**:
   - Passingy reference (efficient and avoids copying)
   - Passing temporary 
@@ -1876,11 +1881,569 @@ int main()
 template <typename T>
 using Coord = Pair<T>; // Coord is an alias for Pair<T>
 ```
+## 19. Classes
+- **Overview:**
+```cpp
+// ===== File: main.cpp =====
+#include <iostream>
+#include <string>
+#include <utility>
+#include <vector>
+using namespace std;
 
-## 19. OOP
-- Classes
-- Object Relationships
-- Inheritance
-- Virtual Functions
+// ===== File: Person.h =====
+class Person {
+private:                       // (14.5) Data hiding and encapsulation
+    string name;
+    int age;
 
-## 20 
+public:
+    // (14.9) Constructor
+    Person(string n, int a) : name{std::move(n)}, age{a} {
+        cout << "Constructor: " << name << endl;
+    }
+
+    // (14.12) Delegating constructor
+    Person() : Person("Unknown", 0) {}
+
+    // (14.14) Copy constructor
+    Person(const Person& other) : name{other.name}, age{other.age} {
+        cout << "Copy constructor called for " << name << endl;
+    }
+
+    // (15.4) Destructor
+    ~Person() {
+        cout << "Destructor: " << name << endl;
+    }
+
+    // (14.3) Member function
+    void print() const {  // (14.4) const member function
+        cout << name << " (" << age << ")\n";
+    }
+
+    // (14.6) Access function
+    string getName() const { return name; }
+    int getAge() const { return age; }
+
+    // (14.7) Return reference to data member
+    int& getAgeRef() { return age; }
+
+    // (14.16) Converting constructor (implicit)
+    Person(int a) : name{"Anon"}, age{a} {}
+
+    // (14.17) constexpr constructor (simple example)
+    constexpr Person(const char* n, int a, bool) : name{n}, age{a} {}
+
+    // (15.1) Function chaining using hidden this pointer
+    Person& setName(const string& n) { name = n; return *this; }
+    Person& setAge(int a) { age = a; return *this; }
+
+    // (15.7) Static member function
+    static void hello() { cout << "Hello from Person class!\n"; }
+
+    // (15.8) Friend non-member function
+    friend void showSecret(const Person& p);
+};
+
+// ===== File: Person.cpp =====
+void showSecret(const Person& p) {   // (15.8) Friend function
+    cout << "Friend: " << p.name << " is " << p.age << " years old.\n";
+}
+
+// ===== File: Employee.h =====
+class Employee : public Person {    // Inheritance for demonstration
+private:
+    double salary;
+
+public:
+    Employee(string n, int a, double s)
+        : Person(std::move(n), a), salary{s} {}
+
+    void print() const {            // Override
+        cout << "[Employee] ";
+        Person::print();
+        cout << "Salary: $" << salary << "\n";
+    }
+
+    // (15.9) Friend class
+    friend class HR;
+};
+
+// ===== File: HR.h =====
+class HR {
+public:
+    void adjustSalary(Employee& e, double newSalary) {
+        e.salary = newSalary;
+        cout << "HR adjusted salary!\n";
+    }
+};
+
+// ===== File: Counter.h =====
+class Counter {
+private:
+    static int count;   // (15.6) Static member variable
+
+public:
+    Counter() { ++count; }
+    ~Counter() { --count; }
+    static int getCount() { return count; } // (15.7)
+};
+int Counter::count = 0;
+
+// ===== File: Box.h =====
+// (15.5) Class template with member functions
+template <typename T>
+class Box {
+private:
+    T value;
+public:
+    explicit Box(T v) : value{v} {}
+    T get() const { return value; }
+    void set(T v) { value = v; }
+};
+
+// ===== File: main.cpp (continued) =====
+int main() {
+    cout << "=== OOP Example ===\n";
+
+    // Constructors
+    Person p1("Alice", 25);
+    Person p2 = p1;              // Copy constructor
+    Person p3;                   // Delegating constructor
+
+    p1.print();
+
+    // Function chaining
+    p1.setName("Bob").setAge(30).print();
+
+    // Static function
+    Person::hello();
+
+    // Friend function
+    showSecret(p1);
+
+    // Employee & HR
+    Employee e1("Charlie", 35, 50000);
+    HR hr;
+    e1.print();
+    hr.adjustSalary(e1, 60000);
+    e1.print();
+
+    // Static member variable usage
+    Counter c1, c2;
+    cout << "Counter count: " << Counter::getCount() << endl;
+
+    // Template class
+    Box<int> intBox(123);
+    cout << "Box value: " << intBox.get() << endl;
+
+    // (14.16) Implicit converting constructor
+    Person p4 = 42;  // age=42, name="Anon"
+    p4.print();
+
+    // (14.17) constexpr example
+    constexpr Person p5("ConstExpr", 10, true);
+    p5.print();
+
+    cout << "=== End ===\n";
+    return 0;
+}
+```
+
+### 19.1. Introduce
+- A class is a program-defined compound type that can have many member variables with **different types** (this point is different from structure).
+- A class is a program-defined compound type that bundles both data and functions that work on that data.
+
+- Examples:
+```cpp
+#include <iostream>
+class MyClass{
+private:
+     int variable1;
+     int variable2;
+public:
+    MyClass(int v1, int v2){
+        variable1 = v1;
+        variable2 = v2;
+    }
+
+    void printVariables(){
+        std::cout << variable1 << "-" <<variable2;
+    }
+};
+
+int main()
+{
+    std::cout<<"Hello Classes";
+    MyClass myObject = MyClass(3,4);
+    myObject.printVariables();
+    return 0;
+}
+```
+
+### 19.2. Member Variables/ Functions:
+- The variable/functions that belong to a class type are called member variables/ functions.
+- In C, structs only have data members, not member functions.
+
+### 19.3. Const class objects and const member functions
+- Const class objects: just like with normal variables, we can make our class type objects const or constexpr.
+- Const member function: is a member function that guarentees it will not modify the object or call any non-constant member functions.
+	- Syntax `<returnType> <nameFunction> const(<params>){}`
+
+### 19.4. Temporary class objects
+-  A temporary object (sometimes called an `anonymous object` or an `unnamed object`) is an object that has no name and exists only for the duration of a single expression.
+- e.g.
+```cpp
+#include <iostream>
+
+class IntPair
+{
+private:
+    int m_x{};
+    int m_y{};
+
+public:
+    IntPair(int x, int y)
+        : m_x { x }, m_y { y }
+    {}
+
+    int x() const { return m_x; }
+    int y() const{ return m_y; }
+};
+
+void print(IntPair p)
+{
+    std::cout << "(" << p.x() << ", " << p.y() << ")\n";
+}
+
+int main()
+{
+    // Case 1: Pass variable
+    IntPair p { 3, 4 };
+    print(p);
+
+    // Case 2: Construct temporary IntPair and pass to function
+	// When the function call returns, the temporary object is destroyed.
+    print(IntPair { 5, 6 } );
+
+    // Case 3: Implicitly convert { 7, 8 } to a temporary Intpair and pass to function
+    print( { 7, 8 } );
+
+    return 0;
+}
+```
+
+### 19.5. Public and private members and access specifiers
+- By default, all members of a `struct` are public members.
+- By default, the members of a class are `private`.
+
+### 19.6. Access functions
+TODO:
+### 19.7.  Member functions returning references to data members
+TODO:
+### 19.8. Encapsulation - The benefits of data hiding
+TODO:
+### 19.9. Constructors
+- We are normally using the aggregate to initialize the class type(Aggregate initialization means the use of brace-enclosed initializer lists to initialize all members of an aggregate (ie an array or struct)), but it does not work as soon as we make member variables private.
+- A constructor is a special member function that is used to initialize class type objects. That is automatically called after a non-aggregate class type object is created.
+	- perform initialization of any member variables (via a member initialization list)
+    - perform other setup functions (via statements in the body of the constructor). This might include things such as error checking the initialization values, opening a file or database, etc…
+- **Syntax**:
+	- Constructors must have the same name as the class (with the same capitalization).
+	- For template classes, this name excludes the template parameters.
+    - Constructors have no return type (not even void).
+
+### 19.10. Constructor - member initializer lists
+- The **member initializer list** is defined after the constructor parameters. It begins with a colon (`:`), and then lists each member to initialize along with the initialization value for that variable, separated by a comma (`,`). We must use a direct form of initialization here (preferably using braces(`{}`), but parentheses(`()`) works as well) .Using copy initialization (with an equals(`=`)) does not work here.
+
+- e.g.:
+```cpp
+Foo(int x, int y) : m_x { x }, m_y { y }
+{
+	// m_x  = x; this is an assignment
+}
+```
+- Members in the member initializer list should be listed in the order in which they are defined in the class
+- Prefer using the member initializer list to initialize your members over assigning values because in case where members are required to be initialized (such as for data members that are const or references) assignment will not work.
+
+### 19.11. Constructor - Default and default arguments
+- A **default constructor** is a constructor that accepts no arguments.
+- Because constructors are functions, we can:
+	- Constructors with default arguments
+	- Overloaded constructors
+- **An implicit default constructor** is generated by the compiler when the class has *no user-declared constructors*. This constructor has nothing.
+- **An explicitly default constructor** is used in case we already create the constructor ourselves, but also want the compiler to generate the default constructor. Using keywork `default`
+- e.g.
+```cpp
+class Foo
+{
+private:
+    int m_x {};
+    int m_y {};
+
+public:
+    Foo() = default; // generates an explicitly defaulted default constructor
+
+    Foo(int x, int y)
+        : m_x { x }, m_y { y }
+    {
+        std::cout << "Foo(" << m_x << ", " << m_y << ") constructed\n";
+    }
+};
+
+int main()
+{
+    Foo foo{}; // calls Foo() default constructor
+		
+    return 0;
+}
+```
+
+### 19.12. Constructor - Delegating
+- **Delegating constructors** allow to delegate (transfer responsibility for) initialization to another constructor from the same class type.
+- Simply *call the constructor in the member initializer list*
+- Use of the `static` keyword for the const variables member allows us to have a single  member that is shared by all class objects.
+- e.g.
+```cpp
+#include <iostream>
+#include <string>
+#include <string_view>
+
+class Employee
+{
+private:
+    std::string m_name { "???" };
+    int m_id { 0 };
+
+public:
+    Employee(std::string_view name)
+        : Employee{ name, 0 } // delegate initialization to Employee(std::string_view, int) constructor
+    {
+    }
+
+    Employee(std::string_view name, int id)
+        : m_name{ name }, m_id { id } // actually initializes the members
+    {
+        std::cout << "Employee " << m_name << " created\n";
+    }
+
+};
+
+int main()
+{
+    Employee e1{ "James" };
+    Employee e2{ "Dave", 42 };
+}
+```
+
+### 19.13. Constructor - Copy
+- **A copy constructor** is a constructor that is used to initialize an object with an existing object of the same type. After the copy constructor executes, the newly created object should be a copy of the object passed in as the initializer.
+- **An implicit copy constructor**: C++ will create a public implicit copy constructor for us if we do not provide a one.
+- **An explicitly copy constructor**: by explicitly define our own copy constructor
+- e.g.
+```cpp
+    // Copy constructor
+    Fraction(const Fraction& fraction)
+        // Initialize our members using the corresponding member of the parameter
+        : m_numerator{ fraction.m_numerator }
+        , m_denominator{ fraction.m_denominator }
+    {
+        // do other things
+    }
+
+```
+- Using `= default` to generate a default copy constructor.
+- Using `= delete` to prevent copies.
+```cpp
+    // Explicitly request default copy constructor
+    Fraction(const Fraction& fraction) = default;
+    Fraction fCopy { f };
+	
+    // Delete the copy constructor so no copies can be made
+    Fraction(const Fraction& fraction) = delete;
+	Fraction f { 5, 3 };
+	Fraction fCopy { f }; // compile error: copy constructor has been deleted
+
+```
+>The rule of three is a well known C++ principle that states that if a class requires a user-defined copy constructor, destructor, or copy assignment operator, then it probably requires all three. In C++11, this was expanded to the rule of five, which adds the move constructor and move assignment operator to the list.
+Not following the rule of three/rule of five is likely to lead to malfunctioning code. We’ll revisit the rule of three and rule of five when we cover dynamic memory allocation
+
+
+### 19.14. Class initialization and copy elision
+- **For variables**:
+```cpp
+int a;         // no initializer (default initialization)
+int b = 5;     // initializer after equals sign (copy initialization)
+int c( 6 );    // initializer in parentheses (direct initialization)
+
+// List initialization methods (C++11)
+int d { 7 };   // initializer in braces (direct list initialization)
+int e = { 8 }; // initializer in braces after equals sign (copy list initialization)
+int f {};      // initializer is empty braces (value initialization)
+```
+
+- **For object with class types**:
+```cpp
+#include <iostream>
+
+class Foo
+{
+public:
+
+    // Default constructor
+    Foo()
+    {
+        std::cout << "Foo()\n";
+    }
+
+    // Normal constructor
+    Foo(int x)
+    {
+        std::cout << "Foo(int) " << x << '\n';
+    }
+
+    // Copy constructor
+    Foo(const Foo&)
+    {
+        std::cout << "Foo(const Foo&)\n";
+    }
+};
+
+int main()
+{
+    // Calls Foo() default constructor
+    Foo f1;           // default initialization
+    Foo f2{};         // value initialization (preferred)
+
+    // Calls foo(int) normal constructor
+    Foo f3 = 3;       // copy initialization (non-explicit constructors only)
+    Foo f4(4);        // direct initialization
+    Foo f5{ 5 };      // direct list initialization (preferred)
+    Foo f6 = { 6 };   // copy list initialization (non-explicit constructors only)
+
+    // Calls foo(const Foo&) copy constructor
+    Foo f7 = f3;      // copy initialization
+    Foo f8(f3);       // direct initialization
+    Foo f9{ f3 };     // direct list initialization (preferred)
+    Foo f10 = { f3 }; // copy list initialization
+
+    return 0;
+}
+```
+- For all types of initialization:
+  - When initializing a class type, the set of constructors for that class are examined, and overload resolution is used to determine the best matching constructor. This may involve implicit conversion of arguments.
+  - When initializing a non-class type, the implicit conversion rules are used to determine whether an implicit conversion exists.
+  - List initialization disallows narrowing conversions.
+  - Copy initialization only considers non-explicit constructors/conversion functions.
+  - List initialization prioritizes matching list constructors over other matching constructors. 
+	
+### 19.15. Converting constructors and the explicit keyword
+- For example:
+```cpp
+#include <iostream>
+
+class Foo
+{
+private:
+    int m_x{};
+public:
+    Foo(int x)
+        : m_x{ x }
+    {
+    }
+
+    int getX() const { return m_x; }
+};
+
+void printFoo(Foo f) // has a Foo parameter
+{
+    std::cout << f.getX();
+}
+
+int main()
+{
+    printFoo(5); // we're supplying an int argument
+
+    return 0;
+}
+```
+- The compiler will look to see if there is any constructor that it can be use to perform (5) -> Foo.
+- A converting constructor is a constructor that can be used to perform an implicit conversion is called a converting constructor. By default, all constructors are converting constructors.
+- Only one user-defined conversion may be applied.
+  
+  <br>
+
+- **The `explicit` keyword** is used to to tell the compiler that a constructor should not be used as a converting constructor.
+	- For constructors with a separate declaration (inside the class) and definition (outside the class), the explicit keyword is used only on the declaration.
+	- Explicit constructors can be used for direct and direct list initialization
+	- Prefer use this key work for constructors that take a single argument. 
+- e.g.
+```cpp
+#include <iostream>
+
+class Dollars
+{
+private:
+    int m_dollars{};
+
+public:
+    explicit Dollars(int d) // now explicit
+        : m_dollars{ d }
+    {
+    }
+
+    int getDollars() const { return m_dollars; }
+};
+
+void print(Dollars d)
+{
+    std::cout << "$" << d.getDollars();
+}
+
+int main()
+{
+    print(5); // compilation error because Dollars(int) is explicit
+	Dollars d1(5); // ok
+    Dollars d2{5}; // ok
+    return 0;
+}
+```
+
+- **Return by value and explicit constructors**: when we return a value from a function, if that value does not match the return type of the function, an implicit conversion will occur. Just like with pass by value, such conversions cannot use explicit constructors.
+- e.g.
+```cpp
+#include <iostream>
+
+class Foo
+{
+public:
+    explicit Foo() // note: explicit (just for sake of example)
+    {
+    }
+
+    explicit Foo(int x) // note: explicit
+    {
+    }
+};
+
+Foo getFoo()
+{
+    // explicit Foo() cases
+    return Foo{ };   // ok
+    return { };      // error: can't implicitly convert initializer list to Foo
+
+    // explicit Foo(int) cases
+    return 5;        // error: can't implicitly convert int to Foo
+    return Foo{ 5 }; // ok
+    return { 5 };    // error: can't implicitly convert initializer list to Foo
+}
+
+int main()
+{
+    return 0;
+}
+```
+
+### 19.16. Constexpr aggregates and classes:
+@TODO:
+
