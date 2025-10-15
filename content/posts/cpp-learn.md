@@ -83,7 +83,87 @@ See plus plus :) .
 - `float` → `%f`  
 - Use `snprintf()` with correctly sized buffer to avoid overflow
 
+#### Code Timming
+-  C++11 comes with some functionality in the chrono library to time our code to see how long it takes to run.
+-  e.g.
+```cpp
+#include <array>
+#include <chrono> // for std::chrono functions
+#include <cstddef> // for std::size_t
+#include <iostream>
+#include <numeric> // for std::iota
 
+const int g_arrayElements { 10000 };
+
+class Timer
+{
+private:
+    // Type aliases to make accessing nested type easier
+    using Clock = std::chrono::steady_clock;
+    using Second = std::chrono::duration<double, std::ratio<1> >;
+
+    std::chrono::time_point<Clock> m_beg{ Clock::now() };
+
+public:
+
+    void reset()
+    {
+        m_beg = Clock::now();
+    }
+
+    double elapsed() const
+    {
+        return std::chrono::duration_cast<Second>(Clock::now() - m_beg).count();
+    }
+};
+
+void sortArray(std::array<int, g_arrayElements>& array)
+{
+
+    // Step through each element of the array
+    // (except the last one, which will already be sorted by the time we get there)
+    for (std::size_t startIndex{ 0 }; startIndex < (g_arrayElements - 1); ++startIndex)
+    {
+        // smallestIndex is the index of the smallest element we’ve encountered this iteration
+        // Start by assuming the smallest element is the first element of this iteration
+        std::size_t smallestIndex{ startIndex };
+
+        // Then look for a smaller element in the rest of the array
+        for (std::size_t currentIndex{ startIndex + 1 }; currentIndex < g_arrayElements; ++currentIndex)
+        {
+            // If we've found an element that is smaller than our previously found smallest
+            if (array[currentIndex] < array[smallestIndex])
+            {
+                // then keep track of it
+                smallestIndex = currentIndex;
+            }
+        }
+
+        // smallestIndex is now the smallest element in the remaining array
+        // swap our start element with our smallest element (this sorts it into the correct place)
+        std::swap(array[startIndex], array[smallestIndex]);
+    }
+}
+
+int main()
+{
+    std::array<int, g_arrayElements> array;
+    std::iota(array.rbegin(), array.rend(), 1); // fill the array with values 10000 to 1
+
+    Timer t;
+
+    sortArray(array);
+
+    std::cout << "Time taken: " << t.elapsed() << " seconds\n";
+
+    return 0;
+}
+```
+
+- **Things that can impact the performance of the program:** TBD
+- **Measuring performance:**
+  - gather at least 3 results.
+  - the program runs in 10 seconds etc
 ## 1. Introduction
 - C++ was developed as an extension to C. It adds man few features to the C language, and tis perhaps best through of as a superset of C. 
 
