@@ -2447,3 +2447,499 @@ int main()
 ### 19.16. Constexpr aggregates and classes:
 @TODO:
 
+### 19.17. The hidden “this” pointer and member function chaining
+- Cpp utilizes a hidden pointer named `this`. This is a *const pointer* that holds the address of the current implicit object.
+- e.g.
+```cpp
+simple.setID(2); 
+Simple::setID(&simple, 2); // note that simple has been changed from an object prefix to a function argument!
+
+// implementation
+void setID(int id) { m_id = id; }
+static void setID(Simple* const this, int id) { this->m_id = id; }
+```
+- **Explainations:**
+  - When we call simple.setID(2), the compiler actually calls Simple::setID(&simple, 2), and simple is passed by address to the function.
+The function has a hidden parameter named this which receives the address of simple.
+Member variables inside setID() are prefixed with this->, which points to simple. So when the compiler evaluates this->m_id, it’s actually resolving to simple.m_id.
+  - All non-static member functions have a this const pointer that holds the address of the implicit object. `this` always points to the object being operated on
+  - Using this to create a reset function for a class back to default state:create a new object (using the default constructor), and then assign that new object to the current implicit object
+```cpp
+void reset()
+{
+    *this = {}; // value initialize a new object and overwrite the implicit object
+}
+```
+
+- `this` and `const objects`:
+```cpp
+#include <iostream>
+using namespace std;
+
+class Something {
+private:
+    int value;
+
+public:
+    Something(int v) : value(v) {}
+
+    // Non-const member function
+    void setValue(int v) {
+        cout << "Non-const setValue() called" << endl;
+        value = v;  // allowed: can modify object
+    }
+
+    // Const member function
+    int getValue() const {
+        cout << "Const getValue() called" << endl;
+        // value = 10; //  would be an error: cannot modify inside const function
+        return value;
+    }
+
+    // Non-const getValue (overload)
+    int getValue() {
+        cout << "Non-const getValue() called" << endl;
+        return value;
+    }
+};
+
+int main() {
+    Something a(5);
+    const Something b(10);
+
+    // Non-const object: can call both const and non-const functions
+    cout << a.getValue() << endl;  // calls non-const version
+    a.setValue(7);                 // OK
+    cout << a.getValue() << endl;
+
+    // Const object: can only call const functions
+    cout << b.getValue() << endl;  // calls const version
+    // b.setValue(20);             // error: cannot call non-const on const object
+
+    return 0;
+}
+
+```
+
+> Why this a pointer and not a reference:
+Since the this pointer always points to the implicit object (and can never be a null pointer unless we’ve done something to cause undefined behavior), you may be wondering why this is a pointer instead of a reference. The answer is simple: when this was added to C++, references didn’t exist yet.
+
+### 19.18. Classes and header files
+- **Member functions** can be defined outside the class definition just like non-member functions. The only difference is that we must prefix the member function names with the name of the class type so the compiler knows we’re defining a member of that class type rather than a non-member. e.g. `void MyClass::myFnc(){//}`.
+  - Putting class definitions in a header file.
+  - Prefer to put your class definitions in a header file with the same name as the class. 
+  - Trivial member functions (such as access functions, constructors with empty bodies,Default arguments for member functions, etc…) can be defined inside the class definition.
+  - Prefer to define non-trivial member functions in a source file with the same name as the class.
+- **Inline member functions**:
+  - Member functions defined inside the class definition are implicitly inline. 
+  - Member functions defined outside the class definition are not implicitly inline (and thus are subject to the one definition per program part of the one-definition rule). This is why such functions are usually defined in a code file (where they will only have one definition across the whole program).
+  - Alternatively, member functions defined outside the class definition can be left in the header file if they are made inline.
+- e.g.
+```cpp
+// Date.h:
+#ifndef DATE_H
+#define DATE_H
+
+class Date
+{
+private:
+    int m_year{};
+    int m_month{};
+    int m_day{};
+
+public:
+    Date(int year, int month, int day);
+
+    void print() const;
+
+    int getYear() const { return m_year; }
+    int getMonth() const { return m_month; }
+    int getDay() const { return m_day; }
+};
+
+#endif
+
+// Date.cpp
+#include "Date.h"
+
+Date::Date(int year, int month, int day) // constructor definition
+    : m_year{ year }
+    , m_month{ month }
+    , m_day{ day }
+{
+}
+
+void Date::print() const // print function definition
+{
+    std::cout << "Date(" << m_year << ", " << m_month << ", " << m_day << ")\n";
+};
+```
+
+### 19.19. Nested types (member types)
+- Class types support another kind of member: `nested types` (also called member types). To create a nested type, you simply define the type inside the class, under the appropriate access specifier.
+- Define any nested types at the top of your class type. 
+- Outside the class, we must use the fully qualified name: `OuterClass::InerClass p{};`
+- `nested classes` are members of the outer class, they can access any private members of the outer class that are in scope.
+- A nested type cannot be forward declared prior to the definition of the enclosing class.\ư
+
+### 19.20. Destructors
+- For example, the classes that use a resource (most often memory, but sometimes files, databases, network connections, etc…) often need to be explicitly sent or closed before the class object using them is destroyed. In other cases, we may want to do some record-keeping prior to the destruction of the object, such as writing information to a log file, or sending a piece of telemetry to a server. The term “clean up” is often used to refer to any set of tasks that a class must perform before an object of the class is destroyed in order to behave as expected. If we have to rely on the user of such a class to ensure that the function that performs clean up is called prior to the object being destroyed, we are likely to run into errors somewhere.
+
+<br>
+
+- **destructor** is a special member function that is called automatically when an object of a non-aggregate class type is destroyed.
+- **Syntax**:
+  - The destructor must have the same name as the class, preceded by a tilde (`~`).
+  - The destructor can not take arguments.
+  - The destructor has no return type.
+- A class can only have a single destructor.
+- **An implicit destructor**: If a non-aggregate class type object has no user-declared destructor, the compiler will generate a destructor with an empty body. It is effectively just a placeholder.
+
+- e.g.
+```cpp
+class NetworkData
+{
+private:
+    std::string m_serverName{};
+    DataStore m_dataQueue{};
+
+public:
+	NetworkData(std::string_view serverName)
+		: m_serverName { serverName }
+	{
+	}
+
+	~NetworkData()
+	{
+		sendData(); // make sure all data is sent before object is destroyed
+	}
+
+	void addData(std::string_view data)
+	{
+		m_dataQueue.add(data);
+	}
+
+	void sendData()
+	{
+		// connect to server
+		// send all data
+		// clear data
+	}
+};
+
+int main()
+{
+    NetworkData n("someipAddress");
+
+    n.addData("somedata1");
+    n.addData("somedata2");
+
+    return 0;
+}
+```
+
+### 19.21. Class templates with member functions
+-e.g.
+```cpp
+#include <ios>       // for std::boolalpha
+#include <iostream>
+
+template <typename T>
+class Pair
+{
+private:
+    T m_first{};
+    T m_second{};
+
+public:
+    // When we define a member function inside the class definition,
+    // the template parameter declaration belonging to the class applies
+    Pair(const T& first, const T& second)
+        : m_first{ first }
+        , m_second{ second }
+    {
+    }
+
+    bool isEqual(const Pair<T>& pair);
+};
+
+// When we define a member function outside the class definition,
+// we need to resupply a template parameter declaration
+template <typename T>
+bool Pair<T>::isEqual(const Pair<T>& pair)
+{
+    return m_first == pair.m_first && m_second == pair.m_second;
+}
+
+int main()
+{
+    Pair p1{ 5, 6 }; // uses CTAD to infer type Pair<int>
+    std::cout << std::boolalpha << "isEqual(5, 6): " << p1.isEqual( Pair{5, 6} ) << '\n';
+    std::cout << std::boolalpha << "isEqual(5, 7): " << p1.isEqual( Pair{5, 7} ) << '\n';
+
+    return 0;
+}
+```
+
+### 19.22. Static member
+- **Static member variables:** are static duration members that are shared by all objects of the class. Static members exist even if no objects of the class have been instantiated. Prefer to access them using the class name, the scope resolution operator, and the members name.
+- Syntax: `static <type> <name>{<value>}`
+- Static member variables are shared by all objects of the class
+- Static members are not associated with class objects
+- Static members are global variables that live inside the scope region of the class. 
+- Access static members using the class name and the scope resolution operator (`::`).
+- Defining and initializing static member variables:
+	- Initialization of static member variables inside the class definition
+	- Make your static members `inline` or `constexpr` so they can be initialized inside the class definition (.h).  
+	
+- **Static member functions:** are member functions that can be called with no object. They do not have a *this pointer, and cannot access non-static data members.
+  - Can access to the satatic members via non-static function but requires us to instantiate an object to call
+  - Because static member functions are not attached to an object, they have no this pointer
+  - Can directly access other static members (variables or functions), but not non-static members.
+
+- e.g.
+```cpp
+#include <iostream>
+#include <string>
+
+class Counter {
+public:
+    // Static member variable (shared by all instances)
+    static inline int count {0};              // C++17+ inline initialization
+    static constexpr const char* name {"App"}; // compile-time constant
+
+    Counter() {
+        ++count; // Increment static variable each time an object is created
+    }
+
+    ~Counter() {
+        --count; // Decrement on destruction
+    }
+
+    // Static member function
+    static void showCount() {
+        std::cout << "Count: " << count << '\n';
+        // std::cout << id;  not allowed — no access to non-static members
+    }
+
+    // Non-static function accessing static member
+    void showInfo() const {
+        std::cout << "Instance -> " << name << " | Current count: " << count << '\n';
+    }
+
+private:
+    int id {0}; // non-static member variable
+};
+
+// (Alternative old-style definition — no longer needed with inline)
+// int Counter::count = 0;
+
+int main() {
+    Counter c1, c2;
+    c1.showInfo();     // Access static via non-static method
+    Counter::showCount(); // Access static function via class name
+
+    Counter c3;
+    Counter::showCount();
+
+    return 0;
+}
+
+```
+
+### 19.23. Friend non-member functions
+- **A friend declaration** (using the `friend` keyword) can be used to tell the compiler that some other class or function is now a friend. In C++, a friend is a class or function (member or non-member) that has been granted full access to the private and protected members of another class. In this way, a class can selectively give other classes or functions full access to their members without impacting anything else.
+
+- **A friend function** is a function (member or non-member) that can access the private and protected members of a class as though it were a member of that class. In all other regards, the friend function is a normal function. 
+```cpp
+#include <iostream>
+
+class Accumulator
+{
+private:
+    int m_value { 0 };
+
+public:
+    void add(int value) { m_value += value; }
+
+    // Here is the friend declaration that makes non-member function void print(const Accumulator& accumulator) a friend of Accumulator
+	// member function but it have friend keyword, it is instead treated as a non-member function
+    friend void print(const Accumulator& accumulator);
+};
+
+// non-member function
+void print(const Accumulator& accumulator)
+{
+    // Because print() is a friend of Accumulator
+    // it can access the private members of Accumulator
+    std::cout << accumulator.m_value;
+}
+
+int main()
+{
+    Accumulator acc{};
+    acc.add(5); // add 5 to the accumulator
+
+    print(acc); // call the print() non-member function
+
+    return 0;
+}
+```
+
+- We can also define a friend non-member inside a class.
+- Prefer non-friend functions to friend functions
+- **Multiple friends:** A function can be a friend of more than one class at the same time. ( Class forward declarations serve the same role as function forward declarations)
+
+### 19.24. Friend classes and friend member functions
+- **A friend class** is a class that can access the private and protected members of another class.
+- e.g. 
+```cpp
+#include <iostream>
+
+class Storage
+{
+private:
+    int m_nValue {};
+    double m_dValue {};
+public:
+    Storage(int nValue, double dValue)
+       : m_nValue { nValue }, m_dValue { dValue }
+    { }
+
+    // Make the Display class a friend of Storage
+    friend class Display;
+};
+
+class Display
+{
+private:
+    bool m_displayIntFirst {};
+
+public:
+    Display(bool displayIntFirst)
+         : m_displayIntFirst { displayIntFirst }
+    {
+    }
+
+    // Because Display is a friend of Storage, Display members can access the private members of Storage
+    void displayStorage(const Storage& storage)
+    {
+        if (m_displayIntFirst)
+            std::cout << storage.m_nValue << ' ' << storage.m_dValue << '\n';
+        else // display double first
+            std::cout << storage.m_dValue << ' ' << storage.m_nValue << '\n';
+    }
+
+    void setDisplayIntFirst(bool b)
+    {
+         m_displayIntFirst = b;
+    }
+};
+
+int main()
+{
+    Storage storage { 5, 6.7 };
+    Display display { false };
+
+    display.displayStorage(storage);
+
+    display.setDisplayIntFirst(true);
+    display.displayStorage(storage);
+
+    return 0;
+}
+    
+```
+
+- **A friend member function** is a specific member function of one class that is granted access to the private and protected members of another class.
+- e.g. 
+```cpp
+#include <iostream>
+class Storage; // forward declaration for class Storage
+class Display
+{
+private:
+	bool m_displayIntFirst {};
+
+public:
+	Display(bool displayIntFirst)
+		: m_displayIntFirst { displayIntFirst }
+	{
+	}
+
+	void displayStorage(const Storage& storage); // forward declaration for Storage needed for reference here
+};
+
+class Storage // full definition of Storage class
+{
+private:
+	int m_nValue {};
+	double m_dValue {};
+public:
+	Storage(int nValue, double dValue)
+		: m_nValue { nValue }, m_dValue { dValue }
+	{
+	}
+
+	// Make the Display::displayStorage member function a friend of the Storage class
+	// Requires seeing the full definition of class Display (as displayStorage is a member)
+	friend void Display::displayStorage(const Storage& storage);
+};
+
+// Now we can define Display::displayStorage
+// Requires seeing the full definition of class Storage (as we access Storage members)
+void Display::displayStorage(const Storage& storage)
+{
+	if (m_displayIntFirst)
+		std::cout << storage.m_nValue << ' ' << storage.m_dValue << '\n';
+	else // display double first
+		std::cout << storage.m_dValue << ' ' << storage.m_nValue << '\n';
+}
+
+int main()
+{
+    Storage storage { 5, 6.7 };
+    Display display { false };
+    display.displayStorage(storage);
+
+    return 0;
+}
+```
+
+### 19.25. Ref qualifiers
+- C++11 introduced a little known feature called a **ref-qualifier** that allows us to overload a member function based on whether it is being called on an lvalue or an rvalue implicit object. Using this feature, we can create two versions of getName() -- one for the case where our implicit object is an lvalue, and one for the case where our implicit object is an rvalue.
+- e.g.
+```cpp
+#include <iostream>
+#include <string>
+#include <string_view>
+
+class Employee
+{
+private:
+	std::string m_name{};
+
+public:
+	Employee(std::string_view name): m_name { name } {}
+
+	const std::string& getName() const &  { return m_name; } //  & qualifier overloads function to match only lvalue implicit objects
+	std::string        getName() const && { return m_name; } // && qualifier overloads function to match only rvalue implicit objects
+};
+
+// createEmployee() returns an Employee by value (which means the returned value is an rvalue)
+Employee createEmployee(std::string_view name)
+{
+	Employee e { name };
+	return e;
+}
+
+int main()
+{
+	Employee joe { "Joe" };
+	std::cout << joe.getName() << '\n'; // Joe is an lvalue, so this calls std::string& getName() & (returns a reference)
+
+	std::cout << createEmployee("Frank").getName() << '\n'; // Frank is an rvalue, so this calls std::string getName() && (makes a copy)
+
+	return 0;
+}
+```
