@@ -3023,3 +3023,48 @@ int main()
 	return 0;
 }
 ```
+
+## Others
+## 1. Object Relationships
+- Learned about some different kinds of relationships between two objects.
+
+- The process of building complex objects from simpler ones is called **object composition**.
+- There are two types of object composition: `composition`, and `aggregation`.
+- **Composition** exists when a member of a class has a part-of relationship with the class. In a composition relationship, the class manages the existence of the members. 
+  - To qualify as a composition, an object and a part must have the following relationship:
+    - The part (member) is part of the object (class)
+    - The part (member) can only belong to one object (class) at a time
+    - The part (member) has its existence managed by the object (class)
+    - The part (member) does not know about the existence of the object (class)
+  - Typically implemented via normal member variables, or by pointers where the class manages all the memory allocation and deallocation. If you can implement a class as a composition, you should implement a class as a composition.
+
+- **Aggregations** exists when a class has a has-a relationship with the member. In an aggregation relationship, the class does not manage the existence of the members. 
+  - To qualify as an aggregation, an object and its parts must have the following relationship:
+    - The part (member) is part of the object (class)
+    - The part (member) can belong to more than one object (class) at a time
+    - The part (member) does not have its existence managed by the object (class)
+    - The part (member) does not know about the existence of the object (class)
+  - Typically implemented via pointer or reference.
+
+- **Associations** are a looser type of relationship, where the class uses-an otherwise unrelated object. 
+  - To qualify as an association, an object and an associated object must have the following relationship:
+    - The associated object (member) is otherwise unrelated to the object (class)
+    -  associated object (member) can belong to more than one object (class) at a time
+    - The associated object (member) does not have its existence managed by the object (class)
+    - The associated object (member) may or may not know about the existence of the object (class)
+  - May be implemented via pointer or reference, or by a more indirect means (such as holding the index or key of the associated object).
+
+- In a **dependency**, one class uses another class to perform a task. The dependent class typically is not a member of the class using it, but rather is temporarily created, used, and then destroyed, or passed into a member function from an external source.
+
+- In a **container** class one class provides a container to hold multiple objects of another type. A value container is a composition that stores copies of the objects it is holding. A reference container is an aggregation that stores pointers or references to objects that live outside the container.
+
+- **std::initializer_lis**t can be used to implement constructors, assignment operators, and other functions that accept a list initialization parameter. 
+- std::initializer_list lives in the <initializer_list> header.
+
+|Property\Type 	|Composition 	|Aggregation 	|Association 	|Dependency|
+|---|---|---|---|---|
+|Relationship type 	|Whole/part 	|Whole/part 	|Otherwise unrelated 	|Otherwise unrelated|
+|Members can belong to multiple classes 	|No 	|Yes 	|Yes 	|Yes|
+|Members existence managed by class 	|Yes 	|No 	|No 	|No|
+|Directionality 	|Unidirectional 	|Unidirectional 	|Unidirectional or bidirectional 	|Unidirectional|
+|Relationship verb 	|Part-of 	|Has-a 	|Uses-a 	|Depends-on|
