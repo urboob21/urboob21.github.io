@@ -160,6 +160,46 @@ int main()
 }
 ```
 
+#### Command line
+- Command line arguments are optional string arguments that are passed by the operating system to the program when it launch.
+- Passing command line arguments: we simply list the command line arguments right after the executeable name.
+- Using command line arguments: by using different form of main(): `main(int argc, char* argv[])` / `main(int argc, char** argv)`
+  - `argc`: argument count, always be at least 1, because the first argument is always the name of the program itself.
+  - `argv`: is where the actual argument values are stored (think: argv = argument values)
+- e.g.
+```cpp
+#include <iostream>
+#include <sstream> // for std::stringstream
+#include <string>
+
+int main(int argc, char* argv[])
+{
+	if (argc <= 1)
+	{
+		// On some operating systems, argv[0] can end up as an empty string instead of the program's name.
+		// We'll conditionalize our response on whether argv[0] is empty or not.
+		if (argv[0])
+			std::cout << "Usage: " << argv[0] << " <number>" << '\n';
+		else
+			std::cout << "Usage: <program name> <number>" << '\n';
+
+		return 1;
+	}
+
+	std::stringstream convert{ argv[1] }; // set up a stringstream variable named convert, initialized with the input from argv[1]
+
+	int myint{};
+	if (!(convert >> myint)) // do the conversion
+		myint = 0; // if conversion fails, set myint to a default value
+
+	std::cout << "Got integer: " << myint << '\n';
+
+	return 0;
+}
+
+```
+<br>
+
 - **Things that can impact the performance of the program:** TBD
 - **Measuring performance:**
   - gather at least 3 results.
@@ -1245,6 +1285,12 @@ Type conversions
   - provides compile-time type checking
   - less powerful than a C-style cast
   - direct-initialized vs list-initialization
+
+|Purpose|Example|Explaination|
+|---|---|---|
+|Cast object → object	|static_cast<Base>(derived)	|Creates a new Base object copied from Derived (object slicing).|
+|Cast object → reference	|static_cast<Base&>(derived)	|No copy — just changes the view of the same object to treat it as a Base.|
+|Cast pointer → pointer	|static_cast<Base*>(&derived)	|Upcasts a Derived* pointer to a Base* pointer.|
 ### 14.3. Typedefs and type aliases
 - `type aliases`: use the `using` keyworld
   - `using <NewtypeAlias> = <type>`
@@ -3024,8 +3070,8 @@ int main()
 }
 ```
 
-## Others
-## 1. Object Relationships
+## 20. Inheritance 
+## 20.1. Object Relationships
 - Learned about some different kinds of relationships between two objects.
 
 - The process of building complex objects from simpler ones is called **object composition**.
@@ -3068,3 +3114,283 @@ int main()
 |Members existence managed by class 	|Yes 	|No 	|No 	|No|
 |Directionality 	|Unidirectional 	|Unidirectional 	|Unidirectional or bidirectional 	|Unidirectional|
 |Relationship verb 	|Part-of 	|Has-a 	|Uses-a 	|Depends-on|
+
+### 20.2. Introduce Inheritance 
+- `Inheritance` allows us to reuse classes by having other classes inherit their members.
+- Syntax: after the class declaration, we use a colon `:`, the word `public` and the name of the class we wish to inherit.
+- e.g.
+
+```Cpp
+class Base
+{
+public:
+    int m_id {};
+
+    Base(int id=0)
+        : m_id { id }
+    {
+    }
+
+    int getId() const { return m_id; }
+};
+
+class Derived: public Base
+{
+public:
+    double m_cost {};
+
+    Derived(double cost=0.0)
+        : m_cost { cost }
+    {
+    }
+
+    double getCost() const { return m_cost; }
+};
+```
+
+- `C++ constructs` derived classes in phases, starting with the most-base class (at the top of the inheritance tree) and finishing with the most-child class (at the bottom of the inheritance tree).
+
+### 20.3. Constructors and initialization of derived classes
+  - `Constructors`: the derived class constructor is responsible for determining which base class constructor is called. If no base class constructor is specified, the default base class constructor will be used. In that case, if no default base class constructor can be found (or created by default), the compiler will display an error.
+  - `Destructors:` When a derived class is destroyed, each destructor is called in the reverse order of construction.
+  - In more detail:
+    - Memory for the derived class is set aside (enough for both the base and derived portions).
+    - The appropriate derived class constructor is called.
+    - The base class object is constructed first using the appropriate base class constructor. If no base class constructor is specified, the default constructor will be used.
+    - The initialization list of the derived class initializes members of the derived class.
+    - The body of the derived class constructor executes.
+    - Control is returned to the caller.
+### 20.4. Inheritance and access specifiers
+  - If we do not choose an inheritance type, C++ defaults to **private inheritance**
+  - `private-inaccessible` does not affect the way that the derived class accesses members inherited from its parent! It only affects the code trying to access those members through the derived class.
+  - e.g.
+```cpp
+// Inherit from Base publicly
+class Pub: public Base
+{
+    // Public inheritance means:
+    // Public inherited members stay public (so m_public is treated as public)
+    // Protected inherited members stay protected (so m_protected is treated as protected)
+    // Private inherited members stay inaccessible (so m_private is inaccessible)
+};
+
+// Inherit from Base protectedly
+class Pro: protected Base
+{
+    // Protected inheritance means:
+    // Public inherited members stay protected (so m_public is treated as protected)
+    // Protected inherited members stay protected (so m_protected is treated as protected)
+    // Private inherited members stay inaccessible (so m_private is inaccessible)
+};
+
+// Inherit from Base privately
+class Pri: private Base
+{
+    // Private inheritance means:
+    // Public inherited members become private (so m_public is treated as private)
+    // Protected inherited members become private (so m_protected is treated as private)
+    // Private inherited members stay inaccessible (so m_private is inaccessible)
+};
+
+class Def: Base // Defaults to private inheritance
+{
+};
+```
+
+### 20.5. Calling inherited functions and overriding behavior
+- **Adding new functionality to a derived class:** we can inherit the base class functionality and then add new functionality, modify existing functionality, or hide functionality we don’t wan
+- **Calling inherited functions:** Just call as base class do, we derived.baseFunction() is called, the compiler looks to see if a function named baseFunction() has been defined in the Derived class. It hasn’t. So it moves to the parent class (in this case, Base), and tries again there. Base has defined an baseFunction() function, so it uses that one.
+- **Redefining behaviors:** To modify the way a function defined in a base class works in the derived class, simply redefine the function in the derived class.
+- **Adding to existing functionality:** To have a derived function call a base function of the same name, simply do a normal function call, but prefix the function with the scope qualifier of the base class.
+- **Overload resolution in derived classes:** By putting the using-declaration `using Base::function()`; inside `Derived`, we are telling the compiler that all `Base` functions named `function` should be visible in `Derived`, which will cause them to be eligible for overload resolution. As a result, `Base::function()` is selected over `Derived::function(double)` when call `baseObject.function(5)`.
+- e.g.
+```cpp
+#include <iostream>
+using namespace std;
+
+// ===== Base class =====
+class Base {
+public:
+    void baseFunction() {
+        cout << "Base::baseFunction()" << endl;
+    }
+
+    void greet() {
+        cout << "Hello from Base!" << endl;
+    }
+
+    void function(int x) {
+        cout << "Base::function(int) called with " << x << endl;
+    }
+};
+
+// ===== Derived class =====
+class Derived : public Base {
+public:
+    // 1. Redefining (overriding) behavior
+    void greet() {
+        cout << "Hello from Derived!" << endl;
+    }
+
+    // 2. Adding to existing functionality
+    void greetWithBase() {
+        cout << "Derived part first -> ";
+        Base::greet(); // call the Base version explicitly
+    }
+
+    // 3. Hiding base function by defining same name
+    void baseFunction() {
+        cout << "Derived::baseFunction()" << endl;
+    }
+
+    // 4. Overload resolution
+    void function(double x) {
+        cout << "Derived::function(double) called with " << x << endl;
+    }
+
+    // Bring Base::function(int) into scope for overload resolution
+    using Base::function;
+};
+
+int main() {
+    Derived d;
+
+    cout << "\n--- Calling inherited function ---" << endl;
+    d.Base::baseFunction();  // explicitly call base version
+    d.baseFunction();        // calls Derived::baseFunction()
+
+    cout << "\n--- Redefining behavior ---" << endl;
+    d.greet();               // calls Derived version
+
+    cout << "\n--- Adding to existing functionality ---" << endl;
+    d.greetWithBase();       // calls Derived + Base
+
+    cout << "\n--- Overload resolution ---" << endl;
+    d.function(10);          // selects Base::function(int)
+    d.function(3.14);        // selects Derived::function(double)
+
+    return 0;
+}
+```
+
+### 20.6. Hiding inherited functionality
+- **Changing an inherited member’s access level**: we can change an inherited member’s access specifier in the derived class, by using a using declaration to identify the (scoped) base class member that is having its access changed in the derived class, under the new access specifier.
+- e.g.
+```cpp
+#include <iostream>
+class Base
+{
+private:
+    int m_value {};
+
+public:
+    Base(int value)
+        : m_value { value }
+    {
+    }
+
+protected:
+    void printValue() const { std::cout << m_value; }
+};
+
+class Derived: public Base
+{
+public:
+    Derived(int value)
+        : Base { value }
+    {
+    }
+
+    // Base::printValue was inherited as protected, so the public has no access
+    // But we're changing it to public via a using declaration
+    using Base::printValue; // note: no parenthesis here
+};
+```
+
+- **Hiding functionality:** we can hide functionality that exists in the base class, so that it can not be accessed through the derived class, by changing the relevant access specifier.
+- e.g.
+```cpp
+#include <iostream>
+
+class Base
+{
+public:
+	int m_value{};
+};
+
+class Derived : public Base
+{
+private:
+	using Base::m_value;
+
+public:
+	Derived(int value) : Base { value }
+	{
+	}
+};
+
+int main()
+{
+	Derived derived{ 7 };
+	std::cout << derived.m_value; // error: m_value is private in Derived
+
+	Base& base{ derived };
+	std::cout << base.m_value; // okay: m_value is public in Base
+
+	return 0;
+}
+```
+- **Deleting functions in the derived class:** we can also mark member functions as deleted in the derived class, which ensures they can’t be called at all through a derived object. By using `delete` keyworld.
+- We can still call the base class version either by explicitly qualifying it with the base class name or by upcasting the derived object to the base type.
+- e.g.
+```cpp
+#include <iostream>
+class Base
+{
+private:
+	int m_value {};
+
+public:
+	Base(int value)
+		: m_value { value }
+	{
+	}
+
+	int getValue() const { return m_value; }
+};
+
+class Derived : public Base
+{
+public:
+	Derived(int value)
+		: Base { value }
+	{
+	}
+
+
+	int getValue() const = delete; // mark this function as inaccessible
+};
+
+int main()
+{
+	Derived derived { 7 };
+
+	// The following won't work because getValue() has been deleted!
+	std::cout << derived.getValue();
+    
+	// 1. We can call the Base::getValue() function directly
+	std::cout << derived.Base::getValue();
+
+	// 2. we can upcast Derived to a Base reference and getValue() will resolve to Base::getValue()
+    // Base& ref = static_cast<Base&>(derived);
+    // std::cout << ref.getValue();
+
+	std::cout << static_cast<Base&>(derived).getValue();
+
+	return 0;
+}
+```
+
+### 20.7. Multiple inheritance
+- C++ provides the ability to do multiple inheritance. Multiple inheritance enables a derived class to inherit members from more than one parent.
+- Avoid multiple inheritance unless alternatives lead to more complexity.
