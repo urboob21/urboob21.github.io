@@ -3396,6 +3396,21 @@ int main()
 - Avoid multiple inheritance unless alternatives lead to more complexity.
 
 ## 21. Virtual Functions - Polymorphism
+>C++ allows you to set base class pointers and references to a derived object. This is useful when we want to write a function or array that can work with any type of object derived from a base class.
+Without virtual functions, base class pointers and references to a derived class will only have access to base class member variables and versions of functions.
+A virtual function is a special type of function that resolves to the most-derived version of the function (called an override) that exists between the base and derived class. To be considered an override, the derived class function must have the same signature and return type as the virtual base class function. The one exception is for covariant return types, which allow an override to return a pointer or reference to a derived class if the base class function returns a pointer or reference to the base class.
+A function that is intended to be an override should use the override specifier to ensure that it is actually an override.
+The final specifier can be used to prevent overrides of a function or inheritance from a class.
+If you intend to use inheritance, you should make your destructor virtual, so the proper destructor is called if a pointer to the base class is deleted.
+You can ignore virtual resolution by using the scope resolution operator to directly specify which class’s version of the function you want: e.g. base.Base::getName().
+Early binding occurs when the compiler encounters a direct function call. The compiler or linker can resolve these function calls directly. Late binding occurs when a function pointer is called. In these cases, which function will be called can not be resolved until runtime. Virtual functions use late binding and a virtual table to determine which version of the function to call.
+Using virtual functions has a cost: virtual functions take longer to call, and the necessity of the virtual table increases the size of every object containing a virtual function by one pointer.
+A virtual function can be made pure virtual/abstract by adding “= 0” to the end of the virtual function prototype. A class containing a pure virtual function is called an abstract class, and can not be instantiated. A class that inherits pure virtual functions must concretely define them or it will also be considered abstract. Pure virtual functions can have a body, but they are still considered abstract.
+An interface class is one with no member variables and all pure virtual functions. These are often named starting with a capital I.
+A virtual base class is a base class that is only included once, no matter how many times it is inherited by an object.
+When a derived class is assigned to a base class object, the base class only receives a copy of the base portion of the derived class. This is called object slicing.
+Dynamic casting can be used to convert a pointer to a base class object into a pointer to a derived class object. This is called downcasting. A failed conversion will return a null pointer.
+The easiest way to overload operator<< for inherited classes is to write an overloaded operator<< for the most-base class, and then call a virtual member function to do the printing.
 ### 21.1. Pointers and references to the base class of derived objects
 - **Pointers, references, and derived classes:**  We can not only assign `Derived pointers and references` to `Derived objects`, but also assign `Base pointers and references` to `Derived objects`.
 >  **chỉ có thể gọi các hàm/thành viên có trong Base -> need virtual**
@@ -3627,5 +3642,236 @@ int main()
     return 0;
 }
 ```
->If we intend our class to be inherited from, make sure our destructor is virtual and public.
+> If we intend our class to be inherited from, make sure our destructor is virtual and public.
 If we do not intend our class to be inherited from, mark our class as final. 
+
+### 21.5. Early binding and late binding
+- `early binding (static binding)`: when a direct call is made to a non-member function or a non-virtual member function, the compiler can determine which function definition should be matched to the call. 
+- `late binding (or in the case of virtual function resolution, dynamic dispatch)`: when a function call can’t be resolved until runtime. 
+- `virtual table` is a lookup table of functions used to resolve function calls in a dynamic/late binding manner. 
+> Early binding/static dispatch = direct function call overload resolution
+Late binding = indirect function call resolution
+Dynamic dispatch = virtual function override resolution 
+
+### 21.6. Pure virtual functions, abstract base classes, and interface classes
+- `Pure virtual (abstract) functions and abstract base classes`(like abstract class/function in java): 
+	- syntax: assign the function the value 0. e.g. `virtual int getValue() const = 0; // a pure virtual function`
+	- the class will becomes and abstract base class, it can not be instantiated. (create a object using abstract base class as the type)
+	- the derived class must define a body for the pure virtual function, if not, it will be considered abstract base class as well.
+	- Any class with pure virtual functions should also have a virtual destructor
+- `Pure virtual functions with definitions` (like default in java):
+	- We can create pure virtual functions that have definitions. Abstract function
+	- When providing a definition for a pure virtual function, the definition must be provided separately (not inline)
+- e.g.
+```cpp
+#include <iostream>
+#include <string>
+#include <string_view>
+
+class Animal // This Animal is an abstract base class
+{
+protected:
+    std::string m_name {};
+
+public:
+    Animal(std::string_view name)
+        : m_name(name)
+    {
+    }
+
+    const std::string& getName() const { return m_name; }
+    virtual std::string_view speak() const = 0; // note that speak is a pure virtual function
+
+    virtual ~Animal() = default;
+};
+
+std::string_view Animal::speak() const
+{
+    return "buzz"; // some default implementation
+}
+
+class Dragonfly: public Animal
+{
+
+public:
+    Dragonfly(std::string_view name)
+        : Animal{name}
+    {
+    }
+
+    std::string_view speak() const override// this class is no longer abstract because we defined this function
+    {
+        return Animal::speak(); // use Animal's default implementation
+    }
+};
+
+int main()
+{
+    Dragonfly dfly{"Sally"};
+    std::cout << dfly.getName() << " says " << dfly.speak() << '\n';
+
+    return 0;
+}
+
+```
+
+- `Interface classes`: is a class that has no member variables, and where all of the functions are pure virtual
+- e.g. 
+```cpp
+#include <string_view>
+
+class IErrorLog
+{
+public:
+    virtual bool openLog(std::string_view filename) = 0;
+    virtual bool closeLog() = 0;
+
+    virtual bool writeError(std::string_view errorMessage) = 0;
+
+    virtual ~IErrorLog() {} // make a virtual destructor in case we delete an IErrorLog pointer, so the proper derived destructor is called
+};
+```
+
+- `Virtual base classes`: 
+  - are used in virtual inheritance in a way of preventing multiple "instances" of a given class appearing in an inheritance hierarchy when using multiple inheritances.  (e.g. we may want only one copy of `PoweredDevice` (contructing) to be shared by both `Scanner` and `Printer`. )
+  - using `virtual` keyworld in the inheritance list of the derived class
+  - there is only one base object. The base object is shared between all objects in the inheritance tree and it is only constructed once
+  - for the constructor of the most derived class, virtual base classes are always created before non-virtual base classes, which ensures all bases get created before their derived classes.
+  - the most derived class is responsible for constructing the virtual base class. (`Copier` is responsible for creating `PoweredDevice`)
+- e.g.
+```cpp
+class PoweredDevice
+{
+};
+
+class Scanner: virtual public PoweredDevice
+{
+};
+
+class Printer: virtual public PoweredDevice
+{
+};
+
+class Copier: public Scanner, public Printer
+{
+};
+```
+
+### 21.7. Object slicing
+- `slicing` means the assigning of a Derived class object to a Base class object is called object. 
+- When a derived class object is assigned to a base class object in C++, the derived class object's extra attributes are sliced off (not considered) to generate the base class object
+- e.g.
+```cpp
+#include <iostream>
+#include <iostream>
+#include <string_view>
+
+class Base
+{
+protected:
+    int m_value{};
+
+public:
+    Base(int value)
+        : m_value{ value }
+    {
+    }
+
+    virtual ~Base() = default;
+
+    virtual std::string_view getName() const { return "Base"; }
+    int getValue() const { return m_value; }
+};
+
+class Derived: public Base
+{
+public:
+    Derived(int value)
+        : Base{ value }
+    {
+    }
+
+   std::string_view getName() const override { return "Derived"; }
+};
+
+//  slicing is much more likely to occur accidentally with
+void printNameAc(const Base base) // note: base passed by value, not reference
+{
+    std::cout << "Name is a " << base.getName() << '\n';
+}
+
+// slicing here can all be easily avoided by making the function parameter a reference instead of a pass by value
+void printName(const Base& base) // note: base now passed by reference
+{
+    std::cout << "Name is a " << base.getName() << '\n';
+}
+
+int main()
+{
+    Derived derived{ 5 };
+    std::cout << "derived is a " << derived.getName() << " and has value " << derived.getValue() << '\n';
+
+    Base& ref{ derived };
+    std::cout << "ref is a " << ref.getName() << " and has value " << ref.getValue() << '\n';
+
+    Base* ptr{ &derived };
+    std::cout << "ptr is a " << ptr->getName() << " and has value " << ptr->getValue() << '\n';
+	// Because ref and ptr are of type Base, ref and ptr can only see the Base part of derived -- the Derived part of derived still exists, but simply can’t be seen through ref or // ptr. However, through use of virtual functions, we can access the most-derived version of a function. 
+	
+	 Base base{ derived }; // what happens here?
+    std::cout << "base is a " << base.getName() << " and has value " << base.getValue() << '\n';
+	// only the Base portion of the Derived object is copied. The Derived portion is not
+	
+	// WARNING
+	printNameAc(derived); // we expect that this should print "Name is a Derived", but accidentally led to unbehaviour // Derived
+	
+	// OK
+	printName(derived); 
+   return 0;
+}
+
+// OUTPUT
+derived is a Derived and has value 5
+ref is a Derived and has value 5
+ptr is a Derived and has value 5
+base is a Base and has value 5
+Name is a Base
+Name is a Derived
+```
+
+### 21.8. Dynamic casting
+- Parent -> Child: DownCasting
+- Child -> Parent: UpCasting
+- We can use `dynamic_cast` to perform downcasting.
+  - If a dynamic_cast fails, the result of the conversion will be a null pointer.
+  - e.g. 
+```cpp
+    int main()
+    {
+    	Base* b{ getObject(true) };
+    
+    	Derived* d{ dynamic_cast<Derived*>(b) }; // use dynamic cast to convert Base pointer into Derived pointer
+    
+    	if (d) // make sure d is non-null
+    		std::cout << "The name of the Derived is: " << d->getName() << '\n';
+        
+        // DOwncasting for references
+        Derived apple{1, "Apple"}; // create an apple
+    	Base& b{ apple }; // set base reference to object
+    	Derived& d{ dynamic_cast<Derived&>(b) }; // dynamic cast using a reference instead of a pointer
+    	std::cout << "The name of the Derived is: " << d.getName() << '\n'; // we can access Derived::getName through d
+
+    	delete b;
+    
+    	return 0;
+    }
+```
+
+- We can also use the `static_cast` to do perform downcasting.
+  -  it will “succeed” even if the Base pointer isn’t pointing to a Derived object.
+  -  the result will be in undefined behavior
+  
+- `dynamic_cast vs static_cast`: use `static_cast` unless you’re `downcasting`, in which case `dynamic_cast` is usually a better choice. However, you should also consider avoiding casting altogether and just use `virtual functions`.
+
+### 21.8. Printing inherited classes using operator<<
+- Refer to the learncpp.com
