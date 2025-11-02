@@ -3071,7 +3071,7 @@ int main()
 ```
 
 ## 20. Inheritance 
-## 20.1. Object Relationships
+### 20.1. Object Relationships
 - Learned about some different kinds of relationships between two objects.
 
 - The process of building complex objects from simpler ones is called **object composition**.
