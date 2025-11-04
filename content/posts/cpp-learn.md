@@ -1629,6 +1629,73 @@ int main() {
 }
 ```
 
+- **pointer-to-pointers**:
+	- a pointer that holds the address of another pointer.
+	- Using two asterisks to declare a pointer to pointer.
+	- e.g. `int** ptrptr;`
+	- Usages:
+		- Dynamically allocate an array of pointers
+		- e.g. `int** array { new int*[10] }; // allocate an array of 10 int pointers`
+		- Two-dimensional dynamically allocated arrays
+		- e.g. `int x { 7 }; // non-constant
+int (*array)[5] { new int[x][5] }; // rightmost dimension must be constexpr`
+
+<br>
+
+- **void-pointers**: Also known as the generic pointer, is a special type of pointer that can be pointed at objects of any data type
+	- Dereferencing a void pointer is illegal. Instead, the void pointer must first be cast to another pointer type before the dereference can be performed.
+	- We do not know what type of object it is pointing to, deleting a void pointer will result in undefined behavior.
+
+<br>
+
+- **function-pointers**:
+  - e.g.
+    ```cpp
+        // fcnPtr is a pointer to a function that takes no arguments and returns an integer
+        int (*fcnPtr)();
+    ```
+
+  - Assigning a function to a function pointer: just like a normal pointer, and the type (parameters and return type) of the function pointer must match the type of the function. 
+  - e.g.
+    ```cpp
+    // function prototypes
+    int foo();
+    double goo();
+    int hoo(int x);
+    
+    // function pointer initializers
+    int (*fcnPtr1)(){ &foo };    // okay
+    int (*fcnPtr2)(){ &goo };    // wrong -- return types don't match!
+    double (*fcnPtr4)(){ &goo }; // okay
+    fcnPtr1 = &hoo;              // wrong -- fcnPtr1 has no parameters, but hoo() does
+    int (*fcnPtr3)(int){ &hoo }; // okay
+    ```
+
+  - Calling a function using function pointer: There are two way to do this
+    - Explicitly derefence
+    - Implicitly derefence
+  - e.g.
+    ```cpp
+    int foo(int x)
+    {
+        return x;
+    }
+    
+    int main()
+    {
+        int (*fcnPtr)(int){ &foo }; // Initialize fcnPtr with function foo
+        (*fcnPtr)(5); // call function foo(5) through fcnPtr.
+    
+    	int (*fcnPtr2)(int){ &foo }; // Initialize fcnPtr with function foo
+        fcnPtr2(5); // call function foo(5) through fcnPtr2.
+    	
+        return 0;
+    }
+    ```
+  - Passing functions as arguments to other functions: One of the most useful things to do with function pointers is pass a function as an argument to another function. Functions used as arguments to another function are sometimes called **callback functions**.
+
+<br>
+	
 ### 16.4. Pass by value/reference/address
 
 ```cpp
