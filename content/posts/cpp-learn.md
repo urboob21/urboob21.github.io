@@ -3875,3 +3875,83 @@ Name is a Derived
 
 ### 21.8. Printing inherited classes using operator<<
 - Refer to the learncpp.com
+
+## 22. Overloading Operators
+- Almost any existing operator in C++ can be overloaded. The exceptions are:` conditional (?:), sizeof, scope (::), member selector (.), pointer member selector (.*), typeid, and the casting operators`.
+- We can only overload the operators that exist.
+- At least one of the operands in an overloaded operator must be a user-defined type.
+
+- Overloading the plus operator (+) is as simple as declaring a function named `operator+`, giving it two parameters of the type of the operands we want to add, picking `an appropriate return type`, and then writing the function.
+
+- Not everything can be overloaded as a friend function: The assignment (=), subscript ([]), function call (()), and member selection (->) operators must be overloaded as member functions, because the language requires them to be.
+
+> The following rules of thumb can help you determine which form is best for a given situation:
+If you’re overloading assignment (=), subscript ([]), function call (()), or member selection (->), do so as a member function.
+If you’re overloading a unary operator, do so as a member function.
+If you’re overloading a binary operator that does not modify its left operand (e.g. operator+), do so as a normal function (preferred) or friend function.
+If you’re overloading a binary operator that modifies its left operand, but you can’t add members to the class definition of the left operand (e.g. operator<<, which has a left operand of type ostream), do so as a normal function (preferred) or friend function.
+If you’re overloading a binary operator that modifies its left operand (e.g. operator+=), and you can modify the definition of the left operand, do so as a member function.
+
+- e.g.
+```cpp
+#include <iostream>
+
+class Cents
+{
+private:
+	int m_cents {};
+
+public:
+	Cents(int cents) : m_cents{ cents } { }
+
+	// add Cents + Cents using a friend function
+	friend Cents operator+(const Cents& c1, const Cents& c2);
+	
+	// 3. Using member function
+	// Overload Cents + int
+    Cents operator+(int value) const;
+
+	int getCents() const { return m_cents; }
+};
+
+// 1. Using friend function note: this function is not a member function!
+Cents operator+(const Cents& c1, const Cents& c2)
+{
+	// use the Cents constructor and operator+(int, int)
+	// we can access m_cents directly because this is a friend function
+	return c1.m_cents + c2.m_cents;
+}
+
+// 2. Using normal function
+// note: this function is not a member function nor a friend function!
+Cents operator-(const Cents& c1, const Cents& c2)
+{
+  // use the Cents constructor and operator+(int, int)
+  // we don't need direct access to private members here
+  return { c1.getCents() - c2.getCents() };
+}
+
+// 3. Using member function
+// note: this function is a member function!
+// the cents parameter in the friend version is now the implicit *this parameter
+Cents Cents::operator+ (int value) const
+{
+    return Cents { m_cents + value };
+}
+
+int main()
+{
+	Cents cents1{ 6 };
+	Cents cents2{ 8 };
+	Cents centsSum{ cents1 + cents2 };
+	std::cout << "I have " << centsSum.getCents() << " cents.\n";
+	
+	Cents centsSub{ cents1 - cents2 };
+	std::cout << "I have " << centsSub.getCents() << " cents.\n";
+	
+	const Cents cents3 { cents1 + 2 };
+	std::cout << "I have " << cents3.getCents() << " cents.\n";
+
+	return 0;
+}
+```
